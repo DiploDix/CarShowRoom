@@ -1,0 +1,24 @@
+﻿<Window x:Class="CarShowRoom.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CarShowRoom"
+        mc:Ignorable="d"
+        VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
+        Title="Автосалон" FontSize="12" Visibility="Visible">
+    <Grid >
+        <StackPanel Name="verticalMainMenu" HorizontalAlignment="Left" VerticalAlignment="Stretch" Width="150" Background="#FF1B1B1B" Orientation="Vertical">
+            <Border Background="#FF1B1B1B" Height="100" PreviewMouseDown="BorderSearch_Click">
+                <TextBlock Name="gg" TextAlignment="Center" VerticalAlignment="Center" FontSize="16" Foreground="White" PreviewMouseDown="TextBlock_Click">ПОИСК</TextBlock>
+            </Border>
+            <Border Background="#FF1B1B1B" Height="100" PreviewMouseDown="BorderCars_Click">
+                <TextBlock Name="gg1" TextAlignment="Center" VerticalAlignment="Center" FontSize="16" Foreground="White" PreviewMouseDown="TextBlock_Click">АВТОМОБИЛИ</TextBlock>
+            </Border>
+            <Border Background="#FF1B1B1B" Height="100" PreviewMouseDown="BorderUsers_Click" VerticalAlignment="Top">
+                <TextBlock Name="gg2" TextAlignment="Center" VerticalAlignment="Center" FontSize="15" Foreground="White" PreviewMouseDown="TextBlock_Click">ПОЛЬЗОВАТЕЛИ</TextBlock>
+            </Border>
+        </StackPanel>
+        <Frame Content="Frame" Name="frameWindow" Source="/View/Welcome.xaml" NavigationUIVisibility="Hidden" HorizontalAlignment="Stretch" Margin="150,0,0,0" VerticalAlignment="Stretch"/>
+    </Grid>
+</Window>

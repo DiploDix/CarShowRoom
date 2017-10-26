@@ -1,0 +1,35 @@
+﻿<Page x:Class="CarShowRoom.View.Cars"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CarShowRoom.View"
+      mc:Ignorable="d" 
+       VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
+      Title="Cars">
+
+    <Grid>
+        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalAlignment="Stretch">
+            <Grid HorizontalAlignment="Left" Width="Auto" Height="500">
+               <!-- <DataGrid Name="myGrid" AutoGenerateColumns="False" HorizontalAlignment="Stretch" Height="360" VerticalAlignment="Top" ItemsSource="{Binding Source={StaticResource carViewModel}, NotifyOnSourceUpdated=True, Path=GetListCar, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" Margin="0,0,10,0">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Состояние" Binding="{Binding Path=State}"/>
+                        <DataGridTextColumn Header="Какие" Binding="{Binding Path=AbroadCars}"/>
+                        <DataGridTextColumn Header="Марка" Binding="{Binding Path=Mark}"/>
+                        <DataGridTextColumn Header="Модель" Binding="{Binding Path=Model}"/>
+                        <DataGridTextColumn Header="Цена" Binding="{Binding Path=Price}"/>
+                        <DataGridTextColumn Header="Год" Binding="{Binding Path=Year}"/>
+                        <DataGridTextColumn Header="Тип двигателя" Binding="{Binding Path=EngineType}"/>
+                        <DataGridTextColumn Header="Обьем двигателя" Binding="{Binding Path=EngineAmount}"/>
+                        <DataGridTextColumn Header="Трансмиссия" Binding="{Binding Path=Transmission}"/>
+                        <DataGridTextColumn Header="Тип кузова" Binding="{Binding Path=BodyType}"/>
+                        <DataGridTextColumn Header="Область" Binding="{Binding Path=Region}"/>
+                        <DataGridTextColumn Header="Город" Binding="{Binding Path=City}"/>
+
+                    </DataGrid.Columns>
+                </DataGrid>-->
+                <TextBlock>sdadsadasdasCARS</TextBlock>
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+</Page>
