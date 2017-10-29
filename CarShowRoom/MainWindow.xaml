@@ -7,18 +7,41 @@
         mc:Ignorable="d"
         VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
         Title="Автосалон" FontSize="12" Visibility="Visible">
-    <Grid >
-        <StackPanel Name="verticalMainMenu" HorizontalAlignment="Left" VerticalAlignment="Stretch" Width="150" Background="#FF1B1B1B" Orientation="Vertical">
-            <Border Background="#FF1B1B1B" Height="100" PreviewMouseDown="BorderSearch_Click">
-                <TextBlock Name="gg" TextAlignment="Center" VerticalAlignment="Center" FontSize="16" Foreground="White" PreviewMouseDown="TextBlock_Click">ПОИСК</TextBlock>
-            </Border>
-            <Border Background="#FF1B1B1B" Height="100" PreviewMouseDown="BorderCars_Click">
-                <TextBlock Name="gg1" TextAlignment="Center" VerticalAlignment="Center" FontSize="16" Foreground="White" PreviewMouseDown="TextBlock_Click">АВТОМОБИЛИ</TextBlock>
-            </Border>
-            <Border Background="#FF1B1B1B" Height="100" PreviewMouseDown="BorderUsers_Click" VerticalAlignment="Top">
-                <TextBlock Name="gg2" TextAlignment="Center" VerticalAlignment="Center" FontSize="15" Foreground="White" PreviewMouseDown="TextBlock_Click">ПОЛЬЗОВАТЕЛИ</TextBlock>
-            </Border>
+    <Window.Resources>
+        <Style TargetType="ToolTip">
+            <Setter Property="Background" Value="#FF1B1B1B"/>
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+        <Style x:Key="MouseOverStackPanel" TargetType="StackPanel">
+            <Setter Property="Background" Value="#FF1B1B1B"></Setter>
+            <Setter Property="TextBlock.Foreground" Value="White"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#272727"/>
+                    <Setter Property="TextBlock.Foreground" Value="#FBBC05"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    <Grid HorizontalAlignment="Stretch" >
+        <StackPanel Name="verticalMainMenu" HorizontalAlignment="Left" VerticalAlignment="Stretch" Width="170" Background="#FF1B1B1B" Orientation="Vertical">
+            <StackPanel ToolTip="Поиск автомобилей" Style="{StaticResource MouseOverStackPanel}"  Height="75"  PreviewMouseDown="BorderSearch_Click" Orientation="Horizontal" HorizontalAlignment="Stretch">
+                <Image  Source="/src/search_white.png" Width="20" Height="20" Margin="10,20,10,20"/>
+                <TextBlock Name="textBlockSearch" TextAlignment="Center" VerticalAlignment="Center" FontSize="16">ПОИСК</TextBlock>
+            </StackPanel>
+            <StackPanel ToolTip="Текущая база автомобилей" Style="{StaticResource MouseOverStackPanel}" Height="100" PreviewMouseDown="BorderCars_Click"  Orientation="Horizontal">
+                <Image Source="/src/sports-car_white.png" Width="20" Height="20" Margin="10,20,10,20"/>
+                <TextBlock Name="textBlockCar" TextAlignment="Center" VerticalAlignment="Center" FontSize="16">АВТОМОБИЛИ</TextBlock>
+            </StackPanel>
+            <StackPanel ToolTip="Текущая база пользователей" Style="{StaticResource MouseOverStackPanel}" Height="100" PreviewMouseDown="BorderUsers_Click" VerticalAlignment="Top"  Orientation="Horizontal">
+                <Image Source="/src/users_white.png" Width="20" Height="20" Margin="10,20,10,20"/>
+                <TextBlock Name="textBlockUser" TextAlignment="Center" VerticalAlignment="Center" FontSize="15">ПОЛЬЗОВАТЕЛИ</TextBlock>
+            </StackPanel>
+            <StackPanel Height="50" PreviewMouseDown="BorderUsers_Click" VerticalAlignment="Top"  Orientation="Horizontal">
+                <Image PreviewMouseDown="ImageUpload_PreviewMouseDown" Source="/src/upload_white.png"  ToolTip="Загрузить базу данных" Width="20" Height="20" Margin="10,0,0,0" VerticalAlignment="Center"/>
+                <Image PreviewMouseDown="ImageDownload_PreviewMouseDown" Source="/src/donwload_white.png" ToolTip="Сохранить базу данных" Width="20" Height="20" Margin="10,0,0,0" VerticalAlignment="Center"/>
+            </StackPanel>
         </StackPanel>
-        <Frame Content="Frame" Name="frameWindow" Source="/View/Welcome.xaml" NavigationUIVisibility="Hidden" HorizontalAlignment="Stretch" Margin="150,0,0,0" VerticalAlignment="Stretch"/>
+        <Frame Content="Frame" Name="frameWindow" Source="/View/Welcome.xaml" NavigationUIVisibility="Hidden" HorizontalAlignment="Stretch" Margin="170,0,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>

@@ -11,7 +11,7 @@
     <Grid>
         <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalAlignment="Stretch">
             <Grid HorizontalAlignment="Left" Width="Auto" Height="auto">
-                <TextBlock>HUY</TextBlock>
+                <TextBlock Text=""/>
             </Grid>
         </ScrollViewer>
     </Grid>

@@ -3,32 +3,43 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:CarShowRoom.View"
+      xmlns:vm="clr-namespace:CarShowRoom.ViewModel"
+      xmlns:model="clr-namespace:CarShowRoom.Model"
+      xmlns:local="clr-namespace:CarShowRoom"
+      xmlns:core="clr-namespace:System;assembly=mscorlib"
       mc:Ignorable="d" 
-       VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
-      Title="Cars">
-
-    <Grid>
+      VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
+      Title="Cars" Height="587.5">
+    <Page.Resources>
+        <vm:CarsViewModel x:Key="carsViewModel" />
+        <ObjectDataProvider MethodName="GetValues" ObjectType="{x:Type core:Enum}" x:Key="GetEnumValues">
+        <ObjectDataProvider.MethodParameters>
+                <x:Type  TypeName="local:Auto"/>
+        </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </Page.Resources>
+    
+        <Grid>
         <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalAlignment="Stretch">
-            <Grid HorizontalAlignment="Left" Width="Auto" Height="500">
-               <!-- <DataGrid Name="myGrid" AutoGenerateColumns="False" HorizontalAlignment="Stretch" Height="360" VerticalAlignment="Top" ItemsSource="{Binding Source={StaticResource carViewModel}, NotifyOnSourceUpdated=True, Path=GetListCar, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" Margin="0,0,10,0">
+            <Grid HorizontalAlignment="Stretch"  Height="Auto">
+                <DataGrid Name="carGrid" Grid.Row="1" Height="400" CanUserAddRows="True" AutoGenerateColumns="False" HorizontalAlignment="Left" ItemsSource="{Binding Source={StaticResource carsViewModel}, NotifyOnSourceUpdated=True, Path=GetListCar, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" Margin="5">
                     <DataGrid.Columns>
+                        <DataGridComboBoxColumn Header="Категория"  ItemsSource="{Binding Source={StaticResource carsViewModel}, Path=GetListAuto}" SelectedItemBinding="{Binding Path=HowCar}" />
                         <DataGridTextColumn Header="Состояние" Binding="{Binding Path=State}"/>
-                        <DataGridTextColumn Header="Какие" Binding="{Binding Path=AbroadCars}"/>
-                        <DataGridTextColumn Header="Марка" Binding="{Binding Path=Mark}"/>
-                        <DataGridTextColumn Header="Модель" Binding="{Binding Path=Model}"/>
-                        <DataGridTextColumn Header="Цена" Binding="{Binding Path=Price}"/>
-                        <DataGridTextColumn Header="Год" Binding="{Binding Path=Year}"/>
-                        <DataGridTextColumn Header="Тип двигателя" Binding="{Binding Path=EngineType}"/>
-                        <DataGridTextColumn Header="Обьем двигателя" Binding="{Binding Path=EngineAmount}"/>
-                        <DataGridTextColumn Header="Трансмиссия" Binding="{Binding Path=Transmission}"/>
-                        <DataGridTextColumn Header="Тип кузова" Binding="{Binding Path=BodyType}"/>
-                        <DataGridTextColumn Header="Область" Binding="{Binding Path=Region}"/>
-                        <DataGridTextColumn Header="Город" Binding="{Binding Path=City}"/>
+                        <DataGridTextColumn Header="Какие" Binding="{Binding Path=AbroadCar}"/>
+                        <DataGridTextColumn Header="Марка" Binding="{Binding Path=MarkCar}"/>
+                        <DataGridTextColumn Header="Модель" Binding="{Binding Path=ModelCar}"/>
+                        <DataGridTextColumn Header="Цена" Binding="{Binding Path=PriceCar}"/>
+                        <DataGridTextColumn Header="Год" Binding="{Binding Path=YearCar}"/>
+                        <DataGridTextColumn Header="Тип двигателя" Binding="{Binding Path=EngineTypeCar}"/>
+                        <DataGridTextColumn Header="Обьем двигателя" Binding="{Binding Path=EngineAmountCar}"/>
+                        <DataGridTextColumn Header="Трансмиссия" Binding="{Binding Path=TransmissionCar}"/>
+                        <DataGridTextColumn Header="Тип кузова" Binding="{Binding Path=BodyTypeCar}"/>
+                        <DataGridTextColumn Header="Область" Binding="{Binding Path=RegionCar}"/>
+                        <DataGridTextColumn Header="Город" Binding="{Binding Path=CityCar}"/>
 
                     </DataGrid.Columns>
-                </DataGrid>-->
-                <TextBlock>sdadsadasdasCARS</TextBlock>
+                </DataGrid>
             </Grid>
         </ScrollViewer>
     </Grid>

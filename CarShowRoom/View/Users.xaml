@@ -4,14 +4,32 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:CarShowRoom.View"
+      xmlns:vm="clr-namespace:CarShowRoom.ViewModel"
       mc:Ignorable="d" 
        VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
       Title="Users">
-
+    <Page.Resources>
+        <vm:UserViewModel x:Key="userViewModel"/>
+    </Page.Resources>
     <Grid>
         <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalAlignment="Stretch">
             <Grid HorizontalAlignment="Left" Width="Auto" Height="auto">
-                <TextBlock>HUY</TextBlock>
+                <DataGrid Name="userGrid" AutoGenerateColumns="False" HorizontalAlignment="Stretch" Height="360" VerticalAlignment="Top" ItemsSource="{Binding Source={StaticResource userViewModel}, NotifyOnSourceUpdated=True, Path=GetListUser, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" Margin="5">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Телефон" Binding="{Binding Path=Phone}"/>
+                        <DataGridTextColumn Header="Область" Binding="{Binding Path=RegionUser}"/>
+                        <DataGridTextColumn Header="Город" Binding="{Binding Path=City}"/>
+                        <DataGridTextColumn Header="Требуемое авто" Binding="{Binding Path=ReqAuto}"/>
+                        <DataGridTextColumn Header="Марка" Binding="{Binding Path=ReqMark}"/>
+                        <DataGridTextColumn Header="Цена" Binding="{Binding Path=MaxMoney}"/>
+                        <DataGridTextColumn Header="Год" Binding="{Binding Path=ReqYear}"/>
+                        <DataGridTextColumn Header="Тип двигателя" Binding="{Binding Path=ReqEngineType}"/>
+                        <DataGridTextColumn Header="Обьем двигателя" Binding="{Binding Path=ReqEngineAmount}"/>
+                        <DataGridTextColumn Header="Трансмиссия" Binding="{Binding Path=ReqTransmission}"/>
+                        <DataGridTextColumn Header="Тип кузова" Binding="{Binding Path=ReqBodyType}"/>
+
+                    </DataGrid.Columns>
+                </DataGrid>
             </Grid>
         </ScrollViewer>
     </Grid>

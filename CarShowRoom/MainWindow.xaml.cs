@@ -12,18 +12,101 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using CarShowRoom.ViewModel;
+using Microsoft.Win32;
+using System.Collections.ObjectModel;
 
 namespace CarShowRoom
 {
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
+    public enum StateCars
+    {
+        Отличное,
+        Хорошее,
+        Нормальное,
+        Удовлетворительно,
+        Ужасно
+    }
+
+    public enum AbroadCars
+    {
+        Отечественные,
+        Зарубежные
+    }
+
+    public enum EngineTypeCars
+    {
+        Бензин,
+        Дизель,
+        Электро,
+        Гибрид,
+        Газ
+    }
+
+    public enum TransmissionCars
+    {
+        Автомат,
+        Механика,
+        Типтроник,
+        Адаптивная,
+        Вариатор
+    }
+
+    public enum BodyTypeCars
+    {
+        Универсал,
+        Седан,
+        Хэтчбек,
+        Внедорожник,
+        Купе,
+        Кабриолет,
+        Минивэн,
+        Пикап
+    }
+
+    public enum RegionCars
+    {
+        Винницкая,
+        Волынская,
+        Днепропетровская,
+        Донецка,
+        Житомирская,
+        Закарпатская,
+        Запорожская,
+        Ивано_Франковская,
+        Киевская,
+        Кировоградская,
+        ЛуганскаяЛьвовская,
+        Николаевская,
+        Одесская,
+        Полтавска,
+        Республика_Крым,
+        Ровенская,
+        Сумская,
+        Тернопольская,
+        Харьковская,
+        Херсонская,
+        Хмельницкая,
+        Черкасская,
+        Черниговская,
+        Черновицкая
+    }
+
+    public enum Auto
+    {
+
+        Новое,
+        Старое
+    }
     public partial class MainWindow : Window
     {
         Uri uriToSearchPage = new Uri("/View/Search.xaml", UriKind.Relative);
         Uri uriToCarsPage = new Uri("/View/Cars.xaml", UriKind.Relative);
         Uri uriToUsersPage = new Uri("/View/Users.xaml", UriKind.Relative);
 
+        FileAction file = new FileAction();
 
         public MainWindow()
         {
@@ -33,28 +116,43 @@ namespace CarShowRoom
         /* Переход во фрейме к странице /View/Search.xaml */
         private void BorderSearch_Click(object sender, MouseButtonEventArgs e)
         {
-            (((Border)sender).Child as TextBlock).Foreground = Brushes.Orange;
             frameWindow.Source = uriToSearchPage;
         }
 
         /* Переход во фрейме к странице /View/Cars.xaml */
         private void BorderCars_Click(object sender, MouseButtonEventArgs e)
         {
-            (((Border)sender).Child as TextBlock).Foreground = Brushes.Orange;
             frameWindow.Source = uriToCarsPage;
         }
 
         /* Переход во фрейме к странице /View/Users.xaml */
         private void BorderUsers_Click(object sender, MouseButtonEventArgs e)
         {
-            (((Border)sender).Child as TextBlock).Foreground = Brushes.Orange;
             frameWindow.Source = uriToUsersPage;
-
         }
 
-        private void TextBlock_Click(object sender, MouseButtonEventArgs e)
+        private void ImageUpload_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            
+            OpenFileDialog openFile = new OpenFileDialog();
+            openFile.Filter = "Текстовый файл (*.txt)|*.txt";
+            openFile.CheckFileExists = true;
+            openFile.Multiselect = false;
+            if (openFile.ShowDialog() == true)
+            {
+                file.UploadFile(openFile.FileName);
+            }
+        }
+
+        private void ImageDownload_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            SaveFileDialog saveFile = new SaveFileDialog();
+            saveFile.Filter = "Текстовый файл (*.txt)|*.txt";
+            saveFile.CheckFileExists = true;
+            saveFile.CreatePrompt = true;
+            if (saveFile.ShowDialog() == true)
+            {
+                file.SaveFile(saveFile.FileName);
+            }
         }
     }
 }

@@ -8,7 +8,8 @@ using System.ComponentModel;
 
 namespace CarShowRoom.Model
 {
-    class Car : INotifyPropertyChanged
+
+    public class Car
     {
         public enum StateCars
         {
@@ -17,7 +18,7 @@ namespace CarShowRoom.Model
             Нормальное,
             Удовлетворительно,
             Ужасно
-        };
+        }
 
         public enum AbroadCars
         {
@@ -82,6 +83,15 @@ namespace CarShowRoom.Model
             Черниговская,
             Черновицкая
         }
+        
+        public enum Auto
+        {
+           
+            Новое,
+            Старое
+        }
+
+        public Auto HowCar { get; set; }
 
         /* Состояние авто(бу, новое) */
         public StateCars State { get; set; }
@@ -118,17 +128,5 @@ namespace CarShowRoom.Model
 
         /* Город */
         public string CityCar { get; set; }
-
-        public static ObservableCollection<Car> carsList = new ObservableCollection<Car>();
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public void OnPropertyChanged(string property)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(property));
-            }
-        }
     }
 }
