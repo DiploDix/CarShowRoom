@@ -9,33 +9,27 @@
       xmlns:core="clr-namespace:System;assembly=mscorlib"
       mc:Ignorable="d" 
       VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
-      Title="Cars" Height="587.5">
+      Title="Cars" Height="587.5" ContextMenuClosing="Page_ContextMenuClosing">
     <Page.Resources>
         <vm:CarsViewModel x:Key="carsViewModel" />
-        <ObjectDataProvider MethodName="GetValues" ObjectType="{x:Type core:Enum}" x:Key="GetEnumValues">
-        <ObjectDataProvider.MethodParameters>
-                <x:Type  TypeName="local:Auto"/>
-        </ObjectDataProvider.MethodParameters>
-        </ObjectDataProvider>
     </Page.Resources>
-    
-        <Grid>
+    <Grid>
         <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalAlignment="Stretch">
-            <Grid HorizontalAlignment="Stretch"  Height="Auto">
+            <Grid HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="Auto">
                 <DataGrid Name="carGrid" Grid.Row="1" Height="400" CanUserAddRows="True" AutoGenerateColumns="False" HorizontalAlignment="Left" ItemsSource="{Binding Source={StaticResource carsViewModel}, NotifyOnSourceUpdated=True, Path=GetListCar, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" Margin="5">
                     <DataGrid.Columns>
-                        <DataGridComboBoxColumn Header="Категория"  ItemsSource="{Binding Source={StaticResource carsViewModel}, Path=GetListAuto}" SelectedItemBinding="{Binding Path=HowCar}" />
-                        <DataGridTextColumn Header="Состояние" Binding="{Binding Path=State}"/>
-                        <DataGridTextColumn Header="Какие" Binding="{Binding Path=AbroadCar}"/>
-                        <DataGridTextColumn Header="Марка" Binding="{Binding Path=MarkCar}"/>
+                        <DataGridComboBoxColumn Header="Категория" TextBinding="{Binding Path=HowCar, Mode=TwoWay}"  ItemsSource="{Binding Source={StaticResource carsViewModel}, Path=GetListAuto}"/>
+                        <DataGridComboBoxColumn Header="Состояние" TextBinding="{Binding Path=StateCar}"  ItemsSource="{Binding Source={StaticResource carsViewModel}, Path=GetListState}"/>
+                        <DataGridComboBoxColumn Header="Какие" TextBinding="{Binding Path=AbroadCar}" ItemsSource="{Binding Source={StaticResource carsViewModel}, Path=GetListAbroad}"/>
+                        <DataGridComboBoxColumn Header="Марка" TextBinding="{Binding Path=MarkCar}" ItemsSource="{Binding Source={StaticResource carsViewModel}, Path=GetListAbroad}"/>
                         <DataGridTextColumn Header="Модель" Binding="{Binding Path=ModelCar}"/>
                         <DataGridTextColumn Header="Цена" Binding="{Binding Path=PriceCar}"/>
                         <DataGridTextColumn Header="Год" Binding="{Binding Path=YearCar}"/>
-                        <DataGridTextColumn Header="Тип двигателя" Binding="{Binding Path=EngineTypeCar}"/>
+                        <DataGridComboBoxColumn Header="Тип двигателя" TextBinding="{Binding Path=EngineTypeCar}" ItemsSource="{Binding Source={StaticResource carsViewModel}, Path=GetListEngineType}"/>
                         <DataGridTextColumn Header="Обьем двигателя" Binding="{Binding Path=EngineAmountCar}"/>
-                        <DataGridTextColumn Header="Трансмиссия" Binding="{Binding Path=TransmissionCar}"/>
-                        <DataGridTextColumn Header="Тип кузова" Binding="{Binding Path=BodyTypeCar}"/>
-                        <DataGridTextColumn Header="Область" Binding="{Binding Path=RegionCar}"/>
+                        <DataGridComboBoxColumn Header="Трансмиссия" TextBinding="{Binding Path=TransmissionCar}" ItemsSource="{Binding Source={StaticResource carsViewModel}, Path=GetListTransmission}"/>
+                        <DataGridComboBoxColumn Header="Тип кузова" TextBinding="{Binding Path=BodyTypeCar}" ItemsSource="{Binding Source={StaticResource carsViewModel}, Path=GetListBodyTypeCars}"/>
+                        <DataGridComboBoxColumn Header="Область" TextBinding="{Binding Path=RegionCar}" ItemsSource="{Binding Source={StaticResource carsViewModel}, Path=GetListRegionCars}"/>
                         <DataGridTextColumn Header="Город" Binding="{Binding Path=CityCar}"/>
 
                     </DataGrid.Columns>

@@ -24,5 +24,11 @@ namespace CarShowRoom.View
         {
             InitializeComponent();
         }
+
+        private void Page_ContextMenuClosing(object sender, ContextMenuEventArgs e)
+        {
+            MessageBox.Show("Zhestko");
+            carGrid.CancelEdit();
+        }
     }
 }

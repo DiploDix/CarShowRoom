@@ -8,6 +8,22 @@
         VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
         Title="Автосалон" FontSize="12" Visibility="Visible">
     <Window.Resources>
+        <Style x:Key="iconStyleUpload" TargetType="Image">
+            <Setter Property="Image.Source" Value="/src/upload_white.png"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Image.Source" Value="/src/upload_orange.png"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="iconStyleDonwload" TargetType="Image">
+            <Setter Property="Image.Source" Value="/src/donwload_white.png"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Image.Source" Value="/src/donwload_orange.png"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
         <Style TargetType="ToolTip">
             <Setter Property="Background" Value="#FF1B1B1B"/>
             <Setter Property="Foreground" Value="White"/>
@@ -37,9 +53,9 @@
                 <Image Source="/src/users_white.png" Width="20" Height="20" Margin="10,20,10,20"/>
                 <TextBlock Name="textBlockUser" TextAlignment="Center" VerticalAlignment="Center" FontSize="15">ПОЛЬЗОВАТЕЛИ</TextBlock>
             </StackPanel>
-            <StackPanel Height="50" PreviewMouseDown="BorderUsers_Click" VerticalAlignment="Top"  Orientation="Horizontal">
-                <Image PreviewMouseDown="ImageUpload_PreviewMouseDown" Source="/src/upload_white.png"  ToolTip="Загрузить базу данных" Width="20" Height="20" Margin="10,0,0,0" VerticalAlignment="Center"/>
-                <Image PreviewMouseDown="ImageDownload_PreviewMouseDown" Source="/src/donwload_white.png" ToolTip="Сохранить базу данных" Width="20" Height="20" Margin="10,0,0,0" VerticalAlignment="Center"/>
+            <StackPanel Height="50" VerticalAlignment="Top"  Orientation="Horizontal">
+                <Image Style="{StaticResource iconStyleUpload}" PreviewMouseDown="ImageUpload_PreviewMouseDown" ToolTip="Загрузить базу данных" Width="20" Height="20" Margin="10,0,0,0" VerticalAlignment="Center"/>
+                <Image Style="{StaticResource iconStyleDonwload}" PreviewMouseDown="ImageDownload_PreviewMouseDown" ToolTip="Сохранить базу данных" Width="20" Height="20" Margin="10,0,0,0" VerticalAlignment="Center"/>
             </StackPanel>
         </StackPanel>
         <Frame Content="Frame" Name="frameWindow" Source="/View/Welcome.xaml" NavigationUIVisibility="Hidden" HorizontalAlignment="Stretch" Margin="170,0,0,0" VerticalAlignment="Top"/>

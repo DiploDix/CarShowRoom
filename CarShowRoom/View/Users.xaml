@@ -17,16 +17,17 @@
                 <DataGrid Name="userGrid" AutoGenerateColumns="False" HorizontalAlignment="Stretch" Height="360" VerticalAlignment="Top" ItemsSource="{Binding Source={StaticResource userViewModel}, NotifyOnSourceUpdated=True, Path=GetListUser, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" Margin="5">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Телефон" Binding="{Binding Path=Phone}"/>
-                        <DataGridTextColumn Header="Область" Binding="{Binding Path=RegionUser}"/>
+                        <DataGridComboBoxColumn Header="Область"  TextBinding="{Binding Path=RegionUser, Mode=TwoWay}"  ItemsSource="{Binding Source={StaticResource userViewModel}, Path=GetListRegion}"/>
                         <DataGridTextColumn Header="Город" Binding="{Binding Path=City}"/>
-                        <DataGridTextColumn Header="Требуемое авто" Binding="{Binding Path=ReqAuto}"/>
+                        <DataGridComboBoxColumn Header="Новое/старое" TextBinding="{Binding Path=ReqAuto, Mode=TwoWay}"  ItemsSource="{Binding Source={StaticResource userViewModel}, Path=GetListAuto}"/>
+                        <DataGridComboBoxColumn Header="Состояние" TextBinding="{Binding Path=ReqState, Mode=TwoWay}"  ItemsSource="{Binding Source={StaticResource userViewModel}, Path=GetListState}"/>
                         <DataGridTextColumn Header="Марка" Binding="{Binding Path=ReqMark}"/>
                         <DataGridTextColumn Header="Цена" Binding="{Binding Path=MaxMoney}"/>
                         <DataGridTextColumn Header="Год" Binding="{Binding Path=ReqYear}"/>
-                        <DataGridTextColumn Header="Тип двигателя" Binding="{Binding Path=ReqEngineType}"/>
+                        <DataGridComboBoxColumn Header="Тип двигателя" TextBinding="{Binding Path=ReqEngineType, Mode=TwoWay}"  ItemsSource="{Binding Source={StaticResource userViewModel}, Path=GetListEngineType}"/>
                         <DataGridTextColumn Header="Обьем двигателя" Binding="{Binding Path=ReqEngineAmount}"/>
-                        <DataGridTextColumn Header="Трансмиссия" Binding="{Binding Path=ReqTransmission}"/>
-                        <DataGridTextColumn Header="Тип кузова" Binding="{Binding Path=ReqBodyType}"/>
+                        <DataGridComboBoxColumn Header="Трансмиссия" TextBinding="{Binding Path=ReqTransmission, Mode=TwoWay}"  ItemsSource="{Binding Source={StaticResource userViewModel}, Path=GetListTransmission}"/>
+                        <DataGridComboBoxColumn Header="Тип кузова" TextBinding="{Binding Path=ReqBodyType, Mode=TwoWay}"  ItemsSource="{Binding Source={StaticResource userViewModel}, Path=GetListBodyType}"/>
 
                     </DataGrid.Columns>
                 </DataGrid>

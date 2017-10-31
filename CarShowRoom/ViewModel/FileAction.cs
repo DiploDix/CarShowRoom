@@ -75,19 +75,19 @@ namespace CarShowRoom.ViewModel
             {
                 car.CarList.Add(new Car
                 {
-                    HowCar = (Car.Auto)Enum.Parse(typeof(Car.Auto), masValue[1]),
-                    State = (Car.StateCars)Enum.Parse(typeof(Car.StateCars), masValue[2]),
-                    AbroadCar = (Car.AbroadCars)Enum.Parse(typeof(Car.AbroadCars), masValue[3]),
+                    HowCar = (Auto)Enum.Parse(typeof(Auto), masValue[1], true),
+                    StateCar = (State)Enum.Parse(typeof(State), masValue[2], true),
+                    AbroadCar = (Abroad)Enum.Parse(typeof(Abroad), masValue[3], true),
                     MarkCar = masValue[4],
                     ModelCar = masValue[5],
                     PriceCar = int.Parse(masValue[6].Replace(" ", "")),
                     YearCar = int.Parse(masValue[7].Replace(" ", "")),
                     EngineAmountCar = float.Parse(masValue[8].Replace(" ", "")),
-                    EngineTypeCar = (Car.EngineTypeCars)Enum.Parse(typeof(Car.EngineTypeCars), masValue[9]),
-                    TransmissionCar = (Car.TransmissionCars)Enum.Parse(typeof(Car.TransmissionCars), masValue[10]),
-                    BodyTypeCar = (Car.BodyTypeCars)Enum.Parse(typeof(Car.BodyTypeCars), masValue[11]),
-                    RegionCar = (Car.RegionCars)Enum.Parse(typeof(Car.RegionCars), masValue[12]),
-                    CityCar = masValue[12]
+                    EngineTypeCar = (EngineType)Enum.Parse(typeof(EngineType), masValue[9], true),
+                    TransmissionCar = (Transmission)Enum.Parse(typeof(Transmission), masValue[10], true),
+                    BodyTypeCar = (BodyType)Enum.Parse(typeof(BodyType), masValue[11], true),
+                    RegionCar = (Region)Enum.Parse(typeof(Region), masValue[12], true),
+                    CityCar = masValue[13]
                 });
             }
             catch (Exception e)
@@ -104,16 +104,17 @@ namespace CarShowRoom.ViewModel
                 {
 
                     Phone = masValue[1],
-                    RegionUser = (User.RegionUsers)Enum.Parse(typeof(User.RegionUsers), masValue[2]),
+                    RegionUser = (Region)Enum.Parse(typeof(Region), masValue[2]),
                     City = masValue[3],
-                    ReqAuto = (User.Auto)Enum.Parse(typeof(User.Auto), masValue[4]),
+                    ReqAuto = (Auto)Enum.Parse(typeof(Auto), masValue[4]),
                     ReqMark = masValue[5],
                     MaxMoney = int.Parse(masValue[6].Replace(" ", "")),
                     ReqYear = int.Parse(masValue[7].Replace(" ", "")),
                     ReqEngineAmount = float.Parse(masValue[8].Replace(" ", "")),
-                    ReqEngineType = (User.EngineTypeCars)Enum.Parse(typeof(User.EngineTypeCars), masValue[9]),
-                    ReqTransmission = (User.TransmissionCars)Enum.Parse(typeof(User.TransmissionCars), masValue[10]),
-                    ReqBodyType = (User.BodyTypeCars)Enum.Parse(typeof(User.BodyTypeCars), masValue[11]),
+                    ReqEngineType = (EngineType)Enum.Parse(typeof(EngineType), masValue[9]),
+                    ReqTransmission = (Transmission)Enum.Parse(typeof(Transmission), masValue[10]),
+                    ReqBodyType = (BodyType)Enum.Parse(typeof(BodyType), masValue[11]),
+                    ReqState = (State)Enum.Parse(typeof(State),masValue[12])
                 });
             }
             catch (Exception e)
@@ -136,7 +137,7 @@ namespace CarShowRoom.ViewModel
                     for (int i = 0; i < car.CarList.Count; i++)
                     {
                         string s = $"[car]/{car.CarList[i].HowCar}/" +
-                            $"{car.CarList[i].State}/" +
+                            $"{car.CarList[i].StateCar}/" +
                             $"{car.CarList[i].AbroadCar}/" +
                             $"{car.CarList[i].MarkCar}/" +
                             $"{car.CarList[i].ModelCar}/" +
@@ -151,7 +152,7 @@ namespace CarShowRoom.ViewModel
                         streamWriter.WriteLine(s);
                     }
                 }
-                
+
                 if (user.UserList != null)
                 {
                     for (int i = 0; i < user.UserList.Count; i++)
@@ -167,10 +168,11 @@ namespace CarShowRoom.ViewModel
                             $"{user.UserList[i].ReqEngineAmount}/" +
                             $"{user.UserList[i].ReqEngineType}/" +
                             $"{user.UserList[i].ReqTransmission}/" +
-                            $"{user.UserList[i].ReqBodyType};";
+                            $"{user.UserList[i].ReqBodyType}/" +
+                            $"{user.UserList[i].ReqState};";
                         streamWriter.WriteLine(s);
                     }
-                } 
+                }
 
             }
 

@@ -10,74 +10,10 @@ namespace CarShowRoom.Model
 {
     class User
     {
-        public enum EngineTypeCars
-        {
-            Бензин,
-            Дизель,
-            Электро,
-            Гибрид,
-            Газ
-        }
-
-        public enum TransmissionCars
-        {
-            Автомат,
-            Механика,
-            Типтроник,
-            Адаптивная,
-            Вариатор
-        }
-
-        public enum BodyTypeCars
-        {
-            Универсал,
-            Седан,
-            Хэтчбек,
-            Внедорожник,
-            Купе,
-            Кабриолет,
-            Минивэн,
-            Пикап
-        }
-
-        public enum RegionUsers
-        {
-            Винницкая,
-            Волынская,
-            Днепропетровская,
-            Донецка,
-            Житомирская,
-            Закарпатская,
-            Запорожская,
-            Ивано_Франковская,
-            Киевская,
-            Кировоградская,
-            ЛуганскаяЛьвовская,
-            Николаевская,
-            Одесская,
-            Полтавска,
-            Республика_Крым,
-            Ровенская,
-            Сумская,
-            Тернопольская,
-            Харьковская,
-            Херсонская,
-            Хмельницкая,
-            Черкасская,
-            Черниговская,
-            Черновицкая
-        }
-
-        public enum Auto
-        {
-            Новое,
-            Старое
-        }
-
         public string Phone { get; set; }
 
         /* Область */
-        public RegionUsers RegionUser { get; set; }
+        public Region RegionUser { get; set; }
 
         /* Город */
         public string City { get; set; }
@@ -97,12 +33,14 @@ namespace CarShowRoom.Model
         public float ReqEngineAmount { get; set; }
 
         /* Тип двигателя */
-        public EngineTypeCars ReqEngineType { get; set; }
+        public EngineType ReqEngineType { get; set; }
 
         /* КПП */
-        public TransmissionCars ReqTransmission { get; set; }
+        public Transmission ReqTransmission { get; set; }
 
         /* Тип кузова */
-        public BodyTypeCars ReqBodyType { get; set; }
+        public BodyType ReqBodyType { get; set; }
+
+        public State ReqState { get; set; }
     }
 }

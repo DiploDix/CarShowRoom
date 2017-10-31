@@ -54,6 +54,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\Enums.cs" />
     <Compile Include="ViewModel\CarsList.cs" />
     <Compile Include="ViewModel\CarsViewModel.cs" />
     <Compile Include="ViewModel\FileAction.cs" />
@@ -128,7 +129,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="src\upload_orange.png" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="src\search_white.png" />
     <Resource Include="src\sports-car_white.png" />
@@ -140,6 +143,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="src\donwload_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="src\donwload_orange.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

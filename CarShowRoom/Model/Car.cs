@@ -8,96 +8,15 @@ using System.ComponentModel;
 
 namespace CarShowRoom.Model
 {
-
     public class Car
     {
-        public enum StateCars
-        {
-            Отличное,
-            Хорошее,
-            Нормальное,
-            Удовлетворительно,
-            Ужасно
-        }
-
-        public enum AbroadCars
-        {
-            Отечественные,
-            Зарубежные
-        }
-
-        public enum EngineTypeCars
-        {
-            Бензин,
-            Дизель,
-            Электро,
-            Гибрид,
-            Газ
-        }
-
-        public enum TransmissionCars
-        {
-            Автомат,
-            Механика,
-            Типтроник,
-            Адаптивная,
-            Вариатор
-        }
-
-        public enum BodyTypeCars
-        {
-            Универсал,
-            Седан,
-            Хэтчбек,
-            Внедорожник,
-            Купе,
-            Кабриолет,
-            Минивэн,
-            Пикап
-        }
-
-        public enum RegionCars
-        {
-            Винницкая,
-            Волынская,
-            Днепропетровская,
-            Донецка,
-            Житомирская,
-            Закарпатская,
-            Запорожская,
-            Ивано_Франковская,
-            Киевская,
-            Кировоградская,
-            ЛуганскаяЛьвовская,
-            Николаевская,
-            Одесская,
-            Полтавска,
-            Республика_Крым,
-            Ровенская,
-            Сумская,
-            Тернопольская,
-            Харьковская,
-            Херсонская,
-            Хмельницкая,
-            Черкасская,
-            Черниговская,
-            Черновицкая
-        }
-        
-        public enum Auto
-        {
-           
-            Новое,
-            Старое
-        }
-
         public Auto HowCar { get; set; }
 
         /* Состояние авто(бу, новое) */
-        public StateCars State { get; set; }
+        public State StateCar { get; set; }
 
         /* Отечественное или иностранное авто */
-        public AbroadCars AbroadCar { get; set; }
+        public Abroad AbroadCar { get; set; }
 
         /* Марка авто */
         public string MarkCar { get; set; }
@@ -115,16 +34,16 @@ namespace CarShowRoom.Model
         public float EngineAmountCar { get; set; }
 
         /* Тип двигателя */
-        public EngineTypeCars EngineTypeCar { get; set; }
+        public EngineType EngineTypeCar { get; set; }
 
         /* КПП */
-        public TransmissionCars TransmissionCar { get; set; }
+        public Transmission TransmissionCar { get; set; }
 
         /* Тип кузова */
-        public BodyTypeCars BodyTypeCar { get; set; }
+        public BodyType BodyTypeCar { get; set; }
 
         /* Область */
-        public RegionCars RegionCar { get; set; }
+        public Region RegionCar { get; set; }
 
         /* Город */
         public string CityCar { get; set; }
