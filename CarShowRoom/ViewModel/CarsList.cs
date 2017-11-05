@@ -9,7 +9,7 @@ using CarShowRoom.Model;
 
 namespace CarShowRoom.ViewModel
 {
-    public class CarsList : INotifyPropertyChanged
+    public class CarsList
     {
         private static ObservableCollection<Car> carsList = new ObservableCollection<Car>();
 
@@ -22,15 +22,6 @@ namespace CarShowRoom.ViewModel
             set
             {
                 carsList = value;
-            }
-        }
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public void OnPropertyChanged(string property)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(property));
             }
         }
     }

@@ -10,6 +10,7 @@
       Title="Users">
     <Page.Resources>
         <vm:UserViewModel x:Key="userViewModel"/>
+        <vm:Converter x:Key="conv"/>
     </Page.Resources>
     <Grid>
         <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalAlignment="Stretch">
@@ -17,17 +18,17 @@
                 <DataGrid Name="userGrid" AutoGenerateColumns="False" HorizontalAlignment="Stretch" Height="360" VerticalAlignment="Top" ItemsSource="{Binding Source={StaticResource userViewModel}, NotifyOnSourceUpdated=True, Path=GetListUser, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" Margin="5">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Телефон" Binding="{Binding Path=Phone}"/>
-                        <DataGridComboBoxColumn Header="Область"  TextBinding="{Binding Path=RegionUser, Mode=TwoWay}"  ItemsSource="{Binding Source={StaticResource userViewModel}, Path=GetListRegion}"/>
+                        <DataGridComboBoxColumn Header="Область" TextBinding="{Binding Path=RegionUser, Converter={StaticResource conv}}"  ItemsSource="{Binding Source={StaticResource userViewModel}, Path=GetListRegion,Converter={StaticResource conv}}"/>
                         <DataGridTextColumn Header="Город" Binding="{Binding Path=City}"/>
-                        <DataGridComboBoxColumn Header="Новое/старое" TextBinding="{Binding Path=ReqAuto, Mode=TwoWay}"  ItemsSource="{Binding Source={StaticResource userViewModel}, Path=GetListAuto}"/>
-                        <DataGridComboBoxColumn Header="Состояние" TextBinding="{Binding Path=ReqState, Mode=TwoWay}"  ItemsSource="{Binding Source={StaticResource userViewModel}, Path=GetListState}"/>
+                        <DataGridComboBoxColumn Header="Новое/старое" TextBinding="{Binding Path=ReqAuto, Converter={StaticResource conv}}"  ItemsSource="{Binding Source={StaticResource userViewModel}, Path=GetListAuto,Converter={StaticResource conv}}"/>
+                        <DataGridComboBoxColumn Header="Состояние" TextBinding="{Binding Path=ReqState, Converter={StaticResource conv}}"  ItemsSource="{Binding Source={StaticResource userViewModel}, Path=GetListState,Converter={StaticResource conv}}"/>
                         <DataGridTextColumn Header="Марка" Binding="{Binding Path=ReqMark}"/>
                         <DataGridTextColumn Header="Цена" Binding="{Binding Path=MaxMoney}"/>
                         <DataGridTextColumn Header="Год" Binding="{Binding Path=ReqYear}"/>
-                        <DataGridComboBoxColumn Header="Тип двигателя" TextBinding="{Binding Path=ReqEngineType, Mode=TwoWay}"  ItemsSource="{Binding Source={StaticResource userViewModel}, Path=GetListEngineType}"/>
+                        <DataGridComboBoxColumn Header="Тип двигателя" TextBinding="{Binding Path=ReqEngineType,Converter={StaticResource conv}}"  ItemsSource="{Binding Source={StaticResource userViewModel}, Path=GetListEngineType,Converter={StaticResource conv}}"/>
                         <DataGridTextColumn Header="Обьем двигателя" Binding="{Binding Path=ReqEngineAmount}"/>
-                        <DataGridComboBoxColumn Header="Трансмиссия" TextBinding="{Binding Path=ReqTransmission, Mode=TwoWay}"  ItemsSource="{Binding Source={StaticResource userViewModel}, Path=GetListTransmission}"/>
-                        <DataGridComboBoxColumn Header="Тип кузова" TextBinding="{Binding Path=ReqBodyType, Mode=TwoWay}"  ItemsSource="{Binding Source={StaticResource userViewModel}, Path=GetListBodyType}"/>
+                        <DataGridComboBoxColumn Header="Трансмиссия" TextBinding="{Binding Path=ReqTransmission, Converter={StaticResource conv}}"  ItemsSource="{Binding Source={StaticResource userViewModel}, Path=GetListTransmission,Converter={StaticResource conv}}"/>
+                        <DataGridComboBoxColumn Header="Тип кузова" TextBinding="{Binding Path=ReqBodyType, Converter={StaticResource conv}}"  ItemsSource="{Binding Source={StaticResource userViewModel}, Path=GetListBodyType,Converter={StaticResource conv}}"/>
 
                     </DataGrid.Columns>
                 </DataGrid>

@@ -7,37 +7,49 @@ using System.Collections;
 using System.ComponentModel;
 using CarShowRoom.Model;
 using System.Collections.ObjectModel;
-
 namespace CarShowRoom.ViewModel
 {
-    class CarsViewModel : INotifyPropertyChanged
+    class SearchViewModel : INotifyPropertyChanged
     {
-        CarsList car = new CarsList();
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public void OnPropertyChanged(string property)
+        CarsList cars = new CarsList();
+        ObservableCollection<Car> car = new ObservableCollection<Car>();
+        public SearchViewModel()
         {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(property));
-            }
+
+            car = cars.CarList;
         }
 
-        public CarsViewModel() { }
+        public string CategoryComboBox
+        {
+            get
+            {
+                return "sdd";
+            }
+            set
+            {
 
+            }
+        }
         public ObservableCollection<Car> GetListCar
         {
             get
             {
-                return car.CarList;
-            }
-            set
-            {
-                car.CarList = value;
-                OnPropertyChanged("carGrid");
+                return car;
             }
         }
 
+        public ObservableCollection<Car> SearchCar()
+        {
+            ObservableCollection<Car> newCar = new ObservableCollection<Car>();
+            newCar = cars.CarList;
+
+            newCar.Where((x) =>
+            {
+                return x.
+            });
+        }
+
+        /* */
         public IEnumerable<string> GetListAuto
         {
             get
@@ -94,6 +106,14 @@ namespace CarShowRoom.ViewModel
             }
         }
 
+        public event PropertyChangedEventHandler PropertyChanged;
 
+        public void OnPropertyChanged(string property)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(property));
+            }
+        }
     }
 }

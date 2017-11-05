@@ -3,15 +3,60 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:vm="clr-namespace:CarShowRoom.ViewModel"
       xmlns:local="clr-namespace:CarShowRoom.View"
       mc:Ignorable="d" 
        VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
-      Title="Search">
-
+      Title="Search" Background="White">
+    <Page.Resources>
+        <vm:CarsViewModel x:Key="searchVM" />
+        <vm:Converter x:Key="conv"/>
+    </Page.Resources>
     <Grid>
         <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalAlignment="Stretch">
-            <Grid HorizontalAlignment="Left" Width="Auto" Height="auto">
-                <TextBlock Text=""/>
+            <Grid  HorizontalAlignment="Stretch" VerticalAlignment="Top"  Width="1000" Height="500">
+                <StackPanel Margin="5" Orientation="Horizontal" Height="300" VerticalAlignment="Top">
+                   
+                    <StackPanel Orientation="Horizontal" Height="30" VerticalAlignment="Top">
+                        <TextBlock Text="Категория"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="20" />
+                        <ComboBox Name="CategoryBox" Text="{Binding Source={StaticResource searchVM},Path=CategoryComboBox}" Width="Auto" Height="25"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,0,0,0" Text="{Binding Path=HowCar,Converter={StaticResource conv}}"  ItemsSource="{Binding Source={StaticResource searchVM}, Path=GetListAuto,Converter={StaticResource conv}}"/>
+                    </StackPanel>
+                    
+                    <StackPanel Orientation="Horizontal" Height="30" VerticalAlignment="Top" Margin="10,0,0,0">
+                        <TextBlock Text="Состояние"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="20" />
+                        <ComboBox Name="StateBox" Text="sdds"  Width="Auto" Height="25"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,0,0,0"/>
+                    </StackPanel>
+                    
+                    <StackPanel Orientation="Horizontal" Height="30" VerticalAlignment="Top" Margin="10,0,0,0">
+                        <TextBlock Text="Какие"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="20" />
+                        <ComboBox Name="HowBox" Text="sdds"  Width="Auto" Height="25"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,0,0,0"/>
+                    </StackPanel>
+                    
+                    <StackPanel Orientation="Horizontal" Height="30" VerticalAlignment="Top" Margin="10,0,0,0">
+                        <TextBlock Text="Состояние"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="20" />
+                        <ComboBox Name="Box" Text="sdds"  Width="Auto" Height="25"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,0,0,0"/>
+                    </StackPanel>
+
+                </StackPanel>
+                <DataGrid Name="searchGrid" Grid.Row="1" Height="400" CanUserAddRows="False" CanUserDeleteRows="False"  AutoGenerateColumns="False" HorizontalAlignment="Left" ItemsSource="{Binding Source={StaticResource carsViewModel}, NotifyOnSourceUpdated=True, Path=GetListCar, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" Margin="5">
+                    <DataGrid.Columns>
+                        <DataGridComboBoxColumn Header="Категория" TextBinding="{Binding Path=HowCar,Converter={StaticResource conv}}"  ItemsSource="{Binding Source={StaticResource searchVM}, Path=GetListAuto,Converter={StaticResource conv}}"/>
+                        <DataGridComboBoxColumn Header="Состояние" TextBinding="{Binding Path=StateCar,Converter={StaticResource conv}}"  ItemsSource="{Binding Source={StaticResource searchVM}, Path=GetListState,Converter={StaticResource conv}}"/>
+                        <DataGridComboBoxColumn Header="Какие" TextBinding="{Binding Path=AbroadCar,Converter={StaticResource conv}}" ItemsSource="{Binding Source={StaticResource searchVM}, Path=GetListAbroad,Converter={StaticResource conv}}"/>
+                        <DataGridTextColumn Header="Марка" Binding="{Binding Path=MarkCar}"/>
+                        <DataGridTextColumn Header="Модель" Binding="{Binding Path=ModelCar}"/>
+                        <DataGridTextColumn Header="Цена" Binding="{Binding Path=PriceCar}"/>
+                        <DataGridTextColumn Header="Год" Binding="{Binding Path=YearCar}"/>
+                        <DataGridComboBoxColumn Header="Тип двигателя" TextBinding="{Binding Path=EngineTypeCar,Converter={StaticResource conv}}" ItemsSource="{Binding Source={StaticResource searchVM}, Path=GetListEngineType,Converter={StaticResource conv}}"/>
+                        <DataGridTextColumn Header="Обьем двигателя" Binding="{Binding Path=EngineAmountCar}"/>
+                        <DataGridComboBoxColumn Header="Трансмиссия" TextBinding="{Binding Path=TransmissionCar,Converter={StaticResource conv}}" ItemsSource="{Binding Source={StaticResource searchVM}, Path=GetListTransmission,Converter={StaticResource conv}}"/>
+                        <DataGridComboBoxColumn Header="Тип кузова" TextBinding="{Binding Path=BodyTypeCar,Converter={StaticResource conv}}" ItemsSource="{Binding Source={StaticResource searchVM}, Path=GetListBodyTypeCars,Converter={StaticResource conv}}"/>
+                        <DataGridComboBoxColumn Header="Область" TextBinding="{Binding Path=RegionCar,Converter={StaticResource conv}}" ItemsSource="{Binding Source={StaticResource searchVM}, Path=GetListRegionCars, Converter={StaticResource conv}}"  />
+                        <DataGridTextColumn Header="Город" Binding="{Binding Path=CityCar}"/>
+
+                    </DataGrid.Columns>
+                </DataGrid>
+
             </Grid>
         </ScrollViewer>
     </Grid>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Reflection;
 
 namespace CarShowRoom.Model
 {
@@ -51,9 +52,10 @@ namespace CarShowRoom.Model
         Минивэн,
         Пикап
     }
-
+   
     public enum Region
     {
+        
         Винницкая,
         Волынская,
         Днепропетровская,
@@ -64,7 +66,8 @@ namespace CarShowRoom.Model
         Ивано_Франковская,
         Киевская,
         Кировоградская,
-        ЛуганскаяЛьвовская,
+        Луганская,
+        Львовская,
         Николаевская,
         Одесская,
         Полтавска,

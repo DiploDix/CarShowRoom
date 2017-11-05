@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CarShowRoom.ViewModel;
 using Microsoft.Win32;
+using CarShowRoom.View;
 using System.Collections.ObjectModel;
 
 namespace CarShowRoom
@@ -26,12 +27,16 @@ namespace CarShowRoom
         Uri uriToSearchPage = new Uri("/View/Search.xaml", UriKind.Relative);
         Uri uriToCarsPage = new Uri("/View/Cars.xaml", UriKind.Relative);
         Uri uriToUsersPage = new Uri("/View/Users.xaml", UriKind.Relative);
+        Search sear;
+        Cars cars;
 
         FileAction file = new FileAction();
 
         public MainWindow()
         {
             InitializeComponent();
+            sear = new Search();
+            cars = new Cars();
         }
 
         /* Переход во фрейме к странице /View/Search.xaml */
@@ -43,7 +48,7 @@ namespace CarShowRoom
         /* Переход во фрейме к странице /View/Cars.xaml */
         private void BorderCars_Click(object sender, MouseButtonEventArgs e)
         {
-            frameWindow.Source = uriToCarsPage;
+            frameWindow.NavigationService.Navigate(uriToCarsPage);
         }
 
         /* Переход во фрейме к странице /View/Users.xaml */

@@ -57,7 +57,9 @@
     <Compile Include="Model\Enums.cs" />
     <Compile Include="ViewModel\CarsList.cs" />
     <Compile Include="ViewModel\CarsViewModel.cs" />
+    <Compile Include="ViewModel\Converter.cs" />
     <Compile Include="ViewModel\FileAction.cs" />
+    <Compile Include="ViewModel\SearchViewModel.cs" />
     <Compile Include="ViewModel\UsersList.cs" />
     <Compile Include="ViewModel\UserViewModel.cs" />
     <Compile Include="View\Cars.xaml.cs">
