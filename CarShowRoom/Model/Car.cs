@@ -10,13 +10,13 @@ namespace CarShowRoom.Model
 {
     public class Car
     {
-        public Auto HowCar { get; set; }
+        public string HowCar { get; set; }
 
         /* Состояние авто(бу, новое) */
-        public State StateCar { get; set; }
+        public string StateCar { get; set; }
 
         /* Отечественное или иностранное авто */
-        public Abroad AbroadCar { get; set; }
+        public string AbroadCar { get; set; }
 
         /* Марка авто */
         public string MarkCar { get; set; }
@@ -34,16 +34,16 @@ namespace CarShowRoom.Model
         public float EngineAmountCar { get; set; }
 
         /* Тип двигателя */
-        public EngineType EngineTypeCar { get; set; }
+        public string EngineTypeCar { get; set; }
 
         /* КПП */
-        public Transmission TransmissionCar { get; set; }
+        public string TransmissionCar { get; set; }
 
         /* Тип кузова */
-        public BodyType BodyTypeCar { get; set; }
+        public string BodyTypeCar { get; set; }
 
         /* Область */
-        public Region RegionCar { get; set; }
+        public string RegionCar { get; set; }
 
         /* Город */
         public string CityCar { get; set; }

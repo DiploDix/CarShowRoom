@@ -13,24 +13,25 @@
     <Page.Resources>
         <vm:CarsViewModel x:Key="carsViewModel" />
         <vm:Converter x:Key="conv"/>
+        <local:DefaultLists x:Key="lists"/>
     </Page.Resources>
     <Grid>
         <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalAlignment="Stretch">
             <Grid HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="Auto">
-                <DataGrid Name="carGrid" Grid.Row="1" Height="400" CanUserAddRows="True" AutoGenerateColumns="False" HorizontalAlignment="Left" ItemsSource="{Binding Source={StaticResource carsViewModel}, NotifyOnSourceUpdated=True, Path=GetListCar, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" Margin="5">
+                <DataGrid Name="carGrid" Grid.Row="1" Height="Auto" CanUserAddRows="True" AutoGenerateColumns="False" HorizontalAlignment="Left" ItemsSource="{Binding Source={StaticResource carsViewModel}, NotifyOnSourceUpdated=True, Path=GetListCar, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" Margin="5">
                     <DataGrid.Columns>
-                        <DataGridComboBoxColumn Header="Категория" TextBinding="{Binding Path=HowCar,Converter={StaticResource conv}}"  ItemsSource="{Binding Source={StaticResource carsViewModel}, Path=GetListAuto,Converter={StaticResource conv}}"/>
-                        <DataGridComboBoxColumn Header="Состояние" TextBinding="{Binding Path=StateCar,Converter={StaticResource conv}}"  ItemsSource="{Binding Source={StaticResource carsViewModel}, Path=GetListState,Converter={StaticResource conv}}"/>
-                        <DataGridComboBoxColumn Header="Какие" TextBinding="{Binding Path=AbroadCar,Converter={StaticResource conv}}" ItemsSource="{Binding Source={StaticResource carsViewModel}, Path=GetListAbroad,Converter={StaticResource conv}}"/>
+                        <DataGridComboBoxColumn Header="Категория" TextBinding="{Binding Path=HowCar}"  ItemsSource="{Binding Source={StaticResource lists}, Path=ListAuto}"/>
+                        <DataGridComboBoxColumn Header="Состояние" TextBinding="{Binding Path=StateCar}"  ItemsSource="{Binding Source={StaticResource lists}, Path=ListState}"/>
+                        <DataGridComboBoxColumn Header="Производитель" TextBinding="{Binding Path=AbroadCar}" ItemsSource="{Binding Source={StaticResource lists}, Path=ListAbroad}"/>
                         <DataGridTextColumn Header="Марка" Binding="{Binding Path=MarkCar}"/>
                         <DataGridTextColumn Header="Модель" Binding="{Binding Path=ModelCar}"/>
                         <DataGridTextColumn Header="Цена" Binding="{Binding Path=PriceCar}"/>
                         <DataGridTextColumn Header="Год" Binding="{Binding Path=YearCar}"/>
-                        <DataGridComboBoxColumn Header="Тип двигателя" TextBinding="{Binding Path=EngineTypeCar,Converter={StaticResource conv}}" ItemsSource="{Binding Source={StaticResource carsViewModel}, Path=GetListEngineType,Converter={StaticResource conv}}"/>
+                        <DataGridComboBoxColumn Header="Тип двигателя" TextBinding="{Binding Path=EngineTypeCar}" ItemsSource="{Binding Source={StaticResource lists}, Path=ListEngineType}"/>
                         <DataGridTextColumn Header="Обьем двигателя" Binding="{Binding Path=EngineAmountCar}"/>
-                        <DataGridComboBoxColumn Header="Трансмиссия" TextBinding="{Binding Path=TransmissionCar,Converter={StaticResource conv}}" ItemsSource="{Binding Source={StaticResource carsViewModel}, Path=GetListTransmission,Converter={StaticResource conv}}"/>
-                        <DataGridComboBoxColumn Header="Тип кузова" TextBinding="{Binding Path=BodyTypeCar,Converter={StaticResource conv}}" ItemsSource="{Binding Source={StaticResource carsViewModel}, Path=GetListBodyTypeCars,Converter={StaticResource conv}}"/>
-                        <DataGridComboBoxColumn Header="Область" TextBinding="{Binding Path=RegionCar,Converter={StaticResource conv}}" ItemsSource="{Binding Source={StaticResource carsViewModel}, Path=GetListRegionCars, Converter={StaticResource conv}}"  />
+                        <DataGridComboBoxColumn Header="Трансмиссия" TextBinding="{Binding Path=TransmissionCar}" ItemsSource="{Binding Source={StaticResource lists}, Path=ListTransmission}"/>
+                        <DataGridComboBoxColumn Header="Тип кузова" TextBinding="{Binding Path=BodyTypeCar}" ItemsSource="{Binding Source={StaticResource lists}, Path=ListBodyTypeCars}"/>
+                        <DataGridComboBoxColumn Header="Область" TextBinding="{Binding Path=RegionCar}" ItemsSource="{Binding Source={StaticResource lists}, Path=ListRegionCars}"  />
                         <DataGridTextColumn Header="Город" Binding="{Binding Path=CityCar}"/>
 
                     </DataGrid.Columns>

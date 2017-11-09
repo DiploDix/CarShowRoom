@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Collections.ObjectModel;
+using CarShowRoom.Model;
 
 namespace CarShowRoom.View
 {
@@ -24,6 +26,6 @@ namespace CarShowRoom.View
         {
             InitializeComponent();
         }
-       
+
     }
 }

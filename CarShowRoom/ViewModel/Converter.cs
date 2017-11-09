@@ -14,6 +14,7 @@ namespace CarShowRoom.ViewModel
         {
             if (targetType.Name == "String")
             {
+                return value;
                 switch (value.ToString())
                 {
                     case "Ивано_Франковская":
@@ -38,6 +39,7 @@ namespace CarShowRoom.ViewModel
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
+            return value;
             switch (value.ToString())
             {
                 case "Ивано-Франковская":

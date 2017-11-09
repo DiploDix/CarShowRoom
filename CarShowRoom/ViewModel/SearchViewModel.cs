@@ -11,25 +11,42 @@ namespace CarShowRoom.ViewModel
 {
     class SearchViewModel : INotifyPropertyChanged
     {
+        string _auto = "";
+        string _state = "";
+        string _abroad = "";
+        string _engineType = "";
+        string _transmission = "";
+        string _typeCar = "";
+        string _regionCar = "";
+
+        List<string> getListAuto = new List<string>(new string[] { "----", "Новое", "Старое" });
+        List<string> getListState = new List<string>(new string[] { "----", "Отличное", "Хорошее", "Нормальное", "Удовлетворительно", "Ужасно" });
+        List<string> getListAbroad = new List<string>(new string[] { "----", "Отечественные", "Зарубежные" });
+        List<string> getListEngineType = new List<string>(new string[] { "----", "Бензин", "Дизель", "Электро", "Гибрид", "Газ" });
+        List<string> getListTransmission = new List<string>(new string[] { "----", "Гибрид", "Механика","Типтроник","","", });
+        List<string> getListBodyTypeCars = new List<string>(new string[] { "----", "Новое", "Старое" });
+        List<string> getListRegionCars = new List<string>(new string[] { "----", "Новое", "Старое" });
+
         CarsList cars = new CarsList();
-        ObservableCollection<Car> car = new ObservableCollection<Car>();
+        ObservableCollection<Car> car;
+
         public SearchViewModel()
         {
-
             car = cars.CarList;
         }
 
-        public string CategoryComboBox
+        public void DisplayDefaultCollection()
         {
-            get
-            {
-                return "sdd";
-            }
-            set
-            {
-
-            }
+            //car = cars.CarList;
+            _auto = "";
+            _state = "";
+            _abroad = "";
+            _engineType = "";
+            _transmission = "";
+            _typeCar = "";
+            _regionCar = "";
         }
+
         public ObservableCollection<Car> GetListCar
         {
             get
@@ -38,74 +55,93 @@ namespace CarShowRoom.ViewModel
             }
         }
 
-        public ObservableCollection<Car> SearchCar()
-        {
-            ObservableCollection<Car> newCar = new ObservableCollection<Car>();
-            newCar = cars.CarList;
+        string _d = "lolk";
 
-            newCar.Where((x) =>
-            {
-                return x.
-            });
-        }
-
-        /* */
-        public IEnumerable<string> GetListAuto
+        public string AutoSearch
         {
             get
             {
-                return Enum.GetNames(typeof(Auto));
+                return _d;
+            }
+            set
+            {
+                _d = value;
+                OnPropertyChanged("t1");
             }
         }
 
-        public IEnumerable<string> GetListState
+        public List<string> GetListAuto
         {
             get
             {
-                return Enum.GetNames(typeof(State));
-            }
-        }
-        public IEnumerable<string> GetListAbroad
-        {
-            get
-            {
-                return Enum.GetNames(typeof(Abroad));
-            }
-        }
-        public IEnumerable<string> GetListEngineType
-        {
-            get
-            {
-                return Enum.GetNames(typeof(EngineType));
+                return getListAuto;
             }
 
         }
 
-        public IEnumerable<string> GetListTransmission
-        {
-            get
-            {
-                return Enum.GetNames(typeof(Transmission));
-            }
+        /* public List<string> GetListAuto
+         {
+             get
+             {
+                 return getListAuto;
+             }
 
-        }
+             set
+             {
 
-        public IEnumerable<string> GetListBodyTypeCars
-        {
-            get
-            {
-                return Enum.GetNames(typeof(BodyType));
-            }
+                 OnPropertyChanged("ttt");
 
-        }
-        public IEnumerable<string> GetListRegionCars
-        {
-            get
-            {
-                return Enum.GetNames(typeof(Region));
-            }
-        }
+             }
+         }
 
+         public IEnumerable<string> GetListState
+         {
+             get
+             {
+                 return Enum.GetNames(typeof(State));
+             }
+         }
+         public IEnumerable<string> GetListAbroad
+         {
+             get
+             {
+                 return Enum.GetNames(typeof(Abroad));
+             }
+         }
+         public IEnumerable<string> GetListEngineType
+         {
+             get
+             {
+                 return Enum.GetNames(typeof(EngineType));
+             }
+
+         }
+
+         public IEnumerable<string> GetListTransmission
+         {
+             get
+             {
+                 return Enum.GetNames(typeof(Transmission));
+             }
+
+         }
+
+         public IEnumerable<string> GetListBodyTypeCars
+         {
+             get
+             {
+                 return Enum.GetNames(typeof(BodyType));
+             }
+
+         }
+         public IEnumerable<string> GetListRegionCars
+         {
+             get
+             {
+                 return Enum.GetNames(typeof(Region));
+             }
+         }
+         */
         public event PropertyChangedEventHandler PropertyChanged;
 
         public void OnPropertyChanged(string property)

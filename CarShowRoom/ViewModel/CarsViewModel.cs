@@ -12,7 +12,8 @@ namespace CarShowRoom.ViewModel
 {
     class CarsViewModel : INotifyPropertyChanged
     {
-        CarsList car = new CarsList();
+        DefaultLists lists = new DefaultLists();
+        ObservableCollection<Car> car = new CarsList().CarList;
         public event PropertyChangedEventHandler PropertyChanged;
 
         public void OnPropertyChanged(string property)
@@ -25,24 +26,25 @@ namespace CarShowRoom.ViewModel
 
         public CarsViewModel() { }
 
+
         public ObservableCollection<Car> GetListCar
         {
             get
             {
-                return car.CarList;
+                return car;
             }
             set
             {
-                car.CarList = value;
+                car = value;
                 OnPropertyChanged("carGrid");
             }
         }
 
-        public IEnumerable<string> GetListAuto
+        public List<string> GetListAuto
         {
             get
             {
-                return Enum.GetNames(typeof(Auto));
+                return lists.ListAuto;
             }
         }
 

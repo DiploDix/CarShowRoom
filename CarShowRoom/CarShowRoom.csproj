@@ -54,6 +54,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DefaultLists.cs" />
     <Compile Include="Model\Enums.cs" />
     <Compile Include="ViewModel\CarsList.cs" />
     <Compile Include="ViewModel\CarsViewModel.cs" />

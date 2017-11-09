@@ -58,6 +58,6 @@
                 <Image Style="{StaticResource iconStyleDonwload}" PreviewMouseDown="ImageDownload_PreviewMouseDown" ToolTip="Сохранить базу данных" Width="20" Height="20" Margin="10,0,0,0" VerticalAlignment="Center"/>
             </StackPanel>
         </StackPanel>
-        <Frame Content="Frame" Name="frameWindow" Source="/View/Welcome.xaml" NavigationUIVisibility="Hidden" HorizontalAlignment="Stretch" Margin="170,0,0,0" VerticalAlignment="Top"/>
+        <Frame Content="Frame" Height="{Binding System.Windows.SystemParameters.PrimaryScreenHeight}"  Name="frameWindow" Source="/View/Welcome.xaml" NavigationUIVisibility="Hidden" HorizontalAlignment="Stretch" Margin="170,0,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>

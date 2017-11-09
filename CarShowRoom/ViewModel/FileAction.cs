@@ -10,51 +10,47 @@ using CarShowRoom.Model;
 
 namespace CarShowRoom.ViewModel
 {
-    class FileAction : INotifyPropertyChanged
+    class FileAction
     {
-        CarsList car = new CarsList();
-        UsersList user = new UsersList();
+        CarsList cars = new CarsList();
+        UsersList users = new UsersList();
+        DefaultLists lists = new DefaultLists();
+
         private string link;
+
         public FileAction() { }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public void OnPropertyChanged(string property)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(property));
-            }
-        }
-
+        /* Загрузка БД */
         public void UploadFile(string link)
         {
             this.link = link;
-            string readed;
+            string read;
+            string pattern = @"\s{2,}";
+            Regex reg = new Regex(pattern);
+
+
             using (FileStream stream = new FileStream(link, FileMode.Open, FileAccess.ReadWrite))
             {
                 using (StreamReader streamRead = new StreamReader(stream, System.Text.Encoding.UTF8))
                 {
-                    readed = streamRead.ReadToEnd();
+                    read = streamRead.ReadToEnd();
                 }
             }
 
-            string pat = @"(\n)|(\t)|(\s+)";
-            Regex reg = new Regex(pat);
-            readed = reg.Replace(readed, "");
+            read = reg.Replace(read, "");
 
-            if (readed.Length != 0)
+            if (read.Length != 0)
             {
-                string[] mas = readed.Split(';');
-
-                if (car.CarList != null)
-                    car.CarList.Clear();
-                if (user.UserList != null)
-                    user.UserList.Clear();
+                string[] mas = read.Split(';');
+                
+                if (cars.CarList != null)
+                    cars.CarList.Clear();
+                if (users != null)
+                    users.UserList.Clear();
 
                 for (int i = 0; i < mas.Length - 1; i++)
                 {
-                    string[] masValue = mas[i].Split('/');
+                    string[] masValue = mas[i].Split('|');
                     switch (masValue[0].ToLower())
                     {
                         case "[car]":
@@ -73,20 +69,27 @@ namespace CarShowRoom.ViewModel
         {
             try
             {
-                car.CarList.Add(new Car
+                cars.CarList.Add(new Car
                 {
-                    HowCar = (Auto)Enum.Parse(typeof(Auto), masValue[1], true),
-                    StateCar = (State)Enum.Parse(typeof(State), masValue[2], true),
-                    AbroadCar = (Abroad)Enum.Parse(typeof(Abroad), masValue[3], true),
+                    HowCar = lists.ListAuto.Find(x => x.ToLower() == masValue[1].ToLower()),
+                    //(Auto)Enum.Parse(typeof(Auto), masValue[1], true),
+                    StateCar = lists.ListState.Find(x => x.ToLower() == masValue[2].ToLower()),
+                    //StateCar = (State)Enum.Parse(typeof(State), masValue[2], true),
+                    AbroadCar = lists.ListAbroad.Find(x => x.ToLower() == masValue[3].ToLower()),
+                    //AbroadCar = (Abroad)Enum.Parse(typeof(Abroad), masValue[3], true),
                     MarkCar = masValue[4],
                     ModelCar = masValue[5],
                     PriceCar = int.Parse(masValue[6].Replace(" ", "")),
                     YearCar = int.Parse(masValue[7].Replace(" ", "")),
                     EngineAmountCar = float.Parse(masValue[8].Replace(" ", "")),
-                    EngineTypeCar = (EngineType)Enum.Parse(typeof(EngineType), masValue[9], true),
-                    TransmissionCar = (Transmission)Enum.Parse(typeof(Transmission), masValue[10], true),
-                    BodyTypeCar = (BodyType)Enum.Parse(typeof(BodyType), masValue[11], true),
-                    RegionCar = (Region)Enum.Parse(typeof(Region), masValue[12], true),
+                    EngineTypeCar = lists.ListEngineType.Find(x => x.ToLower() == masValue[9].ToLower()),
+                    //EngineTypeCar = (EngineType)Enum.Parse(typeof(EngineType), masValue[9], true),
+                    TransmissionCar = lists.ListTransmission.Find(x => x == masValue[10]),
+                    //TransmissionCar = (Transmission)Enum.Parse(typeof(Transmission), masValue[10], true),
+                    BodyTypeCar = lists.ListBodyTypeCars.Find(x => x == masValue[11]),
+                    //BodyTypeCar = (BodyType)Enum.Parse(typeof(BodyType), masValue[11], true),
+                    RegionCar = lists.ListRegionCars.Find(x => x.ToLower() == masValue[12].Trim(' ').ToLower()),
+                    //RegionCar = (Region)Enum.Parse(typeof(Region), masValue[12], true),
                     CityCar = masValue[13]
                 });
             }
@@ -100,21 +103,27 @@ namespace CarShowRoom.ViewModel
         {
             try
             {
-                user.UserList.Add(new User
+                users.UserList.Add(new User
                 {
 
                     Phone = masValue[1],
-                    RegionUser = (Region)Enum.Parse(typeof(Region), masValue[2]),
+                    RegionUser = lists.ListRegionCars.Find(x => x.ToLower() == masValue[2].ToLower()),
+                    //RegionUser = (Region)Enum.Parse(typeof(Region), masValue[2]),
                     City = masValue[3],
-                    ReqAuto = (Auto)Enum.Parse(typeof(Auto), masValue[4]),
+                    ReqAuto = lists.ListAuto.Find(x => x.ToLower() == masValue[4].ToLower()),
+                    //ReqAuto = (Auto)Enum.Parse(typeof(Auto), masValue[4]),
                     ReqMark = masValue[5],
                     MaxMoney = int.Parse(masValue[6].Replace(" ", "")),
                     ReqYear = int.Parse(masValue[7].Replace(" ", "")),
                     ReqEngineAmount = float.Parse(masValue[8].Replace(" ", "")),
-                    ReqEngineType = (EngineType)Enum.Parse(typeof(EngineType), masValue[9]),
-                    ReqTransmission = (Transmission)Enum.Parse(typeof(Transmission), masValue[10]),
-                    ReqBodyType = (BodyType)Enum.Parse(typeof(BodyType), masValue[11]),
-                    ReqState = (State)Enum.Parse(typeof(State),masValue[12])
+                    ReqEngineType = lists.ListEngineType.Find(x => x.ToLower() == masValue[9].ToLower()),
+                    //ReqEngineType = (EngineType)Enum.Parse(typeof(EngineType), masValue[9]),
+                    ReqTransmission = lists.ListTransmission.Find(x => x.ToLower() == masValue[10].ToLower()),
+                    //ReqTransmission = (Transmission)Enum.Parse(typeof(Transmission), masValue[10]),
+                    ReqBodyType = lists.ListBodyTypeCars.Find(x => x.ToLower() == masValue[11].ToLower()),
+                    //ReqBodyType = (BodyType)Enum.Parse(typeof(BodyType), masValue[11]),
+                    ReqState = lists.ListState.Find(x => x.ToLower() == masValue[12].ToLower())
+                    //ReqState = (State)Enum.Parse(typeof(State), masValue[12])
                 });
             }
             catch (Exception e)
@@ -123,59 +132,108 @@ namespace CarShowRoom.ViewModel
             }
         }
 
-        public void SaveFile(string newLink = "0")
+        public void SaveFileAll(string newLink, ObservableCollection<Car> carList, ObservableCollection<User> userList)
         {
-            if (newLink != "0")
-            {
+            if (!string.IsNullOrEmpty(newLink))
                 link = newLink;
-            }
 
             using (StreamWriter streamWriter = new StreamWriter(link))
             {
-                if (car.CarList != null)
+                if (carList != null)
                 {
-                    for (int i = 0; i < car.CarList.Count; i++)
+                    for (int i = 0; i < carList.Count; i++)
                     {
-                        string s = $"[car]/{car.CarList[i].HowCar}/" +
-                            $"{car.CarList[i].StateCar}/" +
-                            $"{car.CarList[i].AbroadCar}/" +
-                            $"{car.CarList[i].MarkCar}/" +
-                            $"{car.CarList[i].ModelCar}/" +
-                            $"{car.CarList[i].PriceCar}/" +
-                            $"{car.CarList[i].YearCar}/ " +
-                            $"{car.CarList[i].EngineAmountCar}/" +
-                            $"{car.CarList[i].EngineTypeCar}/" +
-                            $"{car.CarList[i].TransmissionCar}/" +
-                            $"{car.CarList[i].BodyTypeCar}/ " +
-                            $"{car.CarList[i].RegionCar }/ " +
-                            $"{car.CarList[i].CityCar};";
+                        string s = $"[car]|{carList[i].HowCar}|" +
+                            $"{carList[i].StateCar}|" +
+                            $"{carList[i].AbroadCar}|" +
+                            $"{carList[i].MarkCar}|" +
+                            $"{carList[i].ModelCar}|" +
+                            $"{carList[i].PriceCar}|" +
+                            $"{carList[i].YearCar}| " +
+                            $"{carList[i].EngineAmountCar}|" +
+                            $"{carList[i].EngineTypeCar}|" +
+                            $"{carList[i].TransmissionCar}|" +
+                            $"{carList[i].BodyTypeCar}| " +
+                            $"{carList[i].RegionCar }| " +
+                            $"{carList[i].CityCar};";
                         streamWriter.WriteLine(s);
                     }
                 }
 
-                if (user.UserList != null)
+                if (userList != null)
                 {
-                    for (int i = 0; i < user.UserList.Count; i++)
+                    for (int i = 0; i < userList.Count; i++)
                     {
-                        string s = $"[user]/" +
-                            $"{user.UserList[i].Phone}/" +
-                            $"{user.UserList[i].RegionUser}/" +
-                            $"{user.UserList[i].City}/" +
-                            $"{user.UserList[i].ReqAuto}/" +
-                            $"{user.UserList[i].ReqMark}/" +
-                            $"{user.UserList[i].MaxMoney}/" +
-                            $"{user.UserList[i].ReqYear}/ " +
-                            $"{user.UserList[i].ReqEngineAmount}/" +
-                            $"{user.UserList[i].ReqEngineType}/" +
-                            $"{user.UserList[i].ReqTransmission}/" +
-                            $"{user.UserList[i].ReqBodyType}/" +
-                            $"{user.UserList[i].ReqState};";
+                        string s = $"[user]|" +
+                            $"{userList[i].Phone}|" +
+                            $"{userList[i].RegionUser}|" +
+                            $"{userList[i].City}|" +
+                            $"{userList[i].ReqAuto}|" +
+                            $"{userList[i].ReqMark}|" +
+                            $"{userList[i].MaxMoney}|" +
+                            $"{userList[i].ReqYear}| " +
+                            $"{userList[i].ReqEngineAmount}|" +
+                            $"{userList[i].ReqEngineType}|" +
+                            $"{userList[i].ReqTransmission}|" +
+                            $"{userList[i].ReqBodyType}|" +
+                            $"{userList[i].ReqState};";
                         streamWriter.WriteLine(s);
                     }
-                }
 
+
+                }
             }
 
         }
+
+        public void SaveFileCar(string linkFile, ObservableCollection<Car> carList)
+        {
+            using (StreamWriter streamWriter = new StreamWriter(linkFile))
+            {
+                for (int i = 0; i < carList.Count; i++)
+                {
+                    string s = $"[car]|{carList[i].HowCar}|" +
+                        $"{carList[i].StateCar}|" +
+                        $"{carList[i].AbroadCar}|" +
+                        $"{carList[i].MarkCar}|" +
+                        $"{carList[i].ModelCar}|" +
+                        $"{carList[i].PriceCar}|" +
+                        $"{carList[i].YearCar}| " +
+                        $"{carList[i].EngineAmountCar}|" +
+                        $"{carList[i].EngineTypeCar}|" +
+                        $"{carList[i].TransmissionCar}|" +
+                        $"{carList[i].BodyTypeCar}| " +
+                        $"{carList[i].RegionCar }| " +
+                        $"{carList[i].CityCar};";
+                    streamWriter.WriteLine(s);
+                }
+            }
+        }
+
+        public void SaveFileUser(string linkFile, ObservableCollection<User> userList)
+        {
+            using (StreamWriter streamWriter = new StreamWriter(linkFile))
+            {
+                for (int i = 0; i < userList.Count; i++)
+                {
+                    string s = $"[user]|" +
+                        $"{userList[i].Phone}|" +
+                        $"{userList[i].RegionUser}|" +
+                        $"{userList[i].City}|" +
+                        $"{userList[i].ReqAuto}|" +
+                        $"{userList[i].ReqMark}|" +
+                        $"{userList[i].MaxMoney}|" +
+                        $"{userList[i].ReqYear}| " +
+                        $"{userList[i].ReqEngineAmount}|" +
+                        $"{userList[i].ReqEngineType}|" +
+                        $"{userList[i].ReqTransmission}|" +
+                        $"{userList[i].ReqBodyType}|" +
+                        $"{userList[i].ReqState};";
+                    streamWriter.WriteLine(s);
+                }
+
+            }
+        }
+
     }
 }

@@ -13,7 +13,7 @@ namespace CarShowRoom.Model
         public string Phone { get; set; }
 
         /* Область */
-        public Region RegionUser { get; set; }
+        public string RegionUser { get; set; }
 
         /* Город */
         public string City { get; set; }
@@ -21,7 +21,7 @@ namespace CarShowRoom.Model
         /* Максимальная цена авто */
         public int MaxMoney { get; set; }
 
-        public Auto ReqAuto { get; set; }
+        public string ReqAuto { get; set; }
 
         /* Req - requirenment */
         public string ReqMark { get; set; }
@@ -33,14 +33,14 @@ namespace CarShowRoom.Model
         public float ReqEngineAmount { get; set; }
 
         /* Тип двигателя */
-        public EngineType ReqEngineType { get; set; }
+        public string ReqEngineType { get; set; }
 
         /* КПП */
-        public Transmission ReqTransmission { get; set; }
+        public string ReqTransmission { get; set; }
 
         /* Тип кузова */
-        public BodyType ReqBodyType { get; set; }
+        public string ReqBodyType { get; set; }
 
-        public State ReqState { get; set; }
+        public string ReqState { get; set; }
     }
 }

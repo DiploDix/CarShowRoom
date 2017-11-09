@@ -24,37 +24,53 @@ namespace CarShowRoom
     /// </summary>
     public partial class MainWindow : Window
     {
-        Uri uriToSearchPage = new Uri("/View/Search.xaml", UriKind.Relative);
-        Uri uriToCarsPage = new Uri("/View/Cars.xaml", UriKind.Relative);
-        Uri uriToUsersPage = new Uri("/View/Users.xaml", UriKind.Relative);
-        Search sear;
-        Cars cars;
-
+        CarsList car = new CarsList();
+        UsersList user = new UsersList();
         FileAction file = new FileAction();
+        Cars carView;
+        Search searchView;
+        Users usersView;
+
+        // Uri uriToSearchPage = new Uri("/View/Search.xaml", UriKind.Relative);
+        //Uri uriToCarsPage = new Uri("/View/Cars.xaml", UriKind.Relative);
+        //Uri uriToUsersPage = new Uri("/View/Users.xaml", UriKind.Relative);
 
         public MainWindow()
         {
             InitializeComponent();
-            sear = new Search();
-            cars = new Cars();
         }
 
         /* Переход во фрейме к странице /View/Search.xaml */
         private void BorderSearch_Click(object sender, MouseButtonEventArgs e)
         {
-            frameWindow.Source = uriToSearchPage;
+            if (searchView == null)
+            {
+                searchView = new Search();
+            }
+
+            frameWindow.Content = searchView.Content;
         }
 
         /* Переход во фрейме к странице /View/Cars.xaml */
         private void BorderCars_Click(object sender, MouseButtonEventArgs e)
         {
-            frameWindow.NavigationService.Navigate(uriToCarsPage);
+            if (carView == null)
+            {
+                carView = new Cars();
+            }
+
+            frameWindow.Content = carView;
         }
 
         /* Переход во фрейме к странице /View/Users.xaml */
         private void BorderUsers_Click(object sender, MouseButtonEventArgs e)
         {
-            frameWindow.Source = uriToUsersPage;
+            if (usersView == null)
+            {
+                usersView = new Users();
+            }
+
+            frameWindow.Content = usersView;
         }
 
         private void ImageUpload_PreviewMouseDown(object sender, MouseButtonEventArgs e)
@@ -63,10 +79,10 @@ namespace CarShowRoom
             openFile.Filter = "Текстовый файл (*.txt)|*.txt";
             openFile.CheckFileExists = true;
             openFile.Multiselect = false;
+
             if (openFile.ShowDialog() == true)
-            {
                 file.UploadFile(openFile.FileName);
-            }
+
         }
 
         private void ImageDownload_PreviewMouseDown(object sender, MouseButtonEventArgs e)
@@ -75,10 +91,9 @@ namespace CarShowRoom
             saveFile.Filter = "Текстовый файл (*.txt)|*.txt";
             saveFile.CheckFileExists = true;
             saveFile.CreatePrompt = true;
+
             if (saveFile.ShowDialog() == true)
-            {
-                file.SaveFile(saveFile.FileName);
-            }
+                file.SaveFileAll (saveFile.FileName, car.CarList, user.UserList);
         }
     }
 }
