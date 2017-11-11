@@ -8,6 +8,9 @@ using System.Windows.Data;
 
 namespace CarShowRoom.ViewModel
 {
+    /// <summary>
+    /// В данный момент не нужен
+    /// </summary>
     class Converter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)

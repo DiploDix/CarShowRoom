@@ -1,28 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using CarShowRoom.Model;
 
 namespace CarShowRoom.ViewModel
 {
-    class UsersList 
+    class UsersList
     {
+        /* Главная коллекция */
         private static ObservableCollection<User> usersList = new ObservableCollection<User>();
 
+        /* Свойство для получение колекции userList */
         public ObservableCollection<User> UserList
         {
-            get
-            {
-                return usersList;
-            }
-            set
-            {
-                usersList = value;
-            }
+            get => usersList;
+            set => usersList = value;
         }
-       
+
     }
 }

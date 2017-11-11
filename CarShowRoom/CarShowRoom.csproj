@@ -63,6 +63,9 @@
     <Compile Include="ViewModel\SearchViewModel.cs" />
     <Compile Include="ViewModel\UsersList.cs" />
     <Compile Include="ViewModel\UserViewModel.cs" />
+    <Compile Include="View\About.xaml.cs">
+      <DependentUpon>About.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Cars.xaml.cs">
       <DependentUpon>Cars.xaml</DependentUpon>
     </Compile>
@@ -87,6 +90,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\About.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Cars.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -149,6 +156,13 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="src\donwload_orange.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="src\about_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="src\download_now_orange.png" />
+    <Resource Include="src\download_now_white.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

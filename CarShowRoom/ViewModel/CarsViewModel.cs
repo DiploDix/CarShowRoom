@@ -13,26 +13,16 @@ namespace CarShowRoom.ViewModel
     class CarsViewModel : INotifyPropertyChanged
     {
         DefaultLists lists = new DefaultLists();
-        ObservableCollection<Car> car = new CarsList().CarList;
-        public event PropertyChangedEventHandler PropertyChanged;
 
-        public void OnPropertyChanged(string property)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(property));
-            }
-        }
+        /* Получаем коллекцию автомобилей */
+        ObservableCollection<Car> car = new CarsList().CarList;
 
         public CarsViewModel() { }
 
-
+        /* Вывод коллекцию в datagridview carGrid */
         public ObservableCollection<Car> GetListCar
         {
-            get
-            {
-                return car;
-            }
+            get => car;
             set
             {
                 car = value;
@@ -40,62 +30,19 @@ namespace CarShowRoom.ViewModel
             }
         }
 
-        public List<string> GetListAuto
+        //public IEnumerable<string> GetListState => Enum.GetNames(typeof(State));
+
+        /* Событие изменения свойства */
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /* Метод изменения свойства */
+        public void OnPropertyChanged(string property)
         {
-            get
+            if (PropertyChanged != null)
             {
-                return lists.ListAuto;
+                PropertyChanged(this, new PropertyChangedEventArgs(property));
             }
         }
-
-        public IEnumerable<string> GetListState
-        {
-            get
-            {
-                return Enum.GetNames(typeof(State));
-            }
-        }
-        public IEnumerable<string> GetListAbroad
-        {
-            get
-            {
-                return Enum.GetNames(typeof(Abroad));
-            }
-        }
-        public IEnumerable<string> GetListEngineType
-        {
-            get
-            {
-                return Enum.GetNames(typeof(EngineType));
-            }
-
-        }
-
-        public IEnumerable<string> GetListTransmission
-        {
-            get
-            {
-                return Enum.GetNames(typeof(Transmission));
-            }
-
-        }
-
-        public IEnumerable<string> GetListBodyTypeCars
-        {
-            get
-            {
-                return Enum.GetNames(typeof(BodyType));
-            }
-
-        }
-        public IEnumerable<string> GetListRegionCars
-        {
-            get
-            {
-                return Enum.GetNames(typeof(Region));
-            }
-        }
-
 
     }
 }

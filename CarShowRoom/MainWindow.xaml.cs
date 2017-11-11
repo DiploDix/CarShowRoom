@@ -30,11 +30,7 @@ namespace CarShowRoom
         Cars carView;
         Search searchView;
         Users usersView;
-
-        // Uri uriToSearchPage = new Uri("/View/Search.xaml", UriKind.Relative);
-        //Uri uriToCarsPage = new Uri("/View/Cars.xaml", UriKind.Relative);
-        //Uri uriToUsersPage = new Uri("/View/Users.xaml", UriKind.Relative);
-
+        About aboutView;
         public MainWindow()
         {
             InitializeComponent();
@@ -44,20 +40,16 @@ namespace CarShowRoom
         private void BorderSearch_Click(object sender, MouseButtonEventArgs e)
         {
             if (searchView == null)
-            {
                 searchView = new Search();
-            }
-
-            frameWindow.Content = searchView.Content;
+            
+            frameWindow.Content = searchView;
         }
 
         /* Переход во фрейме к странице /View/Cars.xaml */
         private void BorderCars_Click(object sender, MouseButtonEventArgs e)
         {
             if (carView == null)
-            {
                 carView = new Cars();
-            }
 
             frameWindow.Content = carView;
         }
@@ -66,13 +58,21 @@ namespace CarShowRoom
         private void BorderUsers_Click(object sender, MouseButtonEventArgs e)
         {
             if (usersView == null)
-            {
                 usersView = new Users();
-            }
-
+            
             frameWindow.Content = usersView;
         }
 
+        private void BorderAbout_Click(object sender, MouseButtonEventArgs e)
+        {
+            if (aboutView == null)
+                aboutView = new About();
+
+            frameWindow.Content = aboutView;
+        }
+
+
+        /* Загрузить колекции с файла */
         private void ImageUpload_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
             OpenFileDialog openFile = new OpenFileDialog();
@@ -82,9 +82,9 @@ namespace CarShowRoom
 
             if (openFile.ShowDialog() == true)
                 file.UploadFile(openFile.FileName);
-
         }
 
+        /* Сохранить как */
         private void ImageDownload_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
             SaveFileDialog saveFile = new SaveFileDialog();
@@ -93,7 +93,13 @@ namespace CarShowRoom
             saveFile.CreatePrompt = true;
 
             if (saveFile.ShowDialog() == true)
-                file.SaveFileAll (saveFile.FileName, car.CarList, user.UserList);
+                file.SaveFileAll(saveFile.FileName, car.CarList, user.UserList);
+        }
+
+        /* Сохранить */
+        private void ImageDownloadNow_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            file.SaveFileAll("current", car.CarList, user.UserList);
         }
     }
 }

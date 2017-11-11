@@ -18,7 +18,7 @@
     <Grid>
         <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalAlignment="Stretch">
             <Grid HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="Auto">
-                <DataGrid Name="carGrid" Grid.Row="1" Height="Auto" CanUserAddRows="True" AutoGenerateColumns="False" HorizontalAlignment="Left" ItemsSource="{Binding Source={StaticResource carsViewModel}, NotifyOnSourceUpdated=True, Path=GetListCar, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" Margin="5">
+                <DataGrid Name="carGrid" Grid.Row="1" Height="500" Width="Auto" CanUserAddRows="True" AutoGenerateColumns="False" HorizontalAlignment="Left" ItemsSource="{Binding Source={StaticResource carsViewModel}, NotifyOnSourceUpdated=True, Path=GetListCar, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" Margin="5">
                     <DataGrid.Columns>
                         <DataGridComboBoxColumn Header="Категория" TextBinding="{Binding Path=HowCar}"  ItemsSource="{Binding Source={StaticResource lists}, Path=ListAuto}"/>
                         <DataGridComboBoxColumn Header="Состояние" TextBinding="{Binding Path=StateCar}"  ItemsSource="{Binding Source={StaticResource lists}, Path=ListState}"/>

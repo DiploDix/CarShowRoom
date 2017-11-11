@@ -69,3 +69,5 @@ D:\Work\CarShowRoom\CarShowRoom\obj\Debug\CarShowRoom.csproj.CoreCompileInputs.c
 D:\Work\CarShowRoom\CarShowRoom\obj\Debug\CarShowRoom.exe
 D:\Work\CarShowRoom\CarShowRoom\obj\Debug\CarShowRoom.pdb
 D:\Work\CarShowRoom\CarShowRoom\obj\Debug\CarShowRoom.csprojResolveAssemblyReference.cache
+D:\Work\CarShowRoom\CarShowRoom\obj\Debug\View\About.g.cs
+D:\Work\CarShowRoom\CarShowRoom\obj\Debug\View\About.baml

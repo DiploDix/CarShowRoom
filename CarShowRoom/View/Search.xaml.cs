@@ -12,6 +12,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Microsoft.Win32;
+using CarShowRoom.ViewModel;
+using CarShowRoom.Model;
+
 
 namespace CarShowRoom.View
 {
@@ -23,6 +27,18 @@ namespace CarShowRoom.View
         public Search()
         {
             InitializeComponent();
+        }
+
+        private void btnSave_Click(object sender, RoutedEventArgs e)
+        {
+            FileAction file = new FileAction();
+            SaveFileDialog saveFile = new SaveFileDialog();
+            saveFile.Filter = "Текстовый файл (*.txt)|*.txt";
+            saveFile.CheckFileExists = true;
+            saveFile.CreatePrompt = true;
+
+            if (saveFile.ShowDialog() == true)
+                file.SaveFileCar(saveFile.FileName, SearchViewModel.car);
         }
     }
 }

@@ -11,18 +11,14 @@ namespace CarShowRoom.ViewModel
 {
     public class CarsList
     {
+        /* Главная коллекция БД автомобилей */
         private static ObservableCollection<Car> carsList = new ObservableCollection<Car>();
 
+        /* Свойство для получения коллекции carsList */
         public ObservableCollection<Car> CarList
         {
-            get
-            {
-                return carsList;
-            }
-            set
-            {
-                carsList = value;
-            }
+            get => carsList;
+            set => carsList = value;
         }
     }
 }

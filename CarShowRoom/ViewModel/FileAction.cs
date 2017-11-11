@@ -1,26 +1,25 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.ComponentModel;
 using System.Text.RegularExpressions;
 using CarShowRoom.Model;
 
 namespace CarShowRoom.ViewModel
 {
+    /// <summary>
+    /// Работа с файлом txt
+    /// </summary>
     class FileAction
     {
         CarsList cars = new CarsList();
         UsersList users = new UsersList();
         DefaultLists lists = new DefaultLists();
 
-        private string link;
+        private string link; // ссылка на предыдущий файл
 
         public FileAction() { }
 
-        /* Загрузка БД */
+        /* Загрузка с файла коллекций автомобиля или пользователя */
         public void UploadFile(string link)
         {
             this.link = link;
@@ -42,7 +41,7 @@ namespace CarShowRoom.ViewModel
             if (read.Length != 0)
             {
                 string[] mas = read.Split(';');
-                
+
                 if (cars.CarList != null)
                     cars.CarList.Clear();
                 if (users != null)
@@ -65,6 +64,7 @@ namespace CarShowRoom.ViewModel
             }
         }
 
+        /* Запись автомобилей в коллекцию */
         void UploadCar(string[] masValue)
         {
             try
@@ -72,24 +72,17 @@ namespace CarShowRoom.ViewModel
                 cars.CarList.Add(new Car
                 {
                     HowCar = lists.ListAuto.Find(x => x.ToLower() == masValue[1].ToLower()),
-                    //(Auto)Enum.Parse(typeof(Auto), masValue[1], true),
                     StateCar = lists.ListState.Find(x => x.ToLower() == masValue[2].ToLower()),
-                    //StateCar = (State)Enum.Parse(typeof(State), masValue[2], true),
                     AbroadCar = lists.ListAbroad.Find(x => x.ToLower() == masValue[3].ToLower()),
-                    //AbroadCar = (Abroad)Enum.Parse(typeof(Abroad), masValue[3], true),
                     MarkCar = masValue[4],
                     ModelCar = masValue[5],
                     PriceCar = int.Parse(masValue[6].Replace(" ", "")),
                     YearCar = int.Parse(masValue[7].Replace(" ", "")),
                     EngineAmountCar = float.Parse(masValue[8].Replace(" ", "")),
                     EngineTypeCar = lists.ListEngineType.Find(x => x.ToLower() == masValue[9].ToLower()),
-                    //EngineTypeCar = (EngineType)Enum.Parse(typeof(EngineType), masValue[9], true),
                     TransmissionCar = lists.ListTransmission.Find(x => x == masValue[10]),
-                    //TransmissionCar = (Transmission)Enum.Parse(typeof(Transmission), masValue[10], true),
                     BodyTypeCar = lists.ListBodyTypeCars.Find(x => x == masValue[11]),
-                    //BodyTypeCar = (BodyType)Enum.Parse(typeof(BodyType), masValue[11], true),
                     RegionCar = lists.ListRegionCars.Find(x => x.ToLower() == masValue[12].Trim(' ').ToLower()),
-                    //RegionCar = (Region)Enum.Parse(typeof(Region), masValue[12], true),
                     CityCar = masValue[13]
                 });
             }
@@ -99,6 +92,7 @@ namespace CarShowRoom.ViewModel
             }
         }
 
+        /* Запись пользователей в коллекцию */
         void UploadUser(string[] masValue)
         {
             try
@@ -108,22 +102,16 @@ namespace CarShowRoom.ViewModel
 
                     Phone = masValue[1],
                     RegionUser = lists.ListRegionCars.Find(x => x.ToLower() == masValue[2].ToLower()),
-                    //RegionUser = (Region)Enum.Parse(typeof(Region), masValue[2]),
                     City = masValue[3],
                     ReqAuto = lists.ListAuto.Find(x => x.ToLower() == masValue[4].ToLower()),
-                    //ReqAuto = (Auto)Enum.Parse(typeof(Auto), masValue[4]),
                     ReqMark = masValue[5],
                     MaxMoney = int.Parse(masValue[6].Replace(" ", "")),
                     ReqYear = int.Parse(masValue[7].Replace(" ", "")),
                     ReqEngineAmount = float.Parse(masValue[8].Replace(" ", "")),
                     ReqEngineType = lists.ListEngineType.Find(x => x.ToLower() == masValue[9].ToLower()),
-                    //ReqEngineType = (EngineType)Enum.Parse(typeof(EngineType), masValue[9]),
                     ReqTransmission = lists.ListTransmission.Find(x => x.ToLower() == masValue[10].ToLower()),
-                    //ReqTransmission = (Transmission)Enum.Parse(typeof(Transmission), masValue[10]),
                     ReqBodyType = lists.ListBodyTypeCars.Find(x => x.ToLower() == masValue[11].ToLower()),
-                    //ReqBodyType = (BodyType)Enum.Parse(typeof(BodyType), masValue[11]),
                     ReqState = lists.ListState.Find(x => x.ToLower() == masValue[12].ToLower())
-                    //ReqState = (State)Enum.Parse(typeof(State), masValue[12])
                 });
             }
             catch (Exception e)
@@ -132,9 +120,10 @@ namespace CarShowRoom.ViewModel
             }
         }
 
+        /* Сохраняет коллекции автомобилей и пользователей в один файл */
         public void SaveFileAll(string newLink, ObservableCollection<Car> carList, ObservableCollection<User> userList)
         {
-            if (!string.IsNullOrEmpty(newLink))
+            if (newLink != "current")
                 link = newLink;
 
             using (StreamWriter streamWriter = new StreamWriter(link))
@@ -186,6 +175,7 @@ namespace CarShowRoom.ViewModel
 
         }
 
+        /* Сохраняет коллекцию автомобилей */
         public void SaveFileCar(string linkFile, ObservableCollection<Car> carList)
         {
             using (StreamWriter streamWriter = new StreamWriter(linkFile))
@@ -210,6 +200,7 @@ namespace CarShowRoom.ViewModel
             }
         }
 
+        /* Сохраняет коллекцию пользователей */
         public void SaveFileUser(string linkFile, ObservableCollection<User> userList)
         {
             using (StreamWriter streamWriter = new StreamWriter(linkFile))

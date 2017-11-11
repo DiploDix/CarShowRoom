@@ -16,7 +16,7 @@
     <Grid>
         <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalAlignment="Stretch">
             <Grid HorizontalAlignment="Left" Width="Auto" Height="auto">
-                <DataGrid Name="userGrid" AutoGenerateColumns="False" HorizontalAlignment="Stretch" Height="360" VerticalAlignment="Top" ItemsSource="{Binding Source={StaticResource userViewModel}, NotifyOnSourceUpdated=True, Path=GetListUser, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" Margin="5">
+                <DataGrid Name="userGrid" AutoGenerateColumns="False" HorizontalAlignment="Stretch" Height="500" Width="Auto" VerticalAlignment="Top" ItemsSource="{Binding Source={StaticResource userViewModel}, NotifyOnSourceUpdated=True, Path=GetListUser, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" Margin="5">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Телефон" Binding="{Binding Path=Phone}"/>
                         <DataGridComboBoxColumn Header="Область" TextBinding="{Binding Path=RegionUser}"  ItemsSource="{Binding Source={StaticResource lists}, Path=ListRegionCars}"/>
