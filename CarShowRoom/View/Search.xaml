@@ -10,12 +10,11 @@
       Title="Search" Background="White">
     <Page.Resources>
         <vm:SearchViewModel x:Key="searchVM"/>
-        <vm:Converter x:Key="conv"/>
         <local:DefaultLists x:Key="lists"/>
     </Page.Resources>
     <Grid>
         <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalAlignment="Stretch">
-            <Grid  HorizontalAlignment="Stretch" VerticalAlignment="Top"  Width="Auto" Height="600">
+            <Grid  HorizontalAlignment="Stretch" VerticalAlignment="Top"  Width="Auto" Height="Auto">
                 <StackPanel Orientation="Vertical" Height="400" VerticalAlignment="Top"  >
                     <TextBlock Text="Основные параметры" Margin="5" FontSize="14" FontWeight="Bold"/>
 

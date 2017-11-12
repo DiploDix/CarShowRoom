@@ -55,10 +55,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="DefaultLists.cs" />
-    <Compile Include="Model\Enums.cs" />
     <Compile Include="ViewModel\CarsList.cs" />
     <Compile Include="ViewModel\CarsViewModel.cs" />
-    <Compile Include="ViewModel\Converter.cs" />
     <Compile Include="ViewModel\FileAction.cs" />
     <Compile Include="ViewModel\SearchViewModel.cs" />
     <Compile Include="ViewModel\UsersList.cs" />
@@ -69,14 +67,14 @@
     <Compile Include="View\Cars.xaml.cs">
       <DependentUpon>Cars.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Help.xaml.cs">
+      <DependentUpon>Help.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Search.xaml.cs">
       <DependentUpon>Search.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Users.xaml.cs">
       <DependentUpon>Users.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\Welcome.xaml.cs">
-      <DependentUpon>Welcome.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -98,15 +96,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Help.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Search.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Users.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\Welcome.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -149,9 +147,6 @@
     <Resource Include="src\users_white.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="src\search_orange.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="src\donwload_white.png" />
   </ItemGroup>
   <ItemGroup>
@@ -163,6 +158,13 @@
   <ItemGroup>
     <Resource Include="src\download_now_orange.png" />
     <Resource Include="src\download_now_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="src\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="src\question_orange.png" />
+    <Resource Include="src\question_white.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

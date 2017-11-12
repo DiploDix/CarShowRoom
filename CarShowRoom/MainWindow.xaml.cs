@@ -31,6 +31,7 @@ namespace CarShowRoom
         Search searchView;
         Users usersView;
         About aboutView;
+        Help helpView;
         public MainWindow()
         {
             InitializeComponent();
@@ -100,6 +101,14 @@ namespace CarShowRoom
         private void ImageDownloadNow_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
             file.SaveFileAll("current", car.CarList, user.UserList);
+        }
+
+        private void ImageHelpView_PreviewMouseDown(object sender, MouseButtonEventArgs e )
+        {
+            if (helpView == null)
+                helpView = new Help();
+
+            frameWindow.Content = helpView;
         }
     }
 }

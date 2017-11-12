@@ -10,7 +10,6 @@
       Title="Users">
     <Page.Resources>
         <vm:UserViewModel x:Key="userViewModel"/>
-        <vm:Converter x:Key="conv"/>
         <local:DefaultLists x:Key="lists"/>
     </Page.Resources>
     <Grid>

@@ -6,10 +6,34 @@
       xmlns:local="clr-namespace:CarShowRoom.View"
       mc:Ignorable="d" 
        VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
-      Title="About">
-    <Grid>
+      Title="About" Width="500" Height="500" Background="White" FontSize="14">
+    <Grid >
         <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalAlignment="Stretch">
-            <TextBlock Text="DESCRIPTION me program"/>
+            <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Stretch" VerticalAlignment="Top">
+                <StackPanel Orientation="Vertical">
+                    <Image Source="/src/user.png" Width="128" Height="128"/>
+                    <TextBlock Text="Контакты" Margin="0,10,0,0" TextAlignment="Center" FontWeight="DemiBold" />
+                    <TextBlock Text="Skype: officeskype**" Margin="0,10,0,0" TextAlignment="Left" FontWeight="Light"/>
+                    <TextBlock Text="E-mail: myemail@gmail.com" Margin="0,10,0,0" TextAlignment="Left" FontWeight="Light"/>
+                    <TextBlock Text="Phone: +38 (066) 428 10 24" Margin="0,10,0,0" TextAlignment="Left" FontWeight="Light"/>
+
+                </StackPanel>
+
+                <StackPanel Margin="20,0,0,0">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Разработал:" Width="100" Padding="0,0,10,0"   FontWeight="DemiBold"/>
+                        <TextBlock Text="Альберт Яман Хасанович" FontWeight="Light"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                        <TextBlock Text="Группа:" Width="100" Padding="0,0,10,0"  FontWeight="DemiBold"/>
+                        <TextBlock Text="СУА-15-1"  FontWeight="Light"/>
+                    </StackPanel>
+
+                    <TextBlock Text="Обо мне:" Width="Auto" Margin="0,10,0,0"  FontWeight="DemiBold" TextAlignment="Left"/>
+                    <TextBlock Text="Текст текстТекст текстТекст " Width="Auto" Height="100" Background="#F0F0F0" Margin="0,10,0,0"  FontWeight="DemiBold" TextAlignment="Left"/>
+                </StackPanel>
+            </StackPanel>
         </ScrollViewer>
     </Grid>
 </Page>

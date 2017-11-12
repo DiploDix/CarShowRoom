@@ -8,6 +8,14 @@
         VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
         Title="Автосалон" FontSize="12" Visibility="Visible" Height="800" Width="1024">
     <Window.Resources>
+        <Style x:Key="iconStyleQuestion" TargetType="Image">
+            <Setter Property="Image.Source" Value="/src/question_white.png"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Image.Source" Value="/src/question_orange.png"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
         <Style x:Key="iconStyleDonwloadNow" TargetType="Image">
             <Setter Property="Image.Source" Value="/src/download_now_white.png"/>
             <Style.Triggers>
@@ -61,16 +69,17 @@
                 <Image Source="/src/users_white.png" Width="20" Height="20" Margin="10,20,10,20"/>
                 <TextBlock Name="textBlockUser" TextAlignment="Center" VerticalAlignment="Center" FontSize="15">ПОЛЬЗОВАТЕЛИ</TextBlock>
             </StackPanel>
-            <StackPanel ToolTip="Описание" Style="{StaticResource MouseOverStackPanel}" Height="100" PreviewMouseDown="BorderAbout_Click" VerticalAlignment="Top"  Orientation="Horizontal">
+            <StackPanel ToolTip="Про автора программы" Style="{StaticResource MouseOverStackPanel}" Height="100" PreviewMouseDown="BorderAbout_Click" VerticalAlignment="Top"  Orientation="Horizontal">
                 <Image Source="/src/about_white.png" Width="20" Height="20" Margin="10,20,10,20"/>
-                <TextBlock Name="textBlockAbout" TextAlignment="Center" VerticalAlignment="Center" FontSize="15">О ПРОГРАММЕ</TextBlock>
+                <TextBlock Name="textBlockAbout" TextAlignment="Center" VerticalAlignment="Center" FontSize="15">О АВТОРЕ</TextBlock>
             </StackPanel>
             <StackPanel Height="50" VerticalAlignment="Top"  Orientation="Horizontal">
                 <Image Style="{StaticResource iconStyleUpload}" PreviewMouseDown="ImageUpload_PreviewMouseDown" ToolTip="Загрузить" Width="20" Height="20" Margin="10,0,0,0" VerticalAlignment="Center"/>
                 <Image Style="{StaticResource iconStyleDonwloadNow}" PreviewMouseDown="ImageDownloadNow_PreviewMouseDown" ToolTip="Сохранить" Width="20" Height="20" Margin="10,0,0,0" VerticalAlignment="Center"/>
                 <Image Style="{StaticResource iconStyleDonwload}" PreviewMouseDown="ImageDownload_PreviewMouseDown" ToolTip="Сохранить как..." Width="20" Height="20" Margin="10,0,0,0" VerticalAlignment="Center"/>
+                <Image Style="{StaticResource iconStyleQuestion}" PreviewMouseDown="ImageHelpView_PreviewMouseDown" ToolTip="Помощь" Width="20" Height="20" Margin="10,0,0,0" VerticalAlignment="Center"/>
             </StackPanel>
         </StackPanel>
-        <Frame Content="Frame" Height="700"  Name="frameWindow" Source="/View/Welcome.xaml" NavigationUIVisibility="Hidden" HorizontalAlignment="Stretch" Margin="170,0,0,0" VerticalAlignment="Top"/>
+        <Frame Content="Frame" Height="Auto"  Name="frameWindow" Source="/View/Help.xaml" NavigationUIVisibility="Hidden" HorizontalAlignment="Stretch" Margin="170,0,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>

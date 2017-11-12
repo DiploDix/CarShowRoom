@@ -292,6 +292,7 @@ namespace CarShowRoom.ViewModel
             }
         }
 
+        
 
         public event PropertyChangedEventHandler PropertyChanged;
 

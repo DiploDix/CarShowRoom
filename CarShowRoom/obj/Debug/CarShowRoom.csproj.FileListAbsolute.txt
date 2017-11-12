@@ -48,7 +48,6 @@ D:\Work\CarShowRoom2\CarShowRoom\obj\Debug\CarShowRoom.csprojResolveAssemblyRefe
 D:\Work\CarShowRoom\CarShowRoom\obj\Debug\MainWindow.g.cs
 D:\Work\CarShowRoom\CarShowRoom\obj\Debug\View\Cars.g.cs
 D:\Work\CarShowRoom\CarShowRoom\obj\Debug\View\Users.g.cs
-D:\Work\CarShowRoom\CarShowRoom\obj\Debug\View\Welcome.g.cs
 D:\Work\CarShowRoom\CarShowRoom\obj\Debug\App.g.cs
 D:\Work\CarShowRoom\CarShowRoom\obj\Debug\GeneratedInternalTypeHelper.g.cs
 D:\Work\CarShowRoom\CarShowRoom\obj\Debug\CarShowRoom_MarkupCompile.cache
@@ -61,7 +60,6 @@ D:\Work\CarShowRoom\CarShowRoom\obj\Debug\MainWindow.baml
 D:\Work\CarShowRoom\CarShowRoom\obj\Debug\View\Cars.baml
 D:\Work\CarShowRoom\CarShowRoom\obj\Debug\View\Search.baml
 D:\Work\CarShowRoom\CarShowRoom\obj\Debug\View\Users.baml
-D:\Work\CarShowRoom\CarShowRoom\obj\Debug\View\Welcome.baml
 D:\Work\CarShowRoom\CarShowRoom\obj\Debug\CarShowRoom.g.resources
 D:\Work\CarShowRoom\CarShowRoom\obj\Debug\CarShowRoom.Properties.Resources.resources
 D:\Work\CarShowRoom\CarShowRoom\obj\Debug\CarShowRoom.csproj.GenerateResource.Cache
@@ -71,3 +69,5 @@ D:\Work\CarShowRoom\CarShowRoom\obj\Debug\CarShowRoom.pdb
 D:\Work\CarShowRoom\CarShowRoom\obj\Debug\CarShowRoom.csprojResolveAssemblyReference.cache
 D:\Work\CarShowRoom\CarShowRoom\obj\Debug\View\About.g.cs
 D:\Work\CarShowRoom\CarShowRoom\obj\Debug\View\About.baml
+D:\Work\CarShowRoom\CarShowRoom\obj\Debug\View\Help.g.cs
+D:\Work\CarShowRoom\CarShowRoom\obj\Debug\View\Help.baml

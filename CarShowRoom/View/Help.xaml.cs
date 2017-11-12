@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace CarShowRoom.View
 {
     /// <summary>
-    /// Логика взаимодействия для Welcome.xaml
+    /// Логика взаимодействия для Help.xaml
     /// </summary>
-    public partial class Welcome : Page
+    public partial class Help : Page
     {
-        public Welcome()
+        public Help()
         {
             InitializeComponent();
         }

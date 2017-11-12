@@ -2,9 +2,10 @@
 {
     public class Car
     {
+        /*  бу, новое) */
         public string HowCar { get; set; }
 
-        /* Состояние авто(бу, новое) */
+        /* Состояние авто */
         public string StateCar { get; set; }
 
         /* Отечественное или иностранное авто */
