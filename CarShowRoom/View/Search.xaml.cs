@@ -38,7 +38,14 @@ namespace CarShowRoom.View
             saveFile.CreatePrompt = true;
 
             if (saveFile.ShowDialog() == true)
-                file.SaveFileCar(saveFile.FileName, SearchViewModel.car);
+                file.SaveFileCar(saveFile.FileName, ((SearchViewModel)this.Resources["searchVM"]).GetListCar);
+        }
+
+        /* Reset search engine */
+        private void btnReset_Click(object sender, RoutedEventArgs e)
+        {
+            SearchViewModel search = (SearchViewModel)this.Resources["searchVM"];
+            search.UpdateSearch();
         }
     }
 }

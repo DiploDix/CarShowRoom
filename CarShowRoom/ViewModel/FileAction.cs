@@ -126,6 +126,9 @@ namespace CarShowRoom.ViewModel
             if (newLink != "current")
                 link = newLink;
 
+            if (String.IsNullOrEmpty(link))
+                return;
+
             using (StreamWriter streamWriter = new StreamWriter(link))
             {
                 if (carList != null)
@@ -138,12 +141,12 @@ namespace CarShowRoom.ViewModel
                             $"{carList[i].MarkCar}|" +
                             $"{carList[i].ModelCar}|" +
                             $"{carList[i].PriceCar}|" +
-                            $"{carList[i].YearCar}| " +
+                            $"{carList[i].YearCar}|" +
                             $"{carList[i].EngineAmountCar}|" +
                             $"{carList[i].EngineTypeCar}|" +
                             $"{carList[i].TransmissionCar}|" +
-                            $"{carList[i].BodyTypeCar}| " +
-                            $"{carList[i].RegionCar }| " +
+                            $"{carList[i].BodyTypeCar}|" +
+                            $"{carList[i].RegionCar}|" +
                             $"{carList[i].CityCar};";
                         streamWriter.WriteLine(s);
                     }

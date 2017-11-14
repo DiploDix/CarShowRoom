@@ -13,7 +13,7 @@ namespace CarShowRoom.ViewModel
     {
         CarsList cars = new CarsList();
         ObservableCollection<Car> defCar;
-        public static ObservableCollection<Car> car = new ObservableCollection<Car>();
+        private ObservableCollection<Car> car = new ObservableCollection<Car>();
         DefaultLists lists = new DefaultLists();
         string _usedOrNewCar = "Все";
         string _stateCar = "Все";
@@ -35,17 +35,9 @@ namespace CarShowRoom.ViewModel
             SearchEngine();
         }
 
-        public void DisplayDefaultCollection()
+        public void UpdateSearch()
         {
-            _usedOrNewCar = "Все";
-            _stateCar = "Все";
-            _producerCar = "Все";
-            _engineTypeCar = "Все";
-            _transmissionCar = "Все";
-            _typeCar = "Все";
-            _regionCar = "Все";
-            _modelCar = "";
-            _markCar = "";
+            SearchEngine();
         }
 
         /// <summary>
@@ -119,6 +111,7 @@ namespace CarShowRoom.ViewModel
             {
                 _typeCar = value;
                 SearchEngine();
+                
             }
         }
         /// <summary>
@@ -293,7 +286,6 @@ namespace CarShowRoom.ViewModel
         }
 
         
-
         public event PropertyChangedEventHandler PropertyChanged;
 
         public void OnPropertyChanged(string property)

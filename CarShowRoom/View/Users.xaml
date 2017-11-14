@@ -25,7 +25,7 @@
                         <DataGridTextColumn Header="Марка" Binding="{Binding Path=ReqMark}"/>
                         <DataGridTextColumn Header="Цена" Binding="{Binding Path=MaxMoney}"/>
                         <DataGridTextColumn Header="Год" Binding="{Binding Path=ReqYear}"/>
-                        <DataGridComboBoxColumn Header="Тип двигателя" TextBinding="{Binding Path=ReqEngineType}"  ItemsSource="{Binding Source={StaticResource lists}, Path=ListEngineType}"/>
+                        <DataGridComboBoxColumn Header="Топливо" TextBinding="{Binding Path=ReqEngineType}"  ItemsSource="{Binding Source={StaticResource lists}, Path=ListEngineType}"/>
                         <DataGridTextColumn Header="Обьем двигателя" Binding="{Binding Path=ReqEngineAmount}"/>
                         <DataGridComboBoxColumn Header="Трансмиссия" TextBinding="{Binding Path=ReqTransmission}"  ItemsSource="{Binding Source={StaticResource lists}, Path=ListTransmission}"/>
                         <DataGridComboBoxColumn Header="Тип кузова" TextBinding="{Binding Path=ReqBodyType}"  ItemsSource="{Binding Source={StaticResource lists}, Path=ListBodyTypeCars}"/>

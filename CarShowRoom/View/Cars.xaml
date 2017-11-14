@@ -26,7 +26,7 @@
                         <DataGridTextColumn Header="Модель" Binding="{Binding Path=ModelCar}"/>
                         <DataGridTextColumn Header="Цена" Binding="{Binding Path=PriceCar}"/>
                         <DataGridTextColumn Header="Год" Binding="{Binding Path=YearCar}"/>
-                        <DataGridComboBoxColumn Header="Тип двигателя" TextBinding="{Binding Path=EngineTypeCar}" ItemsSource="{Binding Source={StaticResource lists}, Path=ListEngineType}"/>
+                        <DataGridComboBoxColumn Header="Топливо" TextBinding="{Binding Path=EngineTypeCar}" ItemsSource="{Binding Source={StaticResource lists}, Path=ListEngineType}"/>
                         <DataGridTextColumn Header="Обьем двигателя" Binding="{Binding Path=EngineAmountCar}"/>
                         <DataGridComboBoxColumn Header="Трансмиссия" TextBinding="{Binding Path=TransmissionCar}" ItemsSource="{Binding Source={StaticResource lists}, Path=ListTransmission}"/>
                         <DataGridComboBoxColumn Header="Тип кузова" TextBinding="{Binding Path=BodyTypeCar}" ItemsSource="{Binding Source={StaticResource lists}, Path=ListBodyTypeCars}"/>

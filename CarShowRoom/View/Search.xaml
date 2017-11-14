@@ -97,7 +97,7 @@
 
                         <StackPanel Orientation="Horizontal" Height="30" VerticalAlignment="Top" Margin="10,0,0,0">
                             <TextBlock Name="regionText" Text="Область"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="20" Width="50" TextAlignment="Left"/>
-                            <ComboBox Name="regionBox" SelectedItem="{Binding Source={StaticResource searchVM},Path=SetRegion,Mode=TwoWay}" 
+                            <ComboBox Name="regionBox" SelectedItem="{Binding Source={StaticResource searchVM},Path=SetRegion,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True}" 
                                   Height="25" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
                                   Margin="10,0,0,0"  ItemsSource="{Binding Source={StaticResource lists}, Path=ListRegionCarsSearch}" 
                                   Width="100"/>
@@ -106,7 +106,8 @@
                     </StackPanel>
                     
                     <StackPanel Margin="5" Orientation="Horizontal" Height="Auto">
-                        <Button Content="Сохранить выборку" Margin="5" Padding="5" FontSize="12" Click="btnSave_Click"/>
+                        <Button Content="Сохранить список" Margin="5" Padding="5" FontSize="12" Click="btnSave_Click"/>
+                        <Button Content="Обновить список" Margin="5" Padding="5" FontSize="12" Click="btnReset_Click"/>
                     </StackPanel>
                     
                 </StackPanel>
@@ -115,12 +116,12 @@
                     <DataGrid.Columns>
                         <DataGridComboBoxColumn Header="Категория" TextBinding="{Binding Path=HowCar}"  ItemsSource="{Binding Source={StaticResource lists}, Path=ListAuto}"/>
                         <DataGridComboBoxColumn Header="Состояние" TextBinding="{Binding Path=StateCar}"  ItemsSource="{Binding Source={StaticResource lists}, Path=ListState}"/>
-                        <DataGridComboBoxColumn Header="Abroad" TextBinding="{Binding Path=AbroadCar}" ItemsSource="{Binding Source={StaticResource lists}, Path=ListAbroad}"/>
+                        <DataGridComboBoxColumn Header="Производитель" TextBinding="{Binding Path=AbroadCar}" ItemsSource="{Binding Source={StaticResource lists}, Path=ListAbroad}"/>
                         <DataGridTextColumn Header="Марка" Binding="{Binding Path=MarkCar}"/>
                         <DataGridTextColumn Header="Модель" Binding="{Binding Path=ModelCar}"/>
                         <DataGridTextColumn Header="Цена" Binding="{Binding Path=PriceCar}"/>
                         <DataGridTextColumn Header="Год" Binding="{Binding Path=YearCar}"/>
-                        <DataGridComboBoxColumn Header="Тип двигателя" TextBinding="{Binding Path=EngineTypeCar}" ItemsSource="{Binding Source={StaticResource lists}, Path=ListEngineType}"/>
+                        <DataGridComboBoxColumn Header="Топливо" TextBinding="{Binding Path=EngineTypeCar}" ItemsSource="{Binding Source={StaticResource lists}, Path=ListEngineType}"/>
                         <DataGridTextColumn Header="Обьем двигателя" Binding="{Binding Path=EngineAmountCar}"/>
                         <DataGridComboBoxColumn Header="Трансмиссия" TextBinding="{Binding Path=TransmissionCar}" ItemsSource="{Binding Source={StaticResource lists}, Path=ListTransmission}"/>
                         <DataGridComboBoxColumn Header="Тип кузова" TextBinding="{Binding Path=BodyTypeCar}" ItemsSource="{Binding Source={StaticResource lists}, Path=ListBodyTypeCars}"/>
