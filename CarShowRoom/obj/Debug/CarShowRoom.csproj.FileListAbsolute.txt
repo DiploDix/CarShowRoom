@@ -71,3 +71,5 @@ D:\Work\CarShowRoom\CarShowRoom\obj\Debug\View\About.g.cs
 D:\Work\CarShowRoom\CarShowRoom\obj\Debug\View\About.baml
 D:\Work\CarShowRoom\CarShowRoom\obj\Debug\View\Help.g.cs
 D:\Work\CarShowRoom\CarShowRoom\obj\Debug\View\Help.baml
+D:\Work\CarShowRoom\CarShowRoom\obj\Debug\View\SelectionCarWindow.g.cs
+D:\Work\CarShowRoom\CarShowRoom\obj\Debug\View\SelectionCarWindow.baml

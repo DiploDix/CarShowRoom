@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Text;
-using System.Collections;
-using System.ComponentModel;
+using System.Threading.Tasks;
 using CarShowRoom.Model;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
+
 namespace CarShowRoom.ViewModel
 {
-    class SearchViewModel : INotifyPropertyChanged
+    class SelectionCarViewModel : INotifyPropertyChanged
     {
         CarsList cars = new CarsList();
         ObservableCollection<Car> defCar;
@@ -29,160 +29,27 @@ namespace CarShowRoom.ViewModel
         float _engineAmount = 0.0f;
 
 
-        public SearchViewModel()
+        public SelectionCarViewModel()
         {
             defCar = cars.CarList;
+        }
+
+        public void SelectionCar(User u)
+        {
+            defCar = cars.CarList;
+            _usedOrNewCar = String.IsNullOrEmpty(u.ReqAuto) ? "Все" : u.ReqAuto;
+            _stateCar = String.IsNullOrEmpty(u.ReqState) ? "Все" : u.ReqState;
+            _producerCar = "Все";
+            _engineTypeCar = String.IsNullOrEmpty(u.ReqEngineType) ? "Все" : u.ReqEngineType;
+            _transmissionCar = String.IsNullOrEmpty(u.ReqTransmission) ? "Все" : u.ReqTransmission;
+            _typeCar = String.IsNullOrEmpty(u.ReqBodyType) ? "Все" : u.ReqBodyType;
+            _regionCar = String.IsNullOrEmpty(u.RegionUser) ? "Все" : u.RegionUser;
+            _markCar = String.IsNullOrEmpty(u.ReqMark) ? "" : u.ReqMark;
+            _modelCar = "";
+            _yearCar = u.ReqYear == 0 ? 0 : u.ReqYear;
+            _priceCar = u.MaxMoney;
+            _engineAmount = u.ReqEngineAmount;
             SearchEngine();
-        }
-
-        public void UpdateSearch()
-        {
-            SearchEngine();
-        }
-
-        /// <summary>
-        /// Производитель авто
-        /// </summary>
-        public string SetProducer
-        {
-            get => _producerCar; set
-            {
-                _producerCar = value;
-                SearchEngine();
-            }
-        }
-
-        /// <summary>
-        /// Состояние авто
-        /// </summary>
-        public string SetState
-        {
-            get => _stateCar;
-            set
-            {
-                _stateCar = value;
-                SearchEngine();
-            }
-        }
-
-        /// <summary>
-        /// Поиск авто
-        /// </summary>
-        public string SetUsedOrNew
-        {
-            get => _usedOrNewCar;
-            set
-            {
-                _usedOrNewCar = value;
-                SearchEngine();
-            }
-        }
-        /// <summary>
-        /// Тип двигателя
-        /// </summary>
-        public string SetEngineType
-        {
-            get => _engineTypeCar;
-            set
-            {
-                _engineTypeCar = value;
-                SearchEngine();
-            }
-        }
-        /// <summary>
-        /// Тип трансмиссии
-        /// </summary>
-        public string SetTransmission
-        {
-            get => _transmissionCar;
-            set
-            {
-                _transmissionCar = value;
-                SearchEngine();
-            }
-        }
-        /// <summary>
-        /// Тип кузова
-        /// </summary>
-        public string SetBodyType
-        {
-            get => _typeCar;
-            set
-            {
-                _typeCar = value;
-                SearchEngine();
-                
-            }
-        }
-        /// <summary>
-        /// Область 
-        /// </summary>
-        public string SetRegion
-        {
-            get => _regionCar;
-            set
-            {
-                _regionCar = value;
-                SearchEngine();
-            }
-        }
-        /// <summary>
-        /// Марка авто
-        /// </summary>
-        public string SetMark
-        {
-            get => _markCar;
-            set
-            {
-                _markCar = value;
-                SearchEngine();
-            }
-        }
-        /// <summary>
-        /// Модель авто
-        /// </summary>
-        public string SetModel
-        {
-            get => _modelCar;
-            set
-            {
-                _modelCar = value;
-                SearchEngine();
-            }
-        }
-        /// <summary>
-        /// Год авто
-        /// </summary>
-        public int SetYear
-        {
-            get => _yearCar;
-            set
-            {
-                _yearCar = value;
-                SearchEngine();
-            }
-        }
-        /// <summary>
-        /// Цена авто
-        /// </summary>
-        public int SetPrice
-        {
-            get => _priceCar;
-            set
-            {
-                _priceCar = value;
-                SearchEngine();
-            }
-        }
-
-        public float SetEngineAmount
-        {
-            get => _engineAmount;
-            set
-            {
-                _engineAmount = value;
-                SearchEngine();
-            }
         }
 
         void SearchEngine()
@@ -275,7 +142,7 @@ namespace CarShowRoom.ViewModel
                 car.Add(c);
             }
 
-            OnPropertyChanged("searchGrid");
+            OnPropertyChanged("selectGrid");
         }
 
         public ObservableCollection<Car> GetListCar
@@ -286,7 +153,6 @@ namespace CarShowRoom.ViewModel
             }
         }
 
-        
         public event PropertyChangedEventHandler PropertyChanged;
 
         public void OnPropertyChanged(string property)

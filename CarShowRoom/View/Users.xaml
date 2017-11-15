@@ -29,7 +29,13 @@
                         <DataGridTextColumn Header="Обьем двигателя" Binding="{Binding Path=ReqEngineAmount}"/>
                         <DataGridComboBoxColumn Header="Трансмиссия" TextBinding="{Binding Path=ReqTransmission}"  ItemsSource="{Binding Source={StaticResource lists}, Path=ListTransmission}"/>
                         <DataGridComboBoxColumn Header="Тип кузова" TextBinding="{Binding Path=ReqBodyType}"  ItemsSource="{Binding Source={StaticResource lists}, Path=ListBodyTypeCars}"/>
-
+                        <DataGridTemplateColumn >
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Content="Подобрать" Click="Button_Click" DataContext=""/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
                     </DataGrid.Columns>
                 </DataGrid>
             </Grid>

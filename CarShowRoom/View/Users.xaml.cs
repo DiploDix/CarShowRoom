@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using CarShowRoom.Model;
 
 namespace CarShowRoom.View
 {
@@ -23,6 +24,14 @@ namespace CarShowRoom.View
         public Users()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var us = (User)userGrid.CurrentItem;
+            //var g = (User)((Button)sender).DataContext;
+            SelectionCarWindow car = new SelectionCarWindow(us);
+            car.Show();
         }
     }
 }

@@ -191,12 +191,12 @@ namespace CarShowRoom.ViewModel
                         $"{carList[i].MarkCar}|" +
                         $"{carList[i].ModelCar}|" +
                         $"{carList[i].PriceCar}|" +
-                        $"{carList[i].YearCar}| " +
+                        $"{carList[i].YearCar}|" +
                         $"{carList[i].EngineAmountCar}|" +
                         $"{carList[i].EngineTypeCar}|" +
                         $"{carList[i].TransmissionCar}|" +
-                        $"{carList[i].BodyTypeCar}| " +
-                        $"{carList[i].RegionCar }| " +
+                        $"{carList[i].BodyTypeCar}|" +
+                        $"{carList[i].RegionCar }|" +
                         $"{carList[i].CityCar};";
                     streamWriter.WriteLine(s);
                 }

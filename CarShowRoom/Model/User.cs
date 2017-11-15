@@ -1,6 +1,6 @@
 ﻿namespace CarShowRoom.Model
 {
-    class User
+    public class User
     {
         public string Phone { get; set; }
 
