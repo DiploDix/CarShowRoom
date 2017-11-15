@@ -71,19 +71,19 @@ namespace CarShowRoom.ViewModel
             {
                 cars.CarList.Add(new Car
                 {
-                    HowCar = lists.ListAuto.Find(x => x.ToLower() == masValue[1].ToLower()),
-                    StateCar = lists.ListState.Find(x => x.ToLower() == masValue[2].ToLower()),
-                    AbroadCar = lists.ListAbroad.Find(x => x.ToLower() == masValue[3].ToLower()),
-                    MarkCar = masValue[4],
-                    ModelCar = masValue[5],
-                    PriceCar = int.Parse(masValue[6].Replace(" ", "")),
-                    YearCar = int.Parse(masValue[7].Replace(" ", "")),
-                    EngineAmountCar = float.Parse(masValue[8].Replace(" ", "")),
-                    EngineTypeCar = lists.ListEngineType.Find(x => x.ToLower() == masValue[9].ToLower()),
-                    TransmissionCar = lists.ListTransmission.Find(x => x == masValue[10]),
-                    BodyTypeCar = lists.ListBodyTypeCars.Find(x => x == masValue[11]),
-                    RegionCar = lists.ListRegionCars.Find(x => x.ToLower() == masValue[12].Trim(' ').ToLower()),
-                    CityCar = masValue[13]
+                    UsedOrNewCar = lists.ListUsedOrNewCar.Find(x => x.ToLower() == masValue[1].ToLower()),
+                    ProductionCar = lists.ListProduction.Find(x => x.ToLower() == masValue[2].ToLower()),
+                    MarkCar = masValue[3],
+                    ModelCar = masValue[4],
+                    BodyTypeCar = lists.ListBodyType.Find(x => x == masValue[5]),
+                    YearCar = int.Parse(masValue[6].Replace(" ", "")),
+                    PriceCar = int.Parse(masValue[7].Replace(" ", "")),
+                    RegionCar = lists.ListRegion.Find(x => x.ToLower() == masValue[8].Trim(' ').ToLower()),
+                    CityCar = masValue[9],
+                    EngineAmountCar = float.Parse(masValue[10].Replace(" ", "")),
+                    TransmissionCar = lists.ListTransmission.Find(x => x == masValue[11]),
+                    FuelCar = lists.ListFuelType.Find(x => x.ToLower() == masValue[12].ToLower()),
+                    StateCar = lists.ListState.Find(x => x.ToLower() == masValue[13].ToLower()),
                 });
             }
             catch (Exception e)
@@ -101,17 +101,22 @@ namespace CarShowRoom.ViewModel
                 {
 
                     Phone = masValue[1],
-                    RegionUser = lists.ListRegionCars.Find(x => x.ToLower() == masValue[2].ToLower()),
-                    City = masValue[3],
-                    ReqAuto = lists.ListAuto.Find(x => x.ToLower() == masValue[4].ToLower()),
-                    ReqMark = masValue[5],
-                    MaxMoney = int.Parse(masValue[6].Replace(" ", "")),
-                    ReqYear = int.Parse(masValue[7].Replace(" ", "")),
-                    ReqEngineAmount = float.Parse(masValue[8].Replace(" ", "")),
-                    ReqEngineType = lists.ListEngineType.Find(x => x.ToLower() == masValue[9].ToLower()),
-                    ReqTransmission = lists.ListTransmission.Find(x => x.ToLower() == masValue[10].ToLower()),
-                    ReqBodyType = lists.ListBodyTypeCars.Find(x => x.ToLower() == masValue[11].ToLower()),
-                    ReqState = lists.ListState.Find(x => x.ToLower() == masValue[12].ToLower())
+                    UsedOrNewUser = lists.ListUsedOrNewCar.Find(x => x.ToLower() == masValue[2].ToLower()),
+                    ProductionUser = lists.ListProduction.Find(x => x.ToLower() == masValue[3].ToLower()),
+                    MarkUser = masValue[4],
+                    ModelUser = masValue[5],
+                    BodyTypeUser = lists.ListBodyType.Find(x => x == masValue[6]),
+                    YearMinUser = int.Parse(masValue[7].Replace(" ", "")),
+                    YearMaxUser = int.Parse(masValue[8].Replace(" ", "")),
+                    PriceMinUser = int.Parse(masValue[9].Replace(" ", "")),
+                    PriceMaxUser = int.Parse(masValue[10].Replace(" ", "")),
+                    RegionUser = lists.ListRegion.Find(x => x.ToLower() == masValue[11].Trim(' ').ToLower()),
+                    CityUser = masValue[12],
+                    EngineAmountMinUser = float.Parse(masValue[13].Replace(" ", "")),
+                    EngineAmountMaxUser = float.Parse(masValue[14].Replace(" ", "")),
+                    TransmissionUser = lists.ListTransmission.Find(x => x == masValue[15]),
+                    FuelUser = lists.ListFuelType.Find(x => x.ToLower() == masValue[16].ToLower()),
+                    StateUser = lists.ListState.Find(x => x.ToLower() == masValue[17].ToLower()),
                 });
             }
             catch (Exception e)
@@ -135,20 +140,22 @@ namespace CarShowRoom.ViewModel
                 {
                     for (int i = 0; i < carList.Count; i++)
                     {
-                        string s = $"[car]|{carList[i].HowCar}|" +
-                            $"{carList[i].StateCar}|" +
-                            $"{carList[i].AbroadCar}|" +
+                        string carString = $"[car]|{carList[i].UsedOrNewCar}|" +
+                            $"{carList[i].ProductionCar}| " +
                             $"{carList[i].MarkCar}|" +
                             $"{carList[i].ModelCar}|" +
-                            $"{carList[i].PriceCar}|" +
-                            $"{carList[i].YearCar}|" +
-                            $"{carList[i].EngineAmountCar}|" +
-                            $"{carList[i].EngineTypeCar}|" +
-                            $"{carList[i].TransmissionCar}|" +
                             $"{carList[i].BodyTypeCar}|" +
+                            $"{carList[i].YearCar}|" +
+                            $"{carList[i].YearCar}|" +
+                            $"{carList[i].PriceCar}|" +
                             $"{carList[i].RegionCar}|" +
-                            $"{carList[i].CityCar};";
-                        streamWriter.WriteLine(s);
+                            $"{carList[i].CityCar}|" +
+                            $"{carList[i].EngineAmountCar}|" +
+                            $"{carList[i].TransmissionCar}|" +
+                            $"{carList[i].FuelCar}|" +
+                            $"{carList[i].StateCar};";
+
+                        streamWriter.WriteLine(carString);
                     }
                 }
 
@@ -156,20 +163,24 @@ namespace CarShowRoom.ViewModel
                 {
                     for (int i = 0; i < userList.Count; i++)
                     {
-                        string s = $"[user]|" +
-                            $"{userList[i].Phone}|" +
+                        string userString = $"[car]|{userList[i].Phone}" +
+                            $"{userList[i].UsedOrNewUser}|" +
+                            $"{userList[i].ProductionUser}| " +
+                            $"{userList[i].MarkUser}|" +
+                            $"{userList[i].ModelUser}|" +
+                            $"{userList[i].YearMinUser}|" +
+                            $"{userList[i].YearMaxUser}|" +
+                            $"{userList[i].PriceMinUser}|" +
+                            $"{userList[i].PriceMaxUser}|" +
                             $"{userList[i].RegionUser}|" +
-                            $"{userList[i].City}|" +
-                            $"{userList[i].ReqAuto}|" +
-                            $"{userList[i].ReqMark}|" +
-                            $"{userList[i].MaxMoney}|" +
-                            $"{userList[i].ReqYear}| " +
-                            $"{userList[i].ReqEngineAmount}|" +
-                            $"{userList[i].ReqEngineType}|" +
-                            $"{userList[i].ReqTransmission}|" +
-                            $"{userList[i].ReqBodyType}|" +
-                            $"{userList[i].ReqState};";
-                        streamWriter.WriteLine(s);
+                            $"{userList[i].CityUser}|" +
+                            $"{userList[i].EngineAmountMinUser}|" +
+                            $"{userList[i].EngineAmountMaxUser}|" +
+                            $"{userList[i].TransmissionUser}|" +
+                            $"{userList[i].FuelUser}|" +
+                            $"{userList[i].StateUser};";
+
+                        streamWriter.WriteLine(userString);
                     }
 
 
@@ -185,20 +196,20 @@ namespace CarShowRoom.ViewModel
             {
                 for (int i = 0; i < carList.Count; i++)
                 {
-                    string s = $"[car]|{carList[i].HowCar}|" +
-                        $"{carList[i].StateCar}|" +
-                        $"{carList[i].AbroadCar}|" +
+                    string carString = $"[car]|{carList[i].UsedOrNewCar}|" +
+                        $"{carList[i].ProductionCar}| " +
                         $"{carList[i].MarkCar}|" +
                         $"{carList[i].ModelCar}|" +
-                        $"{carList[i].PriceCar}|" +
                         $"{carList[i].YearCar}|" +
+                        $"{carList[i].PriceCar}|" +
+                        $"{carList[i].RegionCar}|" +
+                        $"{carList[i].CityCar}|" +
                         $"{carList[i].EngineAmountCar}|" +
-                        $"{carList[i].EngineTypeCar}|" +
                         $"{carList[i].TransmissionCar}|" +
-                        $"{carList[i].BodyTypeCar}|" +
-                        $"{carList[i].RegionCar }|" +
-                        $"{carList[i].CityCar};";
-                    streamWriter.WriteLine(s);
+                        $"{carList[i].FuelCar}|" +
+                        $"{carList[i].StateCar};";
+
+                    streamWriter.WriteLine(carString);
                 }
             }
         }
@@ -210,20 +221,24 @@ namespace CarShowRoom.ViewModel
             {
                 for (int i = 0; i < userList.Count; i++)
                 {
-                    string s = $"[user]|" +
-                        $"{userList[i].Phone}|" +
+                    string userString = $"[car]|{userList[i].Phone}" +
+                        $"{userList[i].UsedOrNewUser}|" +
+                        $"{userList[i].ProductionUser}|" +
+                        $"{userList[i].MarkUser}|" +
+                        $"{userList[i].ModelUser}|" +
+                        $"{userList[i].YearMinUser}|" +
+                        $"{userList[i].YearMaxUser}|" +
+                        $"{userList[i].PriceMinUser}|" +
+                        $"{userList[i].PriceMaxUser}|" +
                         $"{userList[i].RegionUser}|" +
-                        $"{userList[i].City}|" +
-                        $"{userList[i].ReqAuto}|" +
-                        $"{userList[i].ReqMark}|" +
-                        $"{userList[i].MaxMoney}|" +
-                        $"{userList[i].ReqYear}| " +
-                        $"{userList[i].ReqEngineAmount}|" +
-                        $"{userList[i].ReqEngineType}|" +
-                        $"{userList[i].ReqTransmission}|" +
-                        $"{userList[i].ReqBodyType}|" +
-                        $"{userList[i].ReqState};";
-                    streamWriter.WriteLine(s);
+                        $"{userList[i].CityUser}|" +
+                        $"{userList[i].EngineAmountMinUser}|" +
+                        $"{userList[i].EngineAmountMaxUser}|" +
+                        $"{userList[i].TransmissionUser}|" +
+                        $"{userList[i].FuelUser}|" +
+                        $"{userList[i].StateUser};";
+
+                    streamWriter.WriteLine(userString);
                 }
 
             }

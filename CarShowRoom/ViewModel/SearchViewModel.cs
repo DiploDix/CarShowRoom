@@ -15,18 +15,21 @@ namespace CarShowRoom.ViewModel
         ObservableCollection<Car> defCar;
         private ObservableCollection<Car> car = new ObservableCollection<Car>();
         DefaultLists lists = new DefaultLists();
-        string _usedOrNewCar = "Все";
-        string _stateCar = "Все";
-        string _producerCar = "Все";
-        string _engineTypeCar = "Все";
-        string _transmissionCar = "Все";
-        string _typeCar = "Все";
-        string _regionCar = "Все";
-        string _markCar = "";
-        string _modelCar = "";
-        int _yearCar = 0;
-        int _priceCar = 0;
-        float _engineAmount = 0.0f;
+        private string _usedOrNewCar = "Все";
+        private string _stateCar = "Все";
+        private string _producerCar = "Все";
+        private string _fuelypeCar = "Все";
+        private string _transmissionCar = "Все";
+        private string _typeCar = "Все";
+        private string _regionCar = "Все";
+        private string _markCar = "";
+        private string _modelCar = "";
+        private int _yearMinCar;
+        private int _yearMaxCar;
+        private int _priceMinCar;
+        private int _priceMaxCar;
+        private float _engineMinAmount;
+        private float _engineMaxAmount;
 
 
         public SearchViewModel()
@@ -82,10 +85,10 @@ namespace CarShowRoom.ViewModel
         /// </summary>
         public string SetEngineType
         {
-            get => _engineTypeCar;
+            get => _fuelypeCar;
             set
             {
-                _engineTypeCar = value;
+                _fuelypeCar = value;
                 SearchEngine();
             }
         }
@@ -153,34 +156,64 @@ namespace CarShowRoom.ViewModel
         /// <summary>
         /// Год авто
         /// </summary>
-        public int SetYear
+        public int SetYearMin
         {
-            get => _yearCar;
+            get => _yearMinCar;
             set
             {
-                _yearCar = value;
+                _yearMinCar = value;
+                SearchEngine();
+            }
+        }
+
+        public int SetYearMax
+        {
+            get => _yearMaxCar;
+            set
+            {
+                _yearMaxCar = value;
                 SearchEngine();
             }
         }
         /// <summary>
         /// Цена авто
         /// </summary>
-        public int SetPrice
+        public int SetPriceMin
         {
-            get => _priceCar;
+            get => _priceMinCar;
             set
             {
-                _priceCar = value;
+                _priceMinCar = value;
                 SearchEngine();
             }
         }
 
-        public float SetEngineAmount
+        public int SetPriceMax
         {
-            get => _engineAmount;
+            get => _priceMaxCar;
             set
             {
-                _engineAmount = value;
+                _priceMaxCar = value;
+                SearchEngine();
+            }
+        }
+
+        public float SetEngineAmountMin
+        {
+            get => _engineMinAmount;
+            set
+            {
+                _engineMinAmount = value;
+                SearchEngine();
+            }
+        }
+
+        public float SetEngineAmountMax
+        {
+            get => _engineMaxAmount;
+            set
+            {
+                _engineMaxAmount = value;
                 SearchEngine();
             }
         }
@@ -193,14 +226,14 @@ namespace CarShowRoom.ViewModel
             {
                 /* Марка авто */
                 if (_markCar == "") { }
-                else if (_markCar != c.MarkCar)
+                else if (_markCar.ToLower() != c.MarkCar.ToLower())
                 {
                     continue;
                 }
 
                 /* Модель авто */
                 if (_modelCar == "") { }
-                else if (_modelCar != c.ModelCar)
+                else if (_modelCar.ToLower() != c.ModelCar.ToLower())
                 {
                     continue;
                 }
@@ -213,15 +246,15 @@ namespace CarShowRoom.ViewModel
                 }
 
                 /* Год авто */
-                if (_yearCar == 0) { }
-                else if (_yearCar != c.YearCar)
+                if (_yearMinCar == 0 && _yearMaxCar == 0) { }
+                else if (_yearMinCar > c.YearCar && _yearMaxCar < c.YearCar)
                 {
                     continue;
                 }
 
                 /* Цена авто */
-                if (_priceCar == 0) { }
-                else if (_priceCar != c.PriceCar)
+                if (_priceMinCar == 0 && _priceMaxCar == 0) { }
+                else if (_priceMinCar > c.PriceCar && _priceMaxCar < c.PriceCar)
                 {
                     continue;
                 }
@@ -235,7 +268,7 @@ namespace CarShowRoom.ViewModel
 
                 /* Производитель авто */
                 if (_usedOrNewCar == "Все") { }
-                else if (_usedOrNewCar != c.HowCar)
+                else if (_usedOrNewCar != c.UsedOrNewCar)
                 {
                     continue;
                 }
@@ -249,13 +282,13 @@ namespace CarShowRoom.ViewModel
 
                 /* Марка авто */
                 if (_producerCar == "Все") { }
-                else if (_producerCar != c.AbroadCar)
+                else if (_producerCar != c.ProductionCar)
                 {
                     continue;
                 }
 
-                if (_engineTypeCar == "Все") { }
-                else if (_engineTypeCar != c.EngineTypeCar)
+                if (_fuelypeCar == "Все") { }
+                else if (_fuelypeCar != c.FuelCar)
                 {
                     continue;
                 }
@@ -266,8 +299,8 @@ namespace CarShowRoom.ViewModel
                     continue;
                 }
 
-                if (_engineAmount == 0) { }
-                else if (_engineAmount != c.EngineAmountCar)
+                if (_engineMinAmount == 0 && _engineMaxAmount == 0) { }
+                else if (_engineMinAmount > c.EngineAmountCar && _engineMinAmount < c.EngineAmountCar)
                 {
                     continue;
                 }
@@ -275,7 +308,7 @@ namespace CarShowRoom.ViewModel
                 car.Add(c);
             }
 
-            OnPropertyChanged("searchGrid");
+            OnPropertyChanged("selectGrid");
         }
 
         public ObservableCollection<Car> GetListCar

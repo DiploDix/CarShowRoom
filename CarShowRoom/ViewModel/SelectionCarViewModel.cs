@@ -15,18 +15,21 @@ namespace CarShowRoom.ViewModel
         ObservableCollection<Car> defCar;
         private ObservableCollection<Car> car = new ObservableCollection<Car>();
         DefaultLists lists = new DefaultLists();
-        string _usedOrNewCar = "Все";
-        string _stateCar = "Все";
-        string _producerCar = "Все";
-        string _engineTypeCar = "Все";
-        string _transmissionCar = "Все";
-        string _typeCar = "Все";
-        string _regionCar = "Все";
-        string _markCar = "";
-        string _modelCar = "";
-        int _yearCar = 0;
-        int _priceCar = 0;
-        float _engineAmount = 0.0f;
+        private string _usedOrNewCar = "Все";
+        private string _stateCar = "Все";
+        private string _producerCar = "Все";
+        private string _fuelypeCar = "Все";
+        private string _transmissionCar = "Все";
+        private string _typeCar = "Все";
+        private string _regionCar = "Все";
+        private string _markCar = "";
+        private string _modelCar = "";
+        private int _yearMinCar;
+        private int _yearMaxCar;
+        private int _priceMinCar;
+        private int _priceMaxCar;
+        private float _engineMinAmount;
+        private float _engineMaxAmount;
 
 
         public SelectionCarViewModel()
@@ -36,19 +39,22 @@ namespace CarShowRoom.ViewModel
 
         public void SelectionCar(User u)
         {
-            defCar = cars.CarList;
-            _usedOrNewCar = String.IsNullOrEmpty(u.ReqAuto) ? "Все" : u.ReqAuto;
-            _stateCar = String.IsNullOrEmpty(u.ReqState) ? "Все" : u.ReqState;
-            _producerCar = "Все";
-            _engineTypeCar = String.IsNullOrEmpty(u.ReqEngineType) ? "Все" : u.ReqEngineType;
-            _transmissionCar = String.IsNullOrEmpty(u.ReqTransmission) ? "Все" : u.ReqTransmission;
-            _typeCar = String.IsNullOrEmpty(u.ReqBodyType) ? "Все" : u.ReqBodyType;
-            _regionCar = String.IsNullOrEmpty(u.RegionUser) ? "Все" : u.RegionUser;
-            _markCar = String.IsNullOrEmpty(u.ReqMark) ? "" : u.ReqMark;
-            _modelCar = "";
-            _yearCar = u.ReqYear == 0 ? 0 : u.ReqYear;
-            _priceCar = u.MaxMoney;
-            _engineAmount = u.ReqEngineAmount;
+            _usedOrNewCar = u.UsedOrNewUser;
+            _stateCar = u.StateUser;
+            _producerCar = u.ProductionUser;
+            _fuelypeCar = u.FuelUser;
+            _transmissionCar = u.TransmissionUser;
+            _typeCar = u.BodyTypeUser;
+            _regionCar = u.RegionUser;
+            _markCar = String.IsNullOrEmpty(u.MarkUser) ? "" : u.MarkUser;
+            _modelCar = String.IsNullOrEmpty(u.ModelUser) ? "" : u.ModelUser; ;
+            _yearMinCar = u.YearMaxUser;
+            _yearMaxCar = u.YearMaxUser;
+            _priceMinCar = u.PriceMinUser;
+            _priceMaxCar = u.PriceMaxUser;
+            _engineMinAmount = u.EngineAmountMinUser;
+            _engineMaxAmount = u.EngineAmountMaxUser;
+
             SearchEngine();
         }
 
@@ -60,14 +66,14 @@ namespace CarShowRoom.ViewModel
             {
                 /* Марка авто */
                 if (_markCar == "") { }
-                else if (_markCar != c.MarkCar)
+                else if (_markCar.ToLower() != c.MarkCar.ToLower())
                 {
                     continue;
                 }
 
                 /* Модель авто */
                 if (_modelCar == "") { }
-                else if (_modelCar != c.ModelCar)
+                else if (_modelCar.ToLower() != c.ModelCar.ToLower())
                 {
                     continue;
                 }
@@ -80,15 +86,15 @@ namespace CarShowRoom.ViewModel
                 }
 
                 /* Год авто */
-                if (_yearCar == 0) { }
-                else if (_yearCar != c.YearCar)
+                if (_yearMinCar == 0 && _yearMaxCar == 0) { }
+                else if (_yearMinCar > c.YearCar && _yearMaxCar < c.YearCar)
                 {
                     continue;
                 }
 
                 /* Цена авто */
-                if (_priceCar == 0) { }
-                else if (_priceCar != c.PriceCar)
+                if (_priceMinCar == 0 && _priceMaxCar == 0) { }
+                else if (_priceMinCar > c.PriceCar && _priceMaxCar < c.PriceCar)
                 {
                     continue;
                 }
@@ -102,7 +108,7 @@ namespace CarShowRoom.ViewModel
 
                 /* Производитель авто */
                 if (_usedOrNewCar == "Все") { }
-                else if (_usedOrNewCar != c.HowCar)
+                else if (_usedOrNewCar != c.UsedOrNewCar)
                 {
                     continue;
                 }
@@ -116,13 +122,13 @@ namespace CarShowRoom.ViewModel
 
                 /* Марка авто */
                 if (_producerCar == "Все") { }
-                else if (_producerCar != c.AbroadCar)
+                else if (_producerCar != c.ProductionCar)
                 {
                     continue;
                 }
 
-                if (_engineTypeCar == "Все") { }
-                else if (_engineTypeCar != c.EngineTypeCar)
+                if (_fuelypeCar == "Все") { }
+                else if (_fuelypeCar != c.FuelCar)
                 {
                     continue;
                 }
@@ -133,8 +139,8 @@ namespace CarShowRoom.ViewModel
                     continue;
                 }
 
-                if (_engineAmount == 0) { }
-                else if (_engineAmount != c.EngineAmountCar)
+                if (_engineMinAmount == 0 && _engineMaxAmount == 0) { }
+                else if (_engineMinAmount > c.EngineAmountCar && _engineMinAmount < c.EngineAmountCar)
                 {
                     continue;
                 }

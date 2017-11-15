@@ -33,25 +33,34 @@
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal" Height="30" VerticalAlignment="Top" Margin="10,0,0,0">
-                            <TextBlock Name="yearText" Text="Год"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="20" Width="50" TextAlignment="Left"/>
-                            <TextBox Name="yearBox" Width="100" ToolTip="Требуемый год выпуска автомобиля"
+                            <TextBlock Name="yearText" Text="Год:"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="20" Width="50" TextAlignment="Left"/>
+                            <TextBox Name="yearMinBox" Width="25" ToolTip="Требуемый год выпуска автомобиля"
                                   Height="25" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
-                                  Margin="10,0,0,0" 
-                                  Text="{Binding Source={StaticResource searchVM},Path=SetYear,Mode=TwoWay}"/>
+                                  Margin="10,0,5,0" 
+                                  Text="{Binding Source={StaticResource searchVM},Path=SetYearMin,Mode=TwoWay}"/>
+                            <TextBlock  Text="-"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="20" Width="Auto" TextAlignment="Center"/>
+                            <TextBox Name="yearMaxBox" Width="25" ToolTip="Требуемый год выпуска автомобиля"
+                                  Height="25" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                                  Margin="5,0,0,0" 
+                                  Text="{Binding Source={StaticResource searchVM},Path=SetYearMax,Mode=TwoWay}"/>
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal" Height="30" VerticalAlignment="Top" Margin="50,0,0,0" >
                             <TextBlock Name="engineAmountText" Text="Двигатель"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="20" Width="75" TextAlignment="Left" />
-                            <TextBox Name="engineAmountBox" Width="100" Margin="10,0,0,0"  Height="25" 
+                            <TextBox Name="engineAmountMinBox" Width="25" Margin="10,0,5,0"  Height="25" 
                                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ToolTip="Требуемый обьем двигателя"
-                                  Text="{Binding Source={StaticResource searchVM},Path=SetEngineAmount,Mode=TwoWay}"/>
+                                  Text="{Binding Source={StaticResource searchVM},Path=SetEngineAmountMin,Mode=TwoWay}"/>
+                            <TextBlock  Text="-"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="20" Width="Auto" TextAlignment="Center"/>
+                            <TextBox Name="engineAmountMaxBox" Width="25" Margin="5,0,0,0"  Height="25" 
+                                  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ToolTip="Требуемый обьем двигателя"
+                                  Text="{Binding Source={StaticResource searchVM},Path=SetEngineAmountMax,Mode=TwoWay}"/>
                         </StackPanel>
                         <!-- 2 cnjk,j-->
                         <StackPanel Orientation="Horizontal" Height="30" VerticalAlignment="Top" Margin="10,0,0,0">
                             <TextBlock Name="transmissionText" Text="КПП"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="20" Width="50" TextAlignment="Left"/>
                             <ComboBox Name="transmissionBox" Width="100"  ToolTip="Требуемая КПП автомобиля"
                                   Height="25" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,0,0,0" 
-                                   ItemsSource="{Binding Source={StaticResource lists},Path=ListTransmissionSearch}"
+                                   ItemsSource="{Binding Source={StaticResource lists},Path=ListTransmissionAll}"
                                   SelectedItem="{Binding Source={StaticResource searchVM},Path=SetTransmission,Mode=TwoWay}"/>
                         </StackPanel>
                     </StackPanel>
@@ -66,19 +75,23 @@
                                   Text="{Binding Source={StaticResource searchVM},Path=SetModel,Mode=TwoWay}"/>
                         </StackPanel>
 
-                        <StackPanel Orientation="Horizontal" Height="30" VerticalAlignment="Top" Margin="10,0,0,0">
+                        <StackPanel Orientation="Horizontal" Height="30" VerticalAlignment="Top" Margin="10,0,5,0">
                             <TextBlock Name="priceText" Text="Цена"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="20" Width="50" TextAlignment="Left"/>
-                            <TextBox Name="priceBox"  Width="100" ToolTip="Требуемая цена автомобиля"
+                            <TextBox Name="priceBox"  Width="25" ToolTip="Требуемая цена автомобиля"
                                   Height="25" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
                                   Margin="10,0,0,0" 
-                                  Text="{Binding Source={StaticResource searchVM},Path=SetPrice,Mode=TwoWay}"/>
+                                  Text="{Binding Source={StaticResource searchVM},Path=SetPriceMin,Mode=TwoWay}"/>
+                            <TextBlock  Text="-"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="20" Width="Auto" TextAlignment="Center"/>
+                            <TextBox Name="engineAmountBox" Width="25" Margin="5,0,0,0"  Height="25" 
+                                  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ToolTip="Требуемый обьем двигателя"
+                                  Text="{Binding Source={StaticResource searchVM},Path=SetPriceMax,Mode=TwoWay}"/>
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal" Height="30" VerticalAlignment="Top" Margin="50,0,0,0" >
                             <TextBlock Name="engineText" Text="Топливо"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="20" Width="75" TextAlignment="Left" />
                             <ComboBox Name="engineBox" Width="100" Margin="10,0,0,0"  Height="25" ToolTip="Требуемый тип двигателя"
                                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
-                                  ItemsSource="{Binding Source={StaticResource lists},Path=ListEngineTypeSearch}"
+                                  ItemsSource="{Binding Source={StaticResource lists},Path=ListFuelTypeAll}"
                                   SelectedItem="{Binding Source={StaticResource searchVM},Path=SetEngineType,Mode=TwoWay}"/>
                         </StackPanel>
                         <!-- 2 cnjk,j-->
@@ -86,7 +99,7 @@
                             <TextBlock Name="stateText" Text="Состояние"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="20" Width="50" TextAlignment="Left"/>
                             <ComboBox Name="stateBox" Width="100" ToolTip="Требуемое состояние автомобиля"
                                   Height="25" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,0,0,0" 
-                                   ItemsSource="{Binding Source={StaticResource lists},Path=ListStateSearch}"
+                                   ItemsSource="{Binding Source={StaticResource lists},Path=ListStateAll}"
                                   SelectedItem="{Binding Source={StaticResource searchVM},Path=SetState,Mode=TwoWay}"/>
                         </StackPanel>
 
@@ -97,7 +110,7 @@
                             <TextBlock Name="bodyTypeText" Text="Кузов"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="20" Width="50" TextAlignment="Left"/>
                             <ComboBox Name="bodyTypeBox" SelectedItem="{Binding Source={StaticResource searchVM},Path=SetBodyType,Mode=TwoWay}" 
                                   Height="25" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  ToolTip="Требуемый тип кузова"
-                                  Margin="10,0,0,0"  ItemsSource="{Binding Source={StaticResource lists}, Path=ListBodyTypeCarsSearch}" 
+                                  Margin="10,0,0,0"  ItemsSource="{Binding Source={StaticResource lists}, Path=ListBodyTypeAll}" 
                                   Width="100"/>
                         </StackPanel>
 
@@ -105,7 +118,7 @@
                             <TextBlock Name="regionText" Text="Область"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="20" Width="50" TextAlignment="Left"/>
                             <ComboBox Name="regionBox" SelectedItem="{Binding Source={StaticResource searchVM},Path=SetRegion,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True}" 
                                   Height="25" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ToolTip="Требуемая область"
-                                  Margin="10,0,0,0"  ItemsSource="{Binding Source={StaticResource lists}, Path=ListRegionCarsSearch}" 
+                                  Margin="10,0,0,0"  ItemsSource="{Binding Source={StaticResource lists}, Path=ListRegionAll}" 
                                   Width="100"/>
                         </StackPanel>
 
@@ -120,20 +133,19 @@
 
                 <DataGrid Name="searchGrid" Grid.Row="1" Height="500" IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False"  AutoGenerateColumns="False" HorizontalAlignment="Left" Margin="5,200,5,5"  ItemsSource="{Binding Source={StaticResource searchVM}, NotifyOnSourceUpdated=True, Path=GetListCar, UpdateSourceTrigger=PropertyChanged,Mode=OneWay}">
                     <DataGrid.Columns>
-                        <DataGridComboBoxColumn Header="Категория" TextBinding="{Binding Path=HowCar}"  ItemsSource="{Binding Source={StaticResource lists}, Path=ListAuto}"/>
-                        <DataGridComboBoxColumn Header="Состояние" TextBinding="{Binding Path=StateCar}"  ItemsSource="{Binding Source={StaticResource lists}, Path=ListState}"/>
-                        <DataGridComboBoxColumn Header="Производитель" TextBinding="{Binding Path=AbroadCar}" ItemsSource="{Binding Source={StaticResource lists}, Path=ListAbroad}"/>
+                        <DataGridComboBoxColumn Header="" TextBinding="{Binding Path=usedOrNewCar}"  ItemsSource="{Binding Source={StaticResource lists}, Path=ListUsedOrNewCar}"/>
+                        <DataGridComboBoxColumn Header="Производитель" TextBinding="{Binding Path=ProductionCar}" ItemsSource="{Binding Source={StaticResource lists}, Path=ListProduction}"/>
                         <DataGridTextColumn Header="Марка" Binding="{Binding Path=MarkCar}"/>
                         <DataGridTextColumn Header="Модель" Binding="{Binding Path=ModelCar}"/>
-                        <DataGridTextColumn Header="Цена" Binding="{Binding Path=PriceCar}"/>
+                        <DataGridComboBoxColumn Header="Кузов" TextBinding="{Binding Path=BodyTypeCar}" ItemsSource="{Binding Source={StaticResource lists}, Path=ListBodyType}"/>
                         <DataGridTextColumn Header="Год" Binding="{Binding Path=YearCar}"/>
-                        <DataGridComboBoxColumn Header="Топливо" TextBinding="{Binding Path=EngineTypeCar}" ItemsSource="{Binding Source={StaticResource lists}, Path=ListEngineType}"/>
+                        <DataGridTextColumn Header="Цена" Binding="{Binding Path=PriceCar}"/>
+                        <DataGridComboBoxColumn Header="Область" TextBinding="{Binding Path=RegionCar}" ItemsSource="{Binding Source={StaticResource lists}, Path=ListRegion}"  />
+                        <DataGridTextColumn Header="Город" Binding="{Binding Path=CityCar}"/>
                         <DataGridTextColumn Header="Обьем двигателя" Binding="{Binding Path=EngineAmountCar}"/>
                         <DataGridComboBoxColumn Header="Трансмиссия" TextBinding="{Binding Path=TransmissionCar}" ItemsSource="{Binding Source={StaticResource lists}, Path=ListTransmission}"/>
-                        <DataGridComboBoxColumn Header="Тип кузова" TextBinding="{Binding Path=BodyTypeCar}" ItemsSource="{Binding Source={StaticResource lists}, Path=ListBodyTypeCars}"/>
-                        <DataGridComboBoxColumn Header="Область" TextBinding="{Binding Path=RegionCar}" ItemsSource="{Binding Source={StaticResource lists}, Path=ListRegionCars}"  />
-                        <DataGridTextColumn Header="Город" Binding="{Binding Path=CityCar}"/>
-
+                        <DataGridComboBoxColumn Header="Топливо" TextBinding="{Binding Path=FuelCar}" ItemsSource="{Binding Source={StaticResource lists}, Path=ListFuelType}"/>
+                        <DataGridComboBoxColumn Header="Состояние" TextBinding="{Binding Path=StateCar}"  ItemsSource="{Binding Source={StaticResource lists}, Path=ListState}"/>
                     </DataGrid.Columns>
                 </DataGrid>
 

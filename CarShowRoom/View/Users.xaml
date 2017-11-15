@@ -18,17 +18,22 @@
                 <DataGrid Name="userGrid" AutoGenerateColumns="False" HorizontalAlignment="Stretch" Height="500" Width="Auto" VerticalAlignment="Top" ItemsSource="{Binding Source={StaticResource userViewModel}, NotifyOnSourceUpdated=True, Path=GetListUser, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" Margin="5">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Телефон" Binding="{Binding Path=Phone}"/>
-                        <DataGridComboBoxColumn Header="Область" TextBinding="{Binding Path=RegionUser}"  ItemsSource="{Binding Source={StaticResource lists}, Path=ListRegionCars}"/>
-                        <DataGridTextColumn Header="Город" Binding="{Binding Path=City}"/>
-                        <DataGridComboBoxColumn Header="Новое/старое" TextBinding="{Binding Path=ReqAuto}"  ItemsSource="{Binding Source={StaticResource lists}, Path=ListAuto}"/>
-                        <DataGridComboBoxColumn Header="Состояние" TextBinding="{Binding Path=ReqState}"  ItemsSource="{Binding Source={StaticResource lists}, Path=ListState}"/>
-                        <DataGridTextColumn Header="Марка" Binding="{Binding Path=ReqMark}"/>
-                        <DataGridTextColumn Header="Цена" Binding="{Binding Path=MaxMoney}"/>
-                        <DataGridTextColumn Header="Год" Binding="{Binding Path=ReqYear}"/>
-                        <DataGridComboBoxColumn Header="Топливо" TextBinding="{Binding Path=ReqEngineType}"  ItemsSource="{Binding Source={StaticResource lists}, Path=ListEngineType}"/>
-                        <DataGridTextColumn Header="Обьем двигателя" Binding="{Binding Path=ReqEngineAmount}"/>
-                        <DataGridComboBoxColumn Header="Трансмиссия" TextBinding="{Binding Path=ReqTransmission}"  ItemsSource="{Binding Source={StaticResource lists}, Path=ListTransmission}"/>
-                        <DataGridComboBoxColumn Header="Тип кузова" TextBinding="{Binding Path=ReqBodyType}"  ItemsSource="{Binding Source={StaticResource lists}, Path=ListBodyTypeCars}"/>
+                        <DataGridComboBoxColumn Header="" TextBinding="{Binding Path=UsedOrNewUser}"  ItemsSource="{Binding Source={StaticResource lists}, Path=ListUsedOrNewCarAll}"/>
+                        <DataGridComboBoxColumn Header="Производитель" TextBinding="{Binding Path=ProductionUser}"  ItemsSource="{Binding Source={StaticResource lists}, Path=ListProductionAll}"/>
+                        <DataGridTextColumn Header="Марка" Binding="{Binding Path=MarkUser}"/>
+                        <DataGridTextColumn Header="Модель" Binding="{Binding Path=ModelUser}"/>
+                        <DataGridComboBoxColumn Header="Кузов" TextBinding="{Binding Path=BodyTypeUser}"  ItemsSource="{Binding Source={StaticResource lists}, Path=ListBodyTypeAll}"/>
+                        <DataGridTextColumn Header="Год от" Binding="{Binding Path=YearMinUser}"/>
+                        <DataGridTextColumn Header="Год до" Binding="{Binding Path=YearMaxUser}"/>
+                        <DataGridTextColumn Header="Цена от" Binding="{Binding Path=PriceMinUser}"/>
+                        <DataGridTextColumn Header="Цена до" Binding="{Binding Path=PriceMaxUser}"/>
+                        <DataGridComboBoxColumn Header="Область" TextBinding="{Binding Path=RegionUser}"  ItemsSource="{Binding Source={StaticResource lists}, Path=ListRegionAll}"/>
+                        <DataGridTextColumn Header="Город" Binding="{Binding Path=CityUser}"/>
+                        <DataGridTextColumn Header="Обьем двигателя от" Binding="{Binding Path=EngineAmountMinUser}"/>
+                        <DataGridTextColumn Header="Обьем двигателя до" Binding="{Binding Path=EngineAmountMaxUser}"/>
+                        <DataGridComboBoxColumn Header="Трансмиссия" TextBinding="{Binding Path=TransmissionUser}"  ItemsSource="{Binding Source={StaticResource lists}, Path=ListTransmissionAll}"/>
+                        <DataGridComboBoxColumn Header="Топливо" TextBinding="{Binding Path=FuelUser}"  ItemsSource="{Binding Source={StaticResource lists}, Path=ListFuelTypeAll}"/>
+                        <DataGridComboBoxColumn Header="Состояние" TextBinding="{Binding Path=StateUser}"  ItemsSource="{Binding Source={StaticResource lists}, Path=ListStateAll}"/>
                         <DataGridTemplateColumn >
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
