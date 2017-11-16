@@ -87,17 +87,19 @@ namespace CarShowRoom.ViewModel
 
                 /* Год авто */
                 if (_yearMinCar == 0 && _yearMaxCar == 0) { }
-                else if (_yearMinCar > c.YearCar && _yearMaxCar < c.YearCar)
-                {
+                else if (_yearMinCar <= c.YearCar && _yearMaxCar == 0) { }
+                else if (_yearMinCar == 0 && _yearMaxCar >= c.YearCar) { }
+                else if (_yearMinCar <= c.YearCar && _yearMaxCar >= c.YearCar) { }
+                else
                     continue;
-                }
 
                 /* Цена авто */
                 if (_priceMinCar == 0 && _priceMaxCar == 0) { }
-                else if (_priceMinCar > c.PriceCar && _priceMaxCar < c.PriceCar)
-                {
+                else if (_priceMinCar <= c.PriceCar && _priceMaxCar == 0) { }
+                else if (_priceMinCar == 0 && _priceMaxCar >= c.PriceCar) { }
+                else if (_priceMinCar <= c.PriceCar && _priceMaxCar >= c.PriceCar) { }
+                else
                     continue;
-                }
 
                 /* Область авто */
                 if (_regionCar == "Все") { }
@@ -139,11 +141,12 @@ namespace CarShowRoom.ViewModel
                     continue;
                 }
 
-                if (_engineMinAmount == 0 && _engineMaxAmount == 0) { }
-                else if (_engineMinAmount > c.EngineAmountCar && _engineMinAmount < c.EngineAmountCar)
-                {
+                if (_engineMinAmount == 0 && _priceMaxCar == 0) { }
+                else if (_engineMinAmount <= c.EngineAmountCar && _engineMaxAmount == 0) { }
+                else if (_engineMinAmount == 0 && _engineMaxAmount >= c.EngineAmountCar) { }
+                else if (_engineMinAmount <= c.EngineAmountCar && _engineMaxAmount >= c.EngineAmountCar) { }
+                else
                     continue;
-                }
 
                 car.Add(c);
             }

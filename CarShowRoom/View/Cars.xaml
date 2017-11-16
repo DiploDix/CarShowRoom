@@ -19,7 +19,7 @@
             <Grid HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="Auto">
                 <DataGrid Name="carGrid" Grid.Row="1" Height="500" Width="Auto" CanUserAddRows="True" AutoGenerateColumns="False" HorizontalAlignment="Left" ItemsSource="{Binding Source={StaticResource carsViewModel}, NotifyOnSourceUpdated=True, Path=GetListCar, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" Margin="5">
                     <DataGrid.Columns>
-                        <DataGridComboBoxColumn Header="" TextBinding="{Binding Path=usedOrNewCar}"  ItemsSource="{Binding Source={StaticResource lists}, Path=ListUsedOrNewCar}"/>
+                        <DataGridComboBoxColumn Header="" TextBinding="{Binding Path=UsedOrNewCar}"  ItemsSource="{Binding Source={StaticResource lists}, Path=ListUsedOrNewCar}"/>
                         <DataGridComboBoxColumn Header="Производитель" TextBinding="{Binding Path=ProductionCar}" ItemsSource="{Binding Source={StaticResource lists}, Path=ListProduction}"/>
                         <DataGridTextColumn Header="Марка" Binding="{Binding Path=MarkCar}"/>
                         <DataGridTextColumn Header="Модель" Binding="{Binding Path=ModelCar}"/>

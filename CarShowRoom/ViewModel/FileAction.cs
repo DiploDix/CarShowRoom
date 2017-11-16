@@ -73,8 +73,8 @@ namespace CarShowRoom.ViewModel
                 {
                     UsedOrNewCar = lists.ListUsedOrNewCar.Find(x => x.ToLower() == masValue[1].ToLower()),
                     ProductionCar = lists.ListProduction.Find(x => x.ToLower() == masValue[2].ToLower()),
-                    MarkCar = masValue[3],
-                    ModelCar = masValue[4],
+                    MarkCar = masValue[3].Trim(' '),
+                    ModelCar = masValue[4].Trim(' '),
                     BodyTypeCar = lists.ListBodyType.Find(x => x == masValue[5]),
                     YearCar = int.Parse(masValue[6].Replace(" ", "")),
                     PriceCar = int.Parse(masValue[7].Replace(" ", "")),

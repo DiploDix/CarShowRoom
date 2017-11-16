@@ -28,7 +28,7 @@ namespace CarShowRoom.View
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            User us = (User)userGrid.CurrentItem;
+            User us = userGrid.CurrentItem as User;
             SelectionCarWindow car = new SelectionCarWindow(us);
             car.Show();
         }

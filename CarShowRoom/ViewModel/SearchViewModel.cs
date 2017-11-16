@@ -153,9 +153,8 @@ namespace CarShowRoom.ViewModel
                 SearchEngine();
             }
         }
-        /// <summary>
-        /// Год авто
-        /// </summary>
+
+        /* Минимальный год */
         public int SetYearMin
         {
             get => _yearMinCar;
@@ -166,6 +165,7 @@ namespace CarShowRoom.ViewModel
             }
         }
 
+        /* Максимальный год */
         public int SetYearMax
         {
             get => _yearMaxCar;
@@ -175,9 +175,8 @@ namespace CarShowRoom.ViewModel
                 SearchEngine();
             }
         }
-        /// <summary>
-        /// Цена авто
-        /// </summary>
+
+         /* Минимальная цена */
         public int SetPriceMin
         {
             get => _priceMinCar;
@@ -188,6 +187,7 @@ namespace CarShowRoom.ViewModel
             }
         }
 
+        /* Максимальная цена */
         public int SetPriceMax
         {
             get => _priceMaxCar;
@@ -198,6 +198,7 @@ namespace CarShowRoom.ViewModel
             }
         }
 
+        /* Минимальный обьем двигателя */
         public float SetEngineAmountMin
         {
             get => _engineMinAmount;
@@ -208,6 +209,7 @@ namespace CarShowRoom.ViewModel
             }
         }
 
+        /* Максимальный обьем двигателя */
         public float SetEngineAmountMax
         {
             get => _engineMaxAmount;
@@ -247,17 +249,19 @@ namespace CarShowRoom.ViewModel
 
                 /* Год авто */
                 if (_yearMinCar == 0 && _yearMaxCar == 0) { }
-                else if (_yearMinCar > c.YearCar && _yearMaxCar < c.YearCar)
-                {
+                else if (_yearMinCar <= c.YearCar && _yearMaxCar == 0) { }
+                else if (_yearMinCar == 0 && _yearMaxCar >= c.YearCar) { }
+                else if (_yearMinCar <= c.YearCar && _yearMaxCar >= c.YearCar) { }
+                else
                     continue;
-                }
 
                 /* Цена авто */
                 if (_priceMinCar == 0 && _priceMaxCar == 0) { }
-                else if (_priceMinCar > c.PriceCar && _priceMaxCar < c.PriceCar)
-                {
+                else if (_priceMinCar <= c.PriceCar && _priceMaxCar == 0) { }
+                else if (_priceMinCar == 0 && _priceMaxCar >= c.PriceCar) { }
+                else if (_priceMinCar <= c.PriceCar && _priceMaxCar >= c.PriceCar) { }
+                else
                     continue;
-                }
 
                 /* Область авто */
                 if (_regionCar == "Все") { }
@@ -299,11 +303,12 @@ namespace CarShowRoom.ViewModel
                     continue;
                 }
 
-                if (_engineMinAmount == 0 && _engineMaxAmount == 0) { }
-                else if (_engineMinAmount > c.EngineAmountCar && _engineMinAmount < c.EngineAmountCar)
-                {
+                if (_engineMinAmount == 0 && _priceMaxCar == 0) { }
+                else if (_engineMinAmount <= c.EngineAmountCar && _engineMaxAmount == 0) { }
+                else if (_engineMinAmount == 0 && _engineMaxAmount >= c.EngineAmountCar) { }
+                else if (_engineMinAmount <= c.EngineAmountCar && _engineMaxAmount >= c.EngineAmountCar) { }
+                else
                     continue;
-                }
 
                 car.Add(c);
             }
