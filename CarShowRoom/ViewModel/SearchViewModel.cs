@@ -68,9 +68,7 @@ namespace CarShowRoom.ViewModel
             }
         }
 
-        /// <summary>
-        /// Поиск авто
-        /// </summary>
+        // Поиск авто
         public string SetUsedOrNew
         {
             get => _usedOrNewCar;
@@ -80,9 +78,8 @@ namespace CarShowRoom.ViewModel
                 SearchEngine();
             }
         }
-        /// <summary>
-        /// Тип двигателя
-        /// </summary>
+
+        // Тип двигателя
         public string SetEngineType
         {
             get => _fuelypeCar;
@@ -92,9 +89,8 @@ namespace CarShowRoom.ViewModel
                 SearchEngine();
             }
         }
-        /// <summary>
-        /// Тип трансмиссии
-        /// </summary>
+        
+        // Тип трансмиссии
         public string SetTransmission
         {
             get => _transmissionCar;
@@ -104,9 +100,8 @@ namespace CarShowRoom.ViewModel
                 SearchEngine();
             }
         }
-        /// <summary>
-        /// Тип кузова
-        /// </summary>
+
+        // Тип кузова
         public string SetBodyType
         {
             get => _typeCar;
@@ -117,9 +112,8 @@ namespace CarShowRoom.ViewModel
                 
             }
         }
-        /// <summary>
-        /// Область 
-        /// </summary>
+
+        // Область 
         public string SetRegion
         {
             get => _regionCar;
@@ -129,9 +123,8 @@ namespace CarShowRoom.ViewModel
                 SearchEngine();
             }
         }
-        /// <summary>
-        /// Марка авто
-        /// </summary>
+
+        // Марка авто
         public string SetMark
         {
             get => _markCar;
@@ -141,9 +134,8 @@ namespace CarShowRoom.ViewModel
                 SearchEngine();
             }
         }
-        /// <summary>
-        /// Модель авто
-        /// </summary>
+
+        // Модель авто
         public string SetModel
         {
             get => _modelCar;
@@ -224,94 +216,95 @@ namespace CarShowRoom.ViewModel
         {
             if (car != null)
                 car.Clear();
-            foreach (Car c in defCar)
-            {
-                /* Марка авто */
-                if (_markCar == "") { }
-                else if (_markCar.ToLower() != c.MarkCar.ToLower())
+                foreach (Car c in defCar)
                 {
-                    continue;
+                    /* Марка авто */
+                    if (_markCar == "") { }
+                    else if (_markCar.ToLower() != c.MarkCar.ToLower())
+                    {
+                        continue;
+                    }
+
+                    /* Модель авто */
+                    if (_modelCar == "") { }
+                    else if (_modelCar.ToLower() != c.ModelCar.ToLower())
+                    {
+                        continue;
+                    }
+
+                    /* Тип авто */
+                    if (_typeCar == "Все") { }
+                    else if (_typeCar != c.BodyTypeCar)
+                    {
+                        continue;
+                    }
+
+                    /* Год авто */
+                    if (_yearMinCar == 0 && _yearMaxCar == 0) { }
+                    else if (_yearMinCar <= c.YearCar && _yearMaxCar == 0) { }
+                    else if (_yearMinCar == 0 && _yearMaxCar >= c.YearCar) { }
+                    else if (_yearMinCar <= c.YearCar && _yearMaxCar >= c.YearCar) { }
+                    else
+                        continue;
+
+                    /* Цена авто */
+                    if (_priceMinCar == 0 && _priceMaxCar == 0) { }
+                    else if (_priceMinCar <= c.PriceCar && _priceMaxCar == 0) { }
+                    else if (_priceMinCar == 0 && _priceMaxCar >= c.PriceCar) { }
+                    else if (_priceMinCar <= c.PriceCar && _priceMaxCar >= c.PriceCar) { }
+                    else
+                        continue;
+
+                    /* Область авто */
+                    if (_regionCar == "Все") { }
+                    else if (_regionCar != c.RegionCar)
+                    {
+                        continue;
+                    }
+
+                    /* Производитель авто */
+                    if (_usedOrNewCar == "Все") { }
+                    else if (_usedOrNewCar != c.UsedOrNewCar)
+                    {
+                        continue;
+                    }
+
+                    /* Состояние авто */
+                    if (_stateCar == "Все") { }
+                    else if (_stateCar != c.StateCar)
+                    {
+                        continue;
+                    }
+
+                    /* Марка авто */
+                    if (_producerCar == "Все") { }
+                    else if (_producerCar != c.ProductionCar)
+                    {
+                        continue;
+                    }
+
+                    if (_fuelypeCar == "Все") { }
+                    else if (_fuelypeCar != c.FuelCar)
+                    {
+                        continue;
+                    }
+
+                    if (_transmissionCar == "Все") { }
+                    else if (_transmissionCar != c.TransmissionCar)
+                    {
+                        continue;
+                    }
+
+                    if (_engineMinAmount == 0 && _priceMaxCar == 0) { }
+                    else if (_engineMinAmount <= c.EngineAmountCar && _engineMaxAmount == 0) { }
+                    else if (_engineMinAmount == 0 && _engineMaxAmount >= c.EngineAmountCar) { }
+                    else if (_engineMinAmount <= c.EngineAmountCar && _engineMaxAmount >= c.EngineAmountCar) { }
+                    else
+                        continue;
+
+                    car.Add(c);
                 }
-
-                /* Модель авто */
-                if (_modelCar == "") { }
-                else if (_modelCar.ToLower() != c.ModelCar.ToLower())
-                {
-                    continue;
-                }
-
-                /* Тип авто */
-                if (_typeCar == "Все") { }
-                else if (_typeCar != c.BodyTypeCar)
-                {
-                    continue;
-                }
-
-                /* Год авто */
-                if (_yearMinCar == 0 && _yearMaxCar == 0) { }
-                else if (_yearMinCar <= c.YearCar && _yearMaxCar == 0) { }
-                else if (_yearMinCar == 0 && _yearMaxCar >= c.YearCar) { }
-                else if (_yearMinCar <= c.YearCar && _yearMaxCar >= c.YearCar) { }
-                else
-                    continue;
-
-                /* Цена авто */
-                if (_priceMinCar == 0 && _priceMaxCar == 0) { }
-                else if (_priceMinCar <= c.PriceCar && _priceMaxCar == 0) { }
-                else if (_priceMinCar == 0 && _priceMaxCar >= c.PriceCar) { }
-                else if (_priceMinCar <= c.PriceCar && _priceMaxCar >= c.PriceCar) { }
-                else
-                    continue;
-
-                /* Область авто */
-                if (_regionCar == "Все") { }
-                else if (_regionCar != c.RegionCar)
-                {
-                    continue;
-                }
-
-                /* Производитель авто */
-                if (_usedOrNewCar == "Все") { }
-                else if (_usedOrNewCar != c.UsedOrNewCar)
-                {
-                    continue;
-                }
-
-                /* Состояние авто */
-                if (_stateCar == "Все") { }
-                else if (_stateCar != c.StateCar)
-                {
-                    continue;
-                }
-
-                /* Марка авто */
-                if (_producerCar == "Все") { }
-                else if (_producerCar != c.ProductionCar)
-                {
-                    continue;
-                }
-
-                if (_fuelypeCar == "Все") { }
-                else if (_fuelypeCar != c.FuelCar)
-                {
-                    continue;
-                }
-
-                if (_transmissionCar == "Все") { }
-                else if (_transmissionCar != c.TransmissionCar)
-                {
-                    continue;
-                }
-
-                if (_engineMinAmount == 0 && _priceMaxCar == 0) { }
-                else if (_engineMinAmount <= c.EngineAmountCar && _engineMaxAmount == 0) { }
-                else if (_engineMinAmount == 0 && _engineMaxAmount >= c.EngineAmountCar) { }
-                else if (_engineMinAmount <= c.EngineAmountCar && _engineMaxAmount >= c.EngineAmountCar) { }
-                else
-                    continue;
-
-                car.Add(c);
-            }
+            
 
             OnPropertyChanged("selectGrid");
         }

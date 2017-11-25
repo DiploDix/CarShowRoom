@@ -28,39 +28,36 @@
                             <TextBlock Name="markText" Text="Марка"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="20" Width="50" TextAlignment="Left" />
                             <TextBox Name="markBox" Width="100"  ToolTip="Требуема марка автомобиля"
                                   Height="25" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
-                                  Margin="10,0,0,0" 
                                   Text="{Binding Source={StaticResource searchVM},Path=SetMark,Mode=TwoWay}"/>
                         </StackPanel>
 
-                        <StackPanel Orientation="Horizontal" Height="30" VerticalAlignment="Top" Margin="10,0,0,0">
+                        <StackPanel Orientation="Horizontal" Height="30" VerticalAlignment="Top" Margin="20,0,0,0">
                             <TextBlock Name="yearText" Text="Год:"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="20" Width="50" TextAlignment="Left"/>
-                            <TextBox Name="yearMinBox" Width="25" ToolTip="Требуемый год выпуска автомобиля"
+                            <TextBox Name="yearMinBox" Width="50" ToolTip="Требуемый год выпуска автомобиля"
                                   Height="25" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
-                                  Margin="10,0,5,0" 
                                   Text="{Binding Source={StaticResource searchVM},Path=SetYearMin,Mode=TwoWay}"/>
-                            <TextBlock  Text="-"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="20" Width="Auto" TextAlignment="Center"/>
-                            <TextBox Name="yearMaxBox" Width="25" ToolTip="Требуемый год выпуска автомобиля"
+                            <TextBlock  Text="-" Margin="5,0,5,0"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="20" Width="Auto" TextAlignment="Center"/>
+                            <TextBox Name="yearMaxBox" Width="50" ToolTip="Требуемый год выпуска автомобиля"
                                   Height="25" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
-                                  Margin="5,0,0,0" 
                                   Text="{Binding Source={StaticResource searchVM},Path=SetYearMax,Mode=TwoWay}"/>
                         </StackPanel>
 
-                        <StackPanel Orientation="Horizontal" Height="30" VerticalAlignment="Top" Margin="50,0,0,0" >
+                        <StackPanel Orientation="Horizontal" Height="30" VerticalAlignment="Top" Margin="20,0,0,0" >
                             <TextBlock Name="engineAmountText" Text="Двигатель"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="20" Width="75" TextAlignment="Left" />
-                            <TextBox Name="engineAmountMinBox" Width="25" Margin="10,0,5,0"  Height="25" 
+                            <TextBox Name="engineAmountMinBox" Width="50" Margin="0"  Height="25" 
                                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ToolTip="Требуемый обьем двигателя"
                                   Text="{Binding Source={StaticResource searchVM},Path=SetEngineAmountMin,Mode=TwoWay}"/>
                             
-                            <TextBlock  Text="-"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="20" Width="Auto" TextAlignment="Center"/>
-                            <TextBox Name="engineAmountMaxBox" Width="25" Margin="5,0,0,0"  Height="25" 
+                            <TextBlock  Text="-" Margin="5,0,5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="20" Width="Auto" TextAlignment="Center"/>
+                            <TextBox Name="engineAmountMaxBox" Width="50" Margin="0"  Height="25" 
                                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ToolTip="Требуемый обьем двигателя"
                                   Text="{Binding Source={StaticResource searchVM},Path=SetEngineAmountMax,Mode=TwoWay}"/>
                         </StackPanel>
                         <!-- 2 cnjk,j-->
-                        <StackPanel Orientation="Horizontal" Height="30" VerticalAlignment="Top" Margin="10,0,0,0">
-                            <TextBlock Name="transmissionText" Text="КПП"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="20" Width="50" TextAlignment="Left"/>
-                            <ComboBox Name="transmissionBox" Width="100"  ToolTip="Требуемая КПП автомобиля"
-                                  Height="25" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,0,0,0" 
+                        <StackPanel Orientation="Horizontal" Height="30" VerticalAlignment="Top" Margin="20,0,0,0">
+                            <TextBlock Name="transmissionText" Text="КПП"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="20" Width="75" TextAlignment="Left"/>
+                            <ComboBox Name="transmissionBox" Width="115"  ToolTip="Требуемая КПП автомобиля"
+                                  Height="25" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                                    ItemsSource="{Binding Source={StaticResource lists},Path=ListTransmissionAll}"
                                   SelectedItem="{Binding Source={StaticResource searchVM},Path=SetTransmission,Mode=TwoWay}"/>
                         </StackPanel>
@@ -72,34 +69,33 @@
                             <TextBlock Name="modelText" Text="Модель"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="20" Width="50" TextAlignment="Left"/>
                             <TextBox Name="modelBox"  Width="100" ToolTip="Требуемая модель автомобиля"
                                   Height="25" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
-                                  Margin="10,0,0,0" 
                                   Text="{Binding Source={StaticResource searchVM},Path=SetModel,Mode=TwoWay}"/>
                         </StackPanel>
 
-                        <StackPanel Orientation="Horizontal" Height="30" VerticalAlignment="Top" Margin="10,0,5,0">
+                        <StackPanel Orientation="Horizontal" Height="30" VerticalAlignment="Top" Margin="20,0,0,0">
                             <TextBlock Name="priceText" Text="Цена"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="20" Width="50" TextAlignment="Left"/>
-                            <TextBox Name="priceBox"  Width="25" ToolTip="Требуемая цена автомобиля"
+                            <TextBox Name="priceBox"  Width="50" ToolTip="Требуемая цена автомобиля"
                                   Height="25" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
-                                  Margin="10,0,0,0" 
+                                  Margin="0,0,0,0" 
                                   Text="{Binding Source={StaticResource searchVM},Path=SetPriceMin,Mode=TwoWay}"/>
-                            <TextBlock  Text="-"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="20" Width="Auto" TextAlignment="Center"/>
-                            <TextBox Name="engineAmountBox" Width="25" Margin="5,0,0,0"  Height="25" 
+                            <TextBlock  Text="-" Margin="5,0,5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="20" Width="Auto" TextAlignment="Center"/>
+                            <TextBox Name="engineAmountBox" Width="50" Margin="0,0,0,0"  Height="25" 
                                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ToolTip="Требуемый обьем двигателя"
                                   Text="{Binding Source={StaticResource searchVM},Path=SetPriceMax,Mode=TwoWay}"/>
                         </StackPanel>
 
-                        <StackPanel Orientation="Horizontal" Height="30" VerticalAlignment="Top" Margin="50,0,0,0" >
+                        <StackPanel Orientation="Horizontal" Height="30" VerticalAlignment="Top" Margin="20,0,0,0" >
                             <TextBlock Name="engineText" Text="Топливо"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="20" Width="75" TextAlignment="Left" />
-                            <ComboBox Name="engineBox" Width="100" Margin="10,0,0,0"  Height="25" ToolTip="Требуемый тип двигателя"
+                            <ComboBox Name="engineBox" Width="115"  Height="25" ToolTip="Требуемый тип двигателя"
                                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
                                   ItemsSource="{Binding Source={StaticResource lists},Path=ListFuelTypeAll}"
                                   SelectedItem="{Binding Source={StaticResource searchVM},Path=SetEngineType,Mode=TwoWay}"/>
                         </StackPanel>
                         <!-- 2 cnjk,j-->
-                        <StackPanel Orientation="Horizontal" Height="30" VerticalAlignment="Top" Margin="10,0,0,0">
-                            <TextBlock Name="stateText" Text="Состояние"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="20" Width="50" TextAlignment="Left"/>
-                            <ComboBox Name="stateBox" Width="100" ToolTip="Требуемое состояние автомобиля"
-                                  Height="25" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,0,0,0" 
+                        <StackPanel Orientation="Horizontal" Height="30" VerticalAlignment="Top" Margin="20,0,0,0">
+                            <TextBlock Name="stateText" Text="Состояние"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="20" Width="75" TextAlignment="Left"/>
+                            <ComboBox Name="stateBox" Width="115" ToolTip="Требуемое состояние автомобиля"
+                                  Height="25" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                                    ItemsSource="{Binding Source={StaticResource lists},Path=ListStateAll}"
                                   SelectedItem="{Binding Source={StaticResource searchVM},Path=SetState,Mode=TwoWay}"/>
                         </StackPanel>
@@ -111,24 +107,24 @@
                             <TextBlock Name="bodyTypeText" Text="Кузов"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="20" Width="50" TextAlignment="Left"/>
                             <ComboBox Name="bodyTypeBox" SelectedItem="{Binding Source={StaticResource searchVM},Path=SetBodyType,Mode=TwoWay}" 
                                   Height="25" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  ToolTip="Требуемый тип кузова"
-                                  Margin="10,0,0,0"  ItemsSource="{Binding Source={StaticResource lists}, Path=ListBodyTypeAll}" 
+                                  ItemsSource="{Binding Source={StaticResource lists}, Path=ListBodyTypeAll}" 
                                   Width="100"/>
                         </StackPanel>
 
-                        <StackPanel Orientation="Horizontal" Height="30" VerticalAlignment="Top" Margin="10,0,0,0">
+                        <StackPanel Orientation="Horizontal" Height="30" VerticalAlignment="Top" Margin="20,0,0,0">
                             <TextBlock Name="regionText" Text="Область"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="20" Width="50" TextAlignment="Left"/>
                             <ComboBox Name="regionBox" SelectedItem="{Binding Source={StaticResource searchVM},Path=SetRegion,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True}" 
                                   Height="25" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ToolTip="Требуемая область"
-                                  Margin="10,0,0,0"  ItemsSource="{Binding Source={StaticResource lists}, Path=ListRegionAll}" 
-                                  Width="100"/>
+                                  Margin="0,0,0,0"  ItemsSource="{Binding Source={StaticResource lists}, Path=ListRegionAll}" 
+                                  Width="115"/>
                         </StackPanel>
 
-                        <StackPanel Orientation="Horizontal" Height="30" VerticalAlignment="Top" Margin="10,0,0,0">
-                            <TextBlock Name="usedOrNewText" Text="Категория"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="20" Width="Auto" TextAlignment="Left"/>
+                        <StackPanel Orientation="Horizontal" Height="30" VerticalAlignment="Top" Margin="20,0,0,0">
+                            <TextBlock Name="usedOrNewText" Text="Категория"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="20" Width="75" TextAlignment="Left"/>
                             <ComboBox Name="usedOrNewBox" SelectedItem="{Binding Source={StaticResource searchVM},Path=SetUsedOrNew,Mode=TwoWay}" 
                                   Height="25" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  ToolTip="Требуемый тип кузова"
-                                  Margin="10,0,0,0"  ItemsSource="{Binding Source={StaticResource lists}, Path=ListUsedOrNewCarAll}" 
-                                  Width="100"/>
+                                  Margin="0,0,0,0"  ItemsSource="{Binding Source={StaticResource lists}, Path=ListUsedOrNewCarAll}" 
+                                  Width="115"/>
                         </StackPanel>
                     </StackPanel>
                     

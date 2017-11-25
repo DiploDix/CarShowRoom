@@ -22,14 +22,15 @@ namespace CarShowRoom.View
     /// </summary>
     public partial class SelectionCarWindow : Window
     {
+        /* Получаем обьект User*/
         public SelectionCarWindow(User user)
         {
             InitializeComponent();
             ((SelectionCarViewModel)this.Resources["selectVM"]).SelectionCar(user);
         }
 
-        /* Save list in file */
-        private void Button_Click(object sender, RoutedEventArgs e)
+        /* Кнопка сохранения списка в файл */
+        private void button_Click(object sender, RoutedEventArgs e)
         {
             FileAction file = new FileAction();
             SaveFileDialog saveFile = new SaveFileDialog();

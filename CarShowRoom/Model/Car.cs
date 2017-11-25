@@ -17,13 +17,13 @@
         /* Модель авто */
         public string ModelCar { get; set; }
 
-        /* Минимальная цена грн */
+        /* Цена авто */
         public int PriceCar { get; set; }
 
         /* Год выпуска от */
         public int YearCar { get; set; }
 
-        /* Минимальный обьем двигателя*/
+        /* Обьем двигателя*/
         public float EngineAmountCar { get; set; }
 
         /* Тип топлива */

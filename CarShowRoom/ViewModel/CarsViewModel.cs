@@ -30,8 +30,6 @@ namespace CarShowRoom.ViewModel
             }
         }
 
-        //public IEnumerable<string> GetListState => Enum.GetNames(typeof(State));
-
         /* Событие изменения свойства */
         public event PropertyChangedEventHandler PropertyChanged;
 

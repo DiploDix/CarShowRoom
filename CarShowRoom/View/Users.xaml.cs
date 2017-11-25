@@ -26,7 +26,7 @@ namespace CarShowRoom.View
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void button_Click(object sender, RoutedEventArgs e)
         {
             User us = userGrid.CurrentItem as User;
             SelectionCarWindow car = new SelectionCarWindow(us);

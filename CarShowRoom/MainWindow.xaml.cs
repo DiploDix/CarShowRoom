@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using CarShowRoom.ViewModel;
 using Microsoft.Win32;
 using CarShowRoom.View;
+using CarShowRoom.Model;
 using System.Collections.ObjectModel;
 
 namespace CarShowRoom
@@ -27,11 +28,12 @@ namespace CarShowRoom
         CarsList car = new CarsList();
         UsersList user = new UsersList();
         FileAction file = new FileAction();
-        Cars carView;
-        Search searchView;
-        Users usersView;
-        About aboutView;
-        Help helpView;
+        Cars carView = new Cars();
+        Search searchView = new Search();
+        Users usersView = new Users();
+        About aboutView = new About();
+        Help helpView = new Help();
+
         public MainWindow()
         {
             InitializeComponent();
@@ -64,6 +66,7 @@ namespace CarShowRoom
             frameWindow.Content = usersView;
         }
 
+        /* Переход во фрейме к странице /View/About.xaml */
         private void BorderAbout_Click(object sender, MouseButtonEventArgs e)
         {
             if (aboutView == null)
@@ -71,7 +74,6 @@ namespace CarShowRoom
 
             frameWindow.Content = aboutView;
         }
-
 
         /* Загрузить колекции с файла */
         private void ImageUpload_PreviewMouseDown(object sender, MouseButtonEventArgs e)
@@ -103,6 +105,7 @@ namespace CarShowRoom
             file.SaveFileAll("current", car.CarList, user.UserList);
         }
 
+        /* Переход во фрейме к странице /View/Help.xaml */
         private void ImageHelpView_PreviewMouseDown(object sender, MouseButtonEventArgs e )
         {
             if (helpView == null)

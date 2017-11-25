@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace CarShowRoom.View
 {
-    /// <summary>
-    /// Логика взаимодействия для About.xaml
-    /// </summary>
     public partial class About : Page
     {
         public About()

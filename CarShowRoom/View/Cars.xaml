@@ -10,10 +10,12 @@
       mc:Ignorable="d" 
       VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
       Title="Cars" Height="587.5">
+    
     <Page.Resources>
         <vm:CarsViewModel x:Key="carsViewModel" />
         <local:DefaultLists x:Key="lists"/>
     </Page.Resources>
+    
     <Grid>
         <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalAlignment="Stretch">
             <Grid HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="Auto">

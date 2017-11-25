@@ -37,7 +37,7 @@
                         <DataGridTemplateColumn >
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Button Content="Подобрать" Click="Button_Click" DataContext=""/>
+                                    <Button Content="Подобрать" Click="button_Click" DataContext=""/>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
