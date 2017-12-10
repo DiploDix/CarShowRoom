@@ -27,7 +27,7 @@
                         <StackPanel Orientation="Horizontal" Height="30" VerticalAlignment="Top" Margin="10,0,0,0" >
                             <TextBlock Name="markText" Text="Марка"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="20" Width="50" TextAlignment="Left" />
                             <TextBox Name="markBox" Width="100"  ToolTip="Требуема марка автомобиля"
-                                  Height="25" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                                  Height="25" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                                   Text="{Binding Source={StaticResource searchVM},Path=SetMark,Mode=TwoWay}"/>
                         </StackPanel>
 
@@ -47,7 +47,7 @@
                             <TextBox Name="engineAmountMinBox" Width="50" Margin="0"  Height="25" 
                                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ToolTip="Требуемый обьем двигателя"
                                   Text="{Binding Source={StaticResource searchVM},Path=SetEngineAmountMin,Mode=TwoWay}"/>
-                            
+
                             <TextBlock  Text="-" Margin="5,0,5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="20" Width="Auto" TextAlignment="Center"/>
                             <TextBox Name="engineAmountMaxBox" Width="50" Margin="0"  Height="25" 
                                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ToolTip="Требуемый обьем двигателя"
@@ -127,15 +127,15 @@
                                   Width="115"/>
                         </StackPanel>
                     </StackPanel>
-                    
+
                     <StackPanel Margin="5" Orientation="Horizontal" Height="Auto">
                         <Button Content="Сохранить список" ToolTip="Сохранить выбраный список в файл" Margin="5" Padding="5" FontSize="12" Click="btnSave_Click"/>
                         <Button Content="Обновить список" Margin="5" ToolTip="Обновить таблицу" Padding="5" FontSize="12" Click="btnReset_Click"/>
                     </StackPanel>
-                    
+
                 </StackPanel>
 
-                <DataGrid Name="searchGrid" Grid.Row="1" Height="500" IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False"  AutoGenerateColumns="False" HorizontalAlignment="Left" Margin="5,200,5,5"  ItemsSource="{Binding Source={StaticResource searchVM}, NotifyOnSourceUpdated=True, Path=GetListCar, UpdateSourceTrigger=PropertyChanged,Mode=OneWay}">
+                <DataGrid Name="searchGrid" Height="250" IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False"  AutoGenerateColumns="False" HorizontalAlignment="Left" Margin="10,200,0,5" Width="1000"  ItemsSource="{Binding Source={StaticResource searchVM}, NotifyOnSourceUpdated=True, Path=GetListCar, UpdateSourceTrigger=PropertyChanged,Mode=OneWay}">
                     <DataGrid.Columns>
                         <DataGridComboBoxColumn Header="" TextBinding="{Binding Path=UsedOrNewCar}"  ItemsSource="{Binding Source={StaticResource lists}, Path=ListUsedOrNewCar}"/>
                         <DataGridComboBoxColumn Header="Производитель" TextBinding="{Binding Path=ProductionCar}" ItemsSource="{Binding Source={StaticResource lists}, Path=ListProduction}"/>

@@ -7,12 +7,12 @@ using System.Windows;
 // Общие сведения об этой сборке предоставляются следующим набором
 // набора атрибутов. Измените значения этих атрибутов, чтобы изменить сведения,
 // связанные со сборкой.
-[assembly: AssemblyTitle("CarShowRoom")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Автосалон")]
+[assembly: AssemblyDescription("Программа для управление автомобилями и пользователями")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("CarShowRoom")]
-[assembly: AssemblyCopyright("Copyright ©  2017")]
+[assembly: AssemblyProduct("Автосалон")]
+[assembly: AssemblyCopyright("Альберт Яман ©  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -51,5 +51,5 @@ using System.Windows;
 // Можно задать все значения или принять номер сборки и номер редакции по умолчанию.
 // используя "*", как показано ниже:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0")]
+[assembly: AssemblyVersion("1.2")]
 [assembly: AssemblyFileVersion("1.5")]

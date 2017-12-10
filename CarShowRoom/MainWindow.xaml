@@ -80,6 +80,6 @@
                 <Image Style="{StaticResource iconStyleQuestion}" PreviewMouseDown="ImageHelpView_PreviewMouseDown" ToolTip="Помощь" Width="20" Height="20" Margin="10,0,0,0" VerticalAlignment="Center"/>
             </StackPanel>
         </StackPanel>
-        <Frame Content="Frame" Height="Auto"  Name="frameWindow" Source="/View/Help.xaml" NavigationUIVisibility="Hidden" HorizontalAlignment="Stretch" Margin="170,0,0,0" VerticalAlignment="Top"/>
+        <Frame Content="Frame" Height="Auto" Name="frameWindow" NavigationUIVisibility="Hidden" HorizontalAlignment="Stretch" Margin="170,0,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>

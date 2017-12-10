@@ -39,13 +39,13 @@ namespace CarShowRoom.ViewModel
 
         public void SelectionCar(User u)
         {
-            _usedOrNewCar = u.UsedOrNewUser;
-            _stateCar = u.StateUser;
-            _producerCar = u.ProductionUser;
-            _fuelypeCar = u.FuelUser;
-            _transmissionCar = u.TransmissionUser;
-            _typeCar = u.BodyTypeUser;
-            _regionCar = u.RegionUser;
+            _usedOrNewCar = String.IsNullOrEmpty(u.UsedOrNewUser) ? "Все" : u.UsedOrNewUser;
+            _stateCar = String.IsNullOrEmpty(u.StateUser) ? "Все" : u.StateUser;
+            _producerCar = String.IsNullOrEmpty(u.ProductionUser) ? "Все" : u.ProductionUser;
+            _fuelypeCar = String.IsNullOrEmpty(u.FuelUser) ? "Все" : u.FuelUser;
+            _transmissionCar = String.IsNullOrEmpty(u.TransmissionUser) ? "Все" : u.TransmissionUser;
+            _typeCar = String.IsNullOrEmpty(u.BodyTypeUser) ? "Все" : u.BodyTypeUser;
+            _regionCar = String.IsNullOrEmpty(u.RegionUser) ? "Все" : u.RegionUser;
             _markCar = String.IsNullOrEmpty(u.MarkUser) ? "" : u.MarkUser;
             _modelCar = String.IsNullOrEmpty(u.ModelUser) ? "" : u.ModelUser; ;
             _yearMinCar = u.YearMaxUser;

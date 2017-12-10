@@ -141,11 +141,10 @@ namespace CarShowRoom.ViewModel
                     for (int i = 0; i < carList.Count; i++)
                     {
                         string carString = $"[car]|{carList[i].UsedOrNewCar}|" +
-                            $"{carList[i].ProductionCar}| " +
+                            $"{carList[i].ProductionCar}|" +
                             $"{carList[i].MarkCar}|" +
                             $"{carList[i].ModelCar}|" +
                             $"{carList[i].BodyTypeCar}|" +
-                            $"{carList[i].YearCar}|" +
                             $"{carList[i].YearCar}|" +
                             $"{carList[i].PriceCar}|" +
                             $"{carList[i].RegionCar}|" +
@@ -163,11 +162,12 @@ namespace CarShowRoom.ViewModel
                 {
                     for (int i = 0; i < userList.Count; i++)
                     {
-                        string userString = $"[car]|{userList[i].Phone}" +
+                        string userString = $"[user]|{userList[i].Phone}|" +
                             $"{userList[i].UsedOrNewUser}|" +
                             $"{userList[i].ProductionUser}| " +
                             $"{userList[i].MarkUser}|" +
                             $"{userList[i].ModelUser}|" +
+                            $"{userList[i].BodyTypeUser}|"+
                             $"{userList[i].YearMinUser}|" +
                             $"{userList[i].YearMaxUser}|" +
                             $"{userList[i].PriceMinUser}|" +

@@ -66,7 +66,6 @@ D:\Work\CarShowRoom\CarShowRoom\obj\Debug\CarShowRoom.csproj.GenerateResource.Ca
 D:\Work\CarShowRoom\CarShowRoom\obj\Debug\CarShowRoom.csproj.CoreCompileInputs.cache
 D:\Work\CarShowRoom\CarShowRoom\obj\Debug\CarShowRoom.exe
 D:\Work\CarShowRoom\CarShowRoom\obj\Debug\CarShowRoom.pdb
-D:\Work\CarShowRoom\CarShowRoom\obj\Debug\CarShowRoom.csprojResolveAssemblyReference.cache
 D:\Work\CarShowRoom\CarShowRoom\obj\Debug\View\About.g.cs
 D:\Work\CarShowRoom\CarShowRoom\obj\Debug\View\About.baml
 D:\Work\CarShowRoom\CarShowRoom\obj\Debug\View\Help.g.cs
@@ -101,3 +100,4 @@ C:\Users\DiploDix\Downloads\CarShowRoom\CarShowRoom\obj\Debug\CarShowRoom.g.reso
 C:\Users\DiploDix\Downloads\CarShowRoom\CarShowRoom\obj\Debug\CarShowRoom.Properties.Resources.resources
 C:\Users\DiploDix\Downloads\CarShowRoom\CarShowRoom\obj\Debug\CarShowRoom.csproj.GenerateResource.Cache
 C:\Users\DiploDix\Downloads\CarShowRoom\CarShowRoom\obj\Debug\CarShowRoom.csproj.CoreCompileInputs.cache
+D:\Work\CarShowRoom\CarShowRoom\obj\Debug\CarShowRoom.csprojResolveAssemblyReference.cache

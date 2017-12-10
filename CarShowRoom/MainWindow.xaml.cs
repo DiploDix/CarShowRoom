@@ -4,19 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using CarShowRoom.ViewModel;
 using Microsoft.Win32;
 using CarShowRoom.View;
-using CarShowRoom.Model;
-using System.Collections.ObjectModel;
 
 namespace CarShowRoom
 {
@@ -37,6 +28,7 @@ namespace CarShowRoom
         public MainWindow()
         {
             InitializeComponent();
+            frameWindow.Content = searchView;
         }
 
         /* Переход во фрейме к странице /View/Search.xaml */
@@ -92,10 +84,10 @@ namespace CarShowRoom
         {
             SaveFileDialog saveFile = new SaveFileDialog();
             saveFile.Filter = "Текстовый файл (*.txt)|*.txt";
-            saveFile.CheckFileExists = true;
-            saveFile.CreatePrompt = true;
+            saveFile.CheckFileExists = false;
+            saveFile.CreatePrompt = false;
 
-            if (saveFile.ShowDialog() == true)
+            if (saveFile.ShowDialog() == true )
                 file.SaveFileAll(saveFile.FileName, car.CarList, user.UserList);
         }
 

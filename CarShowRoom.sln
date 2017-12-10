@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.10
+VisualStudioVersion = 15.0.27004.2009
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarShowRoom", "CarShowRoom\CarShowRoom.csproj", "{E29113AD-34B8-4D59-89B4-9659E7B5DD01}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Setup\Setup.vdproj", "{51CB4BC7-AF75-44C1-81A5-892C502C8BC9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,11 +17,17 @@ Global
 		{E29113AD-34B8-4D59-89B4-9659E7B5DD01}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E29113AD-34B8-4D59-89B4-9659E7B5DD01}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E29113AD-34B8-4D59-89B4-9659E7B5DD01}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51CB4BC7-AF75-44C1-81A5-892C502C8BC9}.Debug|Any CPU.ActiveCfg = Debug
+		{51CB4BC7-AF75-44C1-81A5-892C502C8BC9}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BB452726-1F6B-4F64-A383-E6E8AF58585D}
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -24,8 +24,8 @@ namespace CarShowRoom.View
             FileAction file = new FileAction();
             SaveFileDialog saveFile = new SaveFileDialog();
             saveFile.Filter = "Текстовый файл (*.txt)|*.txt";
-            saveFile.CheckFileExists = true;
-            saveFile.CreatePrompt = true;
+            saveFile.CheckFileExists = false;
+            saveFile.CreatePrompt = false;
 
             if (saveFile.ShowDialog() == true)
                 file.SaveFileCar(saveFile.FileName, ((SearchViewModel)this.Resources["searchVM"]).GetListCar);
