@@ -23,19 +23,10 @@ namespace CarShowRoom.ViewModel
         public void UploadFile(string link)
         {
             this.link = link;
-            string read;
             string pattern = @"\s{2,}";
             Regex reg = new Regex(pattern);
 
-
-            using (FileStream stream = new FileStream(link, FileMode.Open, FileAccess.ReadWrite))
-            {
-                using (StreamReader streamRead = new StreamReader(stream, System.Text.Encoding.UTF8))
-                {
-                    read = streamRead.ReadToEnd();
-                }
-            }
-
+            string read = File.ReadAllText(link);
             read = reg.Replace(read, "");
 
             if (read.Length != 0)

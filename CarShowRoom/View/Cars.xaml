@@ -10,7 +10,7 @@
       mc:Ignorable="d" 
       VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
       Title="Cars" Height="587.5">
-    
+
     <Page.Resources>
         <vm:CarsViewModel x:Key="carsViewModel" />
         <local:DefaultLists x:Key="lists"/>
@@ -19,7 +19,7 @@
     <Grid>
         <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalAlignment="Stretch">
             <Grid HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="Auto">
-                <DataGrid Name="carGrid" Grid.Row="1" Height="500" Width="Auto" CanUserAddRows="True" AutoGenerateColumns="False" HorizontalAlignment="Left" ItemsSource="{Binding Source={StaticResource carsViewModel}, NotifyOnSourceUpdated=True, Path=GetListCar, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" Margin="5">
+                <DataGrid Name="carGrid" Grid.Row="1" CanUserAddRows="True" AutoGenerateColumns="False" HorizontalAlignment="Left" ItemsSource="{Binding Source={StaticResource carsViewModel}, NotifyOnSourceUpdated=True, Path=GetListCar, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" Margin="5">
                     <DataGrid.Columns>
                         <DataGridComboBoxColumn Header="" TextBinding="{Binding Path=UsedOrNewCar}"  ItemsSource="{Binding Source={StaticResource lists}, Path=ListUsedOrNewCar}"/>
                         <DataGridComboBoxColumn Header="Производитель" TextBinding="{Binding Path=ProductionCar}" ItemsSource="{Binding Source={StaticResource lists}, Path=ListProduction}"/>

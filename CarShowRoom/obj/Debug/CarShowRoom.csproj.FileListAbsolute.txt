@@ -100,4 +100,3 @@ C:\Users\DiploDix\Downloads\CarShowRoom\CarShowRoom\obj\Debug\CarShowRoom.g.reso
 C:\Users\DiploDix\Downloads\CarShowRoom\CarShowRoom\obj\Debug\CarShowRoom.Properties.Resources.resources
 C:\Users\DiploDix\Downloads\CarShowRoom\CarShowRoom\obj\Debug\CarShowRoom.csproj.GenerateResource.Cache
 C:\Users\DiploDix\Downloads\CarShowRoom\CarShowRoom\obj\Debug\CarShowRoom.csproj.CoreCompileInputs.cache
-D:\Work\CarShowRoom\CarShowRoom\obj\Debug\CarShowRoom.csprojResolveAssemblyReference.cache

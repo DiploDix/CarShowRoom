@@ -26,7 +26,7 @@ namespace CarShowRoom.ViewModel
             set
             {
                 car = value;
-                OnPropertyChanged("carGrid");
+                //OnPropertyChanged("carGrid");
             }
         }
 

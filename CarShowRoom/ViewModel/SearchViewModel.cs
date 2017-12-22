@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Collections;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using CarShowRoom.Model;
 using System.Collections.ObjectModel;
 namespace CarShowRoom.ViewModel
@@ -311,12 +305,8 @@ namespace CarShowRoom.ViewModel
 
         public ObservableCollection<Car> GetListCar
         {
-            get
-            {
-                return car;
-            }
+            get => car;
         }
-
         
         public event PropertyChangedEventHandler PropertyChanged;
 
